@@ -1,0 +1,167 @@
+/* Minimal CSS Variables for Frontmatter Metadata Display */
+
+:root {
+  /* Theme Colors */
+  --theme-color: #0078d4;
+  --theme-color-light: #40a9ff;
+
+  /* Test-compatible aliases for theme colors */
+  --primary-color: #0078d4;   /* Alias for --theme-color */
+  --secondary-color: #107c10; /* Green secondary color for tests */
+  --accent-color: #d83b01;    /* Orange accent for highlights */
+  --focus-color: #005a9e;     /* Focus state color */
+  --error-color: #d13438;     /* Error color */
+  --success-color: #107c10;   /* Success color */
+  --warning-color: #ff8c00;   /* Warning color */
+
+  /* Layout Dimensions - Docsify Vue theme override (rem for accessibility) */
+  --sidebar-width: 17.5rem;      /* 280px */
+  --sidebar-nav-strong-border-right-color: #0078d4; /* Theme color for nav borders */
+  --toc-width: 17.5rem;          /* 280px */
+  --navbar-height: 4.0625rem;    /* 65px */
+  --content-margin-inline: 2rem; /* 32px - Increased from 16px to 32px for better spacing from sidebar */
+  --content-max-width: none;     /* Remove width constraint to fill available space */
+  --content-min-margin: 2rem;    /* 32px - Consistent with content-margin-inline */
+
+  /* Spacing System - Standardized scale */
+  --spacing-xxs: 0.125rem;   /* 2px - extra extra small spacing */
+  --spacing-xs: 0.25rem;     /* 4px - extra small spacing */
+  --spacing-sm: 0.5rem;      /* 8px - small spacing */
+  --spacing-md: 1rem;        /* 16px - medium spacing */
+  --spacing-lg: 1.5rem;      /* 24px - large spacing */
+  --spacing-xl: 2rem;        /* 32px - extra large spacing */
+  --spacing-2xl: 3rem;       /* 48px - 2x large spacing */
+  --spacing-3xl: 4rem;       /* 64px - 3x large spacing */
+
+  /* Additional granular spacing - For backward compatibility and precise sizing */
+  --spacing-sm-plus: 0.75rem;    /* 12px - between small and medium */
+  --spacing-md-minus: 0.75rem;   /* 12px - slightly less than medium */
+  --spacing-md-plus: 1.25rem;    /* 20px - between medium and large */
+  --spacing-lg-minus: 1.25rem;   /* 20px - slightly less than large */
+  --spacing-lg-small: 1rem;      /* 16px - alias for md spacing */
+
+  /* Layout-specific spacing */
+  --spacing-layout-xs: 9.375rem;  /* 150px - Extra small layout widths */
+  --spacing-layout-sm: 15.625rem; /* 250px - Small layout widths */
+  --spacing-layout-md: 18.75rem;  /* 300px - Medium layout widths */
+  --spacing-layout-lg: 25rem;     /* 400px - Large layout widths */
+  --spacing-layout-xl: 50rem;     /* 800px - Extra large layout widths */
+  --spacing-layout-xs: 9.375rem;  /* 150px - Extra small layout widths */
+  --spacing-layout-xxxs: 12.5rem; /* 200px - Tiny layout widths */
+  --spacing-layout-xxs: 18rem; /* 288px - Extra extra small layout widths */
+  --spacing-layout-xxs-plus: 15.625rem; /* 250px - Small-plus layout widths */
+  --spacing-layout-sm: 15.625rem;  /* 250px - Small layout widths */
+  --spacing-layout-md: 18.75rem;   /* 300px - Medium layout widths */
+  --spacing-layout-lg: 25rem;      /* 400px - Large layout widths */
+  --spacing-layout-xl: 50rem;      /* 800px - Extra large layout widths */
+
+  /* Z-Index Layers */
+  --z-dark-mode-toggle: 2100; /* Always on top - above modals and notifications */
+  --z-sidebar: 60;
+  --z-sidebar-toggle: 50;
+  --z-main-overlay: 40;
+  --z-github-corner: 30;
+  --z-app-nav: 20;
+  --z-toc-nav: 15;
+  --z-cover: 10;
+  --z-content: 1;
+
+  /* Border Radius */
+  --border-radius: 0.5rem;       /* 8px */
+  --border-radius-lg: 0.75rem;   /* 12px */
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-medium: 0.2s ease;
+  --transition-slow: 0.3s ease;
+
+  /* Slate Colors (for metadata) */
+  --color-slate-200: #e2e8f0;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  /* Surface Colors */
+  --surface-slate-50: #f8fafc;
+
+  /* Gray Scale */
+  --color-gray-100: #f3f2f1;
+  --color-gray-200: #e9ecef;
+  --color-gray-300: #e0e0e0;
+  --color-gray-500: #6c757d;
+  --color-gray-900: #212529;
+
+  /* Additional Colors */
+  --color-indigo-500: #6366f1;
+  --color-purple-500: #a855f7;
+  --color-sky-300: #7dd3fc;
+  --color-sky-400: #38bdf8;
+  --color-primary: #0078d4;
+
+  /* Alpha Colors */
+  --color-black-alpha-10: rgba(0, 0, 0, 0.1);
+  --color-black-alpha-30: rgba(0, 0, 0, 0.3);
+  --color-white-alpha-10: rgba(255, 255, 255, 0.1);
+  --color-blue-alpha-02: rgba(0, 120, 212, 0.02);
+  --color-blue-alpha-08: rgba(0, 120, 212, 0.08);
+  --color-theme-alpha-20: rgba(0, 120, 212, 0.2);
+
+  /* Sidebar Colors */
+  --sidebar-text-primary: #24292f;
+  --sidebar-text-secondary: #656d76;
+
+  /* Status Colors */
+  --status-archived-bg: #e2e3e5;
+  --status-archived-text: #383d41;
+  --status-archived-border: #ced4da;
+  --status-draft-bg: #fff3cd;
+  --status-draft-text: #856404;
+  --status-draft-border: #ffeaa7;
+  --status-published-bg: #d1edff;
+  --status-published-text: #0c5460;
+  --status-published-border: #b8daff;
+  --status-review-bg: #f8d7da;
+  --status-review-text: #721c24;
+  --status-review-border: #f1aeb5;
+}
+
+/* Dark Mode Variables */
+body.dark {
+  --theme-color-light: #71afe5;
+
+  /* Slate Colors - Dark Mode */
+  --color-slate-200: #475569;
+  --color-slate-400: #cbd5e1;
+  --color-slate-600: #cbd5e1;
+  --color-slate-700: #e2e8f0;
+  --color-slate-800: #f1f5f9;
+  --color-slate-900: #f8fafc;
+
+  /* Surface Colors - Dark Mode */
+  --surface-slate-50: #1e293b;
+
+  /* Gray Scale - Dark Mode */
+  --color-gray-200: #3c3c3c;
+  --color-gray-300: #4a4a4a;
+  --color-gray-500: #999;
+
+  /* Additional Colors - Dark Mode */
+  --color-sky-300: #0ea5e9;
+  --color-sky-400: #0284c7;
+  --color-primary: #40a9ff;
+
+  /* Alpha Colors - Dark Mode */
+  --color-blue-alpha-02: rgba(64, 169, 255, 0.02);
+  --color-blue-alpha-08: rgba(64, 169, 255, 0.08);
+  --color-theme-alpha-20: rgba(64, 169, 255, 0.2);
+
+  /* Sidebar Colors - Dark Mode */
+  --sidebar-text-primary: #f0f6fc;
+  --sidebar-text-secondary: #8b949e;
+}
