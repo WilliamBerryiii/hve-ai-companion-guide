@@ -8,24 +8,24 @@
     {
       "properties": {
         "title": {
-          "$ref": "../definitions/common-fields.json#/$defs/title",
+          "$ref": "../definitions/common-fields.json#/definitions/title",
           "pattern": "^.+ Workflow$",
           "description": "Workflow title ending with ' Workflow'"
         },
         "description": {
-          "$ref": "../definitions/common-fields.json#/$defs/description"
+          "$ref": "../definitions/common-fields.json#/definitions/description"
         },
         "author": {
-          "$ref": "../definitions/common-fields.json#/$defs/author"
+          "$ref": "../definitions/common-fields.json#/definitions/author"
         },
-        "ms.date": {
-          "$ref": "../definitions/common-fields.json#/$defs/ms.date"
+        "date": {
+          "$ref": "../definitions/common-fields.json#/definitions/date_iso8601"
         },
         "keywords": {
-          "$ref": "../definitions/common-fields.json#/$defs/keywords"
+          "$ref": "../definitions/common-fields.json#/definitions/keywords"
         }
       },
-      "required": ["title", "description", "author", "ms.date", "keywords"]
+      "required": ["title", "description", "author", "date", "keywords"]
     }
   ],
   "additionalProperties": false,
@@ -34,7 +34,7 @@
       "title": "Merge Conflict Resolution Workflow",
       "description": "Systematic conflict resolution using Core RPI pattern for evidence-based merging",
       "author": "HVE Core Team",
-      "ms.date": "2025-11-16",
+      "date": "2025-11-16",
       "keywords": [
         "merge conflicts",
         "Core RPI",

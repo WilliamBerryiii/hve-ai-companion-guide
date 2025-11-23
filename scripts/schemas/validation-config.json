@@ -80,6 +80,18 @@
       "dateField": "ms.date"
     },
     {
+      "name": "section-introduction",
+      "description": "Section introduction pages (about.md)",
+      "pattern": ".+/about\\.md$",
+      "schema": "content-types/section-introduction.schema.json",
+      "requiredFields": ["title", "description", "author", "ms.date", "keywords"],
+      "suggestedFields": [],
+      "footerRequired": true,
+      "footerSeverity": "error",
+      "datePattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "dateField": "ms.date"
+    },
+    {
       "name": "landing-page",
       "description": "Main landing page for documentation",
       "pattern": "^docs/README\\.md$",

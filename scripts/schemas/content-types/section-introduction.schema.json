@@ -1,23 +1,23 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://hve-ai-companion-guide/schemas/content-types/landing-page.schema.json",
-  "title": "Landing Page Frontmatter",
-  "description": "Frontmatter schema for the main landing page (docs/README.md)",
+  "$id": "https://hve-ai-companion-guide/schemas/content-types/section-introduction.schema.json",
+  "title": "Section Introduction Frontmatter",
+  "description": "Frontmatter schema for section introduction pages (about.md)",
   "type": "object",
   "properties": {
     "title": {
       "type": "string",
-      "description": "Landing page title",
+      "description": "Section title",
       "minLength": 1,
       "maxLength": 200,
-      "examples": ["HVE AI Companion Guide"]
+      "examples": ["Chat Modes Overview"]
     },
     "description": {
       "type": "string",
-      "description": "One-sentence overview of the guide's purpose",
+      "description": "One-sentence summary describing section purpose",
       "minLength": 10,
       "maxLength": 500,
-      "examples": ["Master GitHub Copilot with hypervelocity engineering patterns for production-grade AI-assisted development"]
+      "examples": ["Explore specialized GitHub Copilot modes for different development workflows"]
     },
     "author": {
       "type": "string",
@@ -41,22 +41,22 @@
       "uniqueItems": true,
       "minItems": 3,
       "maxItems": 8,
-      "examples": [["GitHub Copilot", "AI-assisted development", "RPI methodology", "hypervelocity engineering"]]
+      "examples": [["chat modes", "copilot", "workflows", "development modes"]]
     }
   },
   "required": ["title", "description", "author", "date", "keywords"],
   "additionalProperties": false,
   "examples": [
     {
-      "title": "HVE AI Companion Guide",
-      "description": "Master GitHub Copilot with hypervelocity engineering patterns for production-grade AI-assisted development",
+      "title": "Chat Modes Overview",
+      "description": "Explore specialized GitHub Copilot modes for different development workflows",
       "author": "HVE Core Team",
       "date": "2025-11-16",
       "keywords": [
-        "GitHub Copilot",
-        "AI-assisted development",
-        "RPI methodology",
-        "hypervelocity engineering"
+        "chat modes",
+        "copilot",
+        "workflows",
+        "development modes"
       ]
     }
   ]
