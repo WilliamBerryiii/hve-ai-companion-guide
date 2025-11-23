@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hve-ai-companion-guide/schemas/content-types/devcontainer-doc.schema.json",
+  "title": "DevContainer Documentation Frontmatter",
+  "description": "Frontmatter schema for DevContainer README.md files (.devcontainer/**/README.md)",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "DevContainer documentation title",
+      "minLength": 1,
+      "maxLength": 200,
+      "examples": ["Development Container Configuration"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of DevContainer purpose and features",
+      "minLength": 10,
+      "maxLength": 500,
+      "examples": ["Preconfigured development environment with PowerShell, Python, and linting tools"]
+    }
+  },
+  "required": ["title", "description"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "title": "Development Container Configuration",
+      "description": "Preconfigured development environment with PowerShell, Python, and linting tools"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hve-ai-companion-guide/schemas/content-types/landing-page.schema.json",
+  "title": "Landing Page Frontmatter",
+  "description": "Frontmatter schema for the main landing page (docs/README.md)",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Landing page title",
+      "minLength": 1,
+      "maxLength": 200,
+      "examples": ["HVE AI Companion Guide"]
+    },
+    "description": {
+      "type": "string",
+      "description": "One-sentence overview of the guide's purpose",
+      "minLength": 10,
+      "maxLength": 500,
+      "examples": ["Master GitHub Copilot with hypervelocity engineering patterns for production-grade AI-assisted development"]
+    },
+    "author": {
+      "type": "string",
+      "description": "Document author",
+      "default": "HVE Core Team",
+      "minLength": 2
+    },
+    "date": {
+      "type": "string",
+      "description": "Last modified date in ISO 8601 format (YYYY-MM-DD)",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "examples": ["2025-11-16"]
+    },
+    "keywords": {
+      "type": "array",
+      "description": "Keywords for search optimization (3-8 recommended)",
+      "items": {
+        "type": "string",
+        "minLength": 2
+      },
+      "uniqueItems": true,
+      "minItems": 3,
+      "maxItems": 8,
+      "examples": [["GitHub Copilot", "AI-assisted development", "RPI methodology", "hypervelocity engineering"]]
+    }
+  },
+  "required": ["title", "description", "author", "date", "keywords"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "title": "HVE AI Companion Guide",
+      "description": "Master GitHub Copilot with hypervelocity engineering patterns for production-grade AI-assisted development",
+      "author": "HVE Core Team",
+      "date": "2025-11-16",
+      "keywords": [
+        "GitHub Copilot",
+        "AI-assisted development",
+        "RPI methodology",
+        "hypervelocity engineering"
+      ]
+    }
+  ]
+}

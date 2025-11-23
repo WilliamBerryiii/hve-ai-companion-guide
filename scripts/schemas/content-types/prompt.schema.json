@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hve-ai-companion-guide/schemas/content-types/prompt.schema.json",
+  "title": "Prompt File Frontmatter",
+  "description": "Frontmatter schema for prompt template files (*.prompt.md)",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Optional description of the prompt template",
+      "minLength": 10,
+      "maxLength": 500
+    }
+  },
+  "required": [],
+  "additionalProperties": true,
+  "examples": [
+    {
+      "description": "Template for generating task research documentation"
+    }
+  ]
+}

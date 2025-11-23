@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "description": "Frontmatter validation configuration mapping file patterns to schema requirements",
+  "excludePatterns": [
+    "docs/_sidebar.md"
+  ],
+  "rules": [
+    {
+      "name": "chapter-content",
+      "description": "Chapter content in book parts (Part I, II, III)",
+      "pattern": "docs/part\\d+/.+\\.md$",
+      "schema": "content-types/chapter-content.schema.json",
+      "requiredFields": ["title", "description", "author", "ms.date", "chapter", "part", "keywords"],
+      "suggestedFields": [],
+      "footerRequired": true,
+      "footerSeverity": "error",
+      "titlePattern": "^Chapter \\d+: .+$",
+      "datePattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "dateField": "ms.date",
+      "prohibitedContentPatterns": [
+        "time savings?",
+        "cost savings?",
+        "productivity metrics?",
+        "\\d+%\\s+(faster|slower|more|less)",
+        "saves? \\d+ (hours?|minutes?|days?)"
+      ]
+    },
+    {
+      "name": "workflow-guide",
+      "description": "Step-by-step workflow guides applying RPI patterns",
+      "pattern": "docs/workflows/.+\\.md$",
+      "schema": "content-types/workflow-guide.schema.json",
+      "requiredFields": ["title", "description", "author", "ms.date", "keywords"],
+      "suggestedFields": [],
+      "footerRequired": true,
+      "footerSeverity": "error",
+      "titlePattern": "^.+ Workflow$",
+      "datePattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "dateField": "ms.date",
+      "prohibitedContentPatterns": [
+        "time savings?",
+        "cost savings?",
+        "productivity metrics?",
+        "\\d+%\\s+(faster|slower|more|less)",
+        "saves? \\d+ (hours?|minutes?|days?)"
+      ]
+    },
+    {
+      "name": "methodology-documentation",
+      "description": "RPI patterns and engineering methodologies",
+      "pattern": "docs/(rpi-framework|patterns)/.+\\.md$",
+      "schema": "content-types/methodology-documentation.schema.json",
+      "requiredFields": ["title", "description", "author", "ms.date", "keywords"],
+      "suggestedFields": [],
+      "footerRequired": true,
+      "footerSeverity": "error",
+      "titlePattern": "^.+ Pattern$",
+      "datePattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "dateField": "ms.date",
+      "prohibitedContentPatterns": [
+        "time savings?",
+        "cost savings?",
+        "productivity metrics?",
+        "\\d+%\\s+(faster|slower|more|less)",
+        "saves? \\d+ (hours?|minutes?|days?)"
+      ]
+    },
+    {
+      "name": "conceptual-guide",
+      "description": "Deep explanations of foundational concepts",
+      "pattern": "docs/[^/]+/README\\.md$",
+      "excludePattern": "^docs/README\\.md$",
+      "schema": "content-types/conceptual-guide.schema.json",
+      "requiredFields": ["title", "description", "author", "ms.date", "keywords"],
+      "suggestedFields": [],
+      "footerRequired": true,
+      "footerSeverity": "error",
+      "datePattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "dateField": "ms.date"
+    },
+    {
+      "name": "section-introduction",
+      "description": "Section introduction pages (about.md)",
+      "pattern": ".+/about\\.md$",
+      "schema": "content-types/section-introduction.schema.json",
+      "requiredFields": ["title", "description", "author", "ms.date", "keywords"],
+      "suggestedFields": [],
+      "footerRequired": true,
+      "footerSeverity": "error",
+      "datePattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "dateField": "ms.date"
+    },
+    {
+      "name": "landing-page",
+      "description": "Main landing page for documentation",
+      "pattern": "^docs/README\\.md$",
+      "schema": "content-types/landing-page.schema.json",
+      "requiredFields": ["title", "description", "author", "ms.date", "keywords"],
+      "suggestedFields": [],
+      "footerRequired": false,
+      "datePattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "dateField": "ms.date"
+    },
+    {
+      "name": "root-community-file",
+      "description": "Root community files (CONTRIBUTING.md, CODE_OF_CONDUCT.md, etc.)",
+      "pattern": "^(CONTRIBUTING|CODE_OF_CONDUCT|SECURITY|SUPPORT|README)\\.md$",
+      "location": "root",
+      "schema": "content-types/community-file.schema.json",
+      "requiredFields": ["title", "description"],
+      "suggestedFields": ["author", "ms.date"],
+      "footerRequired": false,
+      "footerRequiredFor": ["CONTRIBUTING.md"],
+      "footerSeverity": "error",
+      "datePattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "dateField": "ms.date"
+    },
+    {
+      "name": "devcontainer-doc",
+      "description": "DevContainer documentation (README.md in .devcontainer)",
+      "pattern": "\\.devcontainer.+/README\\.md$",
+      "schema": "content-types/devcontainer-doc.schema.json",
+      "requiredFields": ["title", "description"],
+      "suggestedFields": [],
+      "footerRequired": true,
+      "footerSeverity": "error"
+    },
+    {
+      "name": "chatmode-file",
+      "description": "Chat mode definition files",
+      "pattern": "\\.chatmode\\.md$",
+      "schema": "content-types/chatmode.schema.json",
+      "requiredFields": [],
+      "suggestedFields": ["description"],
+      "footerRequired": false
+    },
+    {
+      "name": "instruction-file",
+      "description": "Instruction files for GitHub Copilot",
+      "pattern": "\\.instructions\\.md$",
+      "schema": "content-types/instruction.schema.json",
+      "requiredFields": [],
+      "suggestedFields": ["applyTo"],
+      "footerRequired": false
+    },
+    {
+      "name": "prompt-file",
+      "description": "Prompt template files",
+      "pattern": "\\.prompt\\.md$",
+      "schema": "content-types/prompt.schema.json",
+      "requiredFields": [],
+      "suggestedFields": [],
+      "footerRequired": false
+    }
+  ]
+}

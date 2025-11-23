@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hve-ai-companion-guide/schemas/frontmatter-base.schema.json",
+  "title": "Base Frontmatter Schema",
+  "description": "Common frontmatter fields for markdown documents in the HVE AI Companion Guide",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Document title",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief summary of document content and purpose",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "author": {
+      "type": "string",
+      "description": "Content author or team name",
+      "minLength": 1
+    },
+    "ms.date": {
+      "type": "string",
+      "description": "Last update date in ISO 8601 format (YYYY-MM-DD)",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "keywords": {
+      "type": "array",
+      "description": "List of relevant keywords for searchability",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "maxItems": 15
+    },
+    "estimated_reading_time": {
+      "type": "string",
+      "description": "Estimated reading time in format 'X minutes' or 'X-Y minutes'",
+      "pattern": "^\\d+(-\\d+)? minutes?$"
+    }
+  }
+}

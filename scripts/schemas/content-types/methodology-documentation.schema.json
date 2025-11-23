@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hve-ai-companion-guide/schemas/content-types/methodology-documentation.schema.json",
+  "title": "Methodology Documentation Frontmatter",
+  "description": "Frontmatter schema for RPI patterns and engineering methodologies (docs/rpi-framework/*.md, docs/patterns/*.md)",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Pattern or methodology title ending with ' Pattern'",
+      "pattern": "^.+ Pattern$",
+      "minLength": 1,
+      "maxLength": 200,
+      "examples": ["Core RPI Pattern"]
+    },
+    "description": {
+      "type": "string",
+      "description": "One-sentence summary of pattern purpose and application",
+      "minLength": 10,
+      "maxLength": 500,
+      "examples": ["Research-Plan-Implement pattern for systematic feature development"]
+    },
+    "author": {
+      "type": "string",
+      "description": "Document author",
+      "default": "HVE Core Team",
+      "minLength": 2
+    },
+    "date": {
+      "type": "string",
+      "description": "Last modified date in ISO 8601 format (YYYY-MM-DD)",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "examples": ["2025-11-16"]
+    },
+    "keywords": {
+      "type": "array",
+      "description": "Keywords for search optimization (3-8 recommended)",
+      "items": {
+        "type": "string",
+        "minLength": 2
+      },
+      "uniqueItems": true,
+      "minItems": 3,
+      "maxItems": 8,
+      "examples": [["RPI", "pattern", "methodology", "engineering"]]
+    }
+  },
+  "required": ["title", "description", "author", "date", "keywords"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "title": "Core RPI Pattern",
+      "description": "Research-Plan-Implement pattern for systematic feature development",
+      "author": "HVE Core Team",
+      "date": "2025-11-16",
+      "keywords": [
+        "RPI",
+        "pattern",
+        "methodology",
+        "engineering"
+      ]
+    }
+  ]
+}

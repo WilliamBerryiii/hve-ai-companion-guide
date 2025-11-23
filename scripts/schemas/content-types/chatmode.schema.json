@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hve-ai-companion-guide/schemas/content-types/chatmode.schema.json",
+  "title": "ChatMode Frontmatter",
+  "description": "Frontmatter schema for chat mode definition files (*.chatmode.md)",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Description of the chat mode's purpose and functionality",
+      "minLength": 10,
+      "maxLength": 500
+    }
+  },
+  "required": [],
+  "additionalProperties": true,
+  "examples": [
+    {
+      "description": "Task Researcher mode for deep research with evidence-backed findings"
+    }
+  ]
+}
