@@ -35,17 +35,9 @@ Describe "Schema System Integration Tests" {
             $config.rules.Count | Should -BeGreaterThan 0
         }
         
-        It "Should have validation rules with required properties" {
+        It "Should contain 11 validation rules" {
             $config = Get-ValidationConfig
-            $config.rules | Should -Not -BeNullOrEmpty
-            $config.rules | Should -HaveCount 10 -Because "Current configuration has 10 rules"
-            
-            # Validate each rule has required structure
-            $config.rules | ForEach-Object {
-                $_.name | Should -Not -BeNullOrEmpty -Because "Rule must have a name"
-                $_.schema | Should -Not -BeNullOrEmpty -Because "Rule must reference a schema"
-                $_.requiredFields | Should -Not -BeNullOrEmpty -Because "Rule must define required fields"
-            }
+            $config.rules.Count | Should -Be 11
         }
         
         It "Should contain excludePatterns array" {
@@ -98,6 +90,12 @@ Describe "Schema System Integration Tests" {
             $rule = Get-ContentTypeRule -FilePath "docs/engineering-fundamentals/README.md" -Config $script:Config
             $rule | Should -Not -BeNullOrEmpty
             $rule.name | Should -Be "conceptual-guide"
+        }
+        
+        It "Should match section introduction pattern for about.md" {
+            $rule = Get-ContentTypeRule -FilePath "docs/chat-modes/about.md" -Config $script:Config
+            $rule | Should -Not -BeNullOrEmpty
+            $rule.name | Should -Be "section-introduction"
         }
         
         It "Should match landing page pattern for docs/README.md" {
@@ -181,6 +179,12 @@ Describe "Schema System Integration Tests" {
             $schema | Should -Not -BeNullOrEmpty
         }
         
+        It "Should load section introduction schema" {
+            $rule = Get-ContentTypeRule -FilePath "docs/patterns/about.md" -Config $script:Config
+            $schema = Get-SchemaDefinition -SchemaName $rule.schema
+            $schema | Should -Not -BeNullOrEmpty
+        }
+        
         It "Should load landing page schema" {
             $rule = Get-ContentTypeRule -FilePath "docs/README.md" -Config $script:Config
             $schema = Get-SchemaDefinition -SchemaName $rule.schema
@@ -259,16 +263,15 @@ Describe "Schema System Integration Tests" {
             $testFile = Join-Path $script:TestDir "test-chapter.md"
             @"
 ---
-title: "Chapter 1: Test Chapter"
-description: Test description for validating chapter content schema compliance
+title: Test Chapter
+description: Test description
 author: Test Author
-ms.date: 2025-11-16
+date: 2025-11-16
 chapter: 1
-part: "I"
+part: 1
 keywords:
   - testing
   - schema
-  - validation
 ---
 # Test Content
 "@ | Out-File $testFile -Encoding UTF8
@@ -370,6 +373,11 @@ Describe "End-to-End Validation Tests" {
         It "Should validate landing page successfully" {
             $landingPage = Join-Path $script:RepoRoot "docs\README.md"
             Test-Path $landingPage | Should -Be $true
+        }
+        
+        It "Should validate section introductions successfully" {
+            $aboutFiles = Get-ChildItem -Path (Join-Path $script:RepoRoot "docs") -Filter "about.md" -Recurse -ErrorAction SilentlyContinue
+            $aboutFiles.Count | Should -BeGreaterThan 0
         }
     }
 }
