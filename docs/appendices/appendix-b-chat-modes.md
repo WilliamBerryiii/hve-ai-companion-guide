@@ -12,8 +12,6 @@ keywords:
   - ask-mode
 ---
 
-# Appendix B: Chat Mode Comparison Matrix
-
 > [!NOTE]
 > Content for this appendix is under development.
 

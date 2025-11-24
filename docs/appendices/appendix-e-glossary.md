@@ -10,8 +10,6 @@ keywords:
   - concepts
 ---
 
-# Appendix E: Glossary
-
 > [!NOTE]
 > Content for this appendix is under development.
 

@@ -11,8 +11,6 @@ keywords:
   - variations
 ---
 
-# Appendix A: RPI Framework Quick Reference
-
 > [!NOTE]
 > Content for this appendix is under development.
 
