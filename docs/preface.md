@@ -11,8 +11,6 @@ keywords:
   - hypervelocity engineering
 ---
 
-# Preface
-
 In February 2025, the core Edge-AI development team made a decision that would fundamentally change how we write software: from that point forward, we would write 100% of our code using GitHub Copilot. Not as a writing assistant. Not as a productivity boost. But as my primary development interface.
 
 That decision didn't come from blind faith in AI. It came from months of wrestling with a problem developing Edge-AI ... how do you train a team to work at hypervelocity when the tools keep evolving faster than the training materials?
@@ -59,7 +57,7 @@ If you're in either group, this guide will show you how to structure your engine
 
 ## Acknowledgments
 
-This work wouldn't exist without Allen Greaves, whose early pioneering of agent-based approaches showed what was possible. Katrien De Graeve, whose vision for Edge-AI created the context for these discoveries. Larry Lieberman, Chris Risner, Leigh Tami, David Ruttka, and Eliise Seling, whose collaboration pushed the boundaries of what we thought achievable. To Dan Massey who gave Edge-AI the room to find life. 
+This work wouldn't exist without Allen Greaves, whose early pioneering of agent-based approaches showed what was possible. Katrien De Graeve, whose vision for Edge-AI created the context for these discoveries. Larry Lieberman, Chris Risner, Leigh Tami, David Ruttka, and Eliise Seling, whose collaboration pushed the boundaries of what we thought achievable. To Dan Massey who gave Edge-AI the room to find life.
 
 Thank you to Machteld Bögels, Emmeline Hoops, and Olha Konstantinova for their dedication to making hve-core accessible. To the entire Edge-AI core team, who lived through the messy early iterations and helped refine these practices under pressure. To Matt Dotson, who told me I should get into this Copilt thing And to my daughters, Mia who showed me how using AI can improve communication skills and Adelyn, who's help review parts of this book.
 

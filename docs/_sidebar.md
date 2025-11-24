@@ -1,8 +1,6 @@
 <!-- _sidebar.md -->
 
-* [Home](/)
-
-<!-- _sidebar.md -->
+# Navigation
 
 * [Home](/)
 * [📖 Preface](/preface.md)

@@ -5,7 +5,6 @@ author: HVE Core Team
 ms.date: 2025-11-16
 ---
 
-# Frontmatter Schema System
 
 Centralized JSON Schema system for validating markdown frontmatter across the HVE AI Companion Guide.
 
