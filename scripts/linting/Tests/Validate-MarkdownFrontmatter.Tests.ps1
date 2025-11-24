@@ -35,9 +35,9 @@ Describe "Schema System Integration Tests" {
             $config.rules.Count | Should -BeGreaterThan 0
         }
         
-        It "Should contain 11 validation rules" {
+        It "Should contain 10 validation rules" {
             $config = Get-ValidationConfig
-            $config.rules.Count | Should -Be 11
+            $config.rules.Count | Should -Be 10
         }
         
         It "Should contain excludePatterns array" {
@@ -90,12 +90,6 @@ Describe "Schema System Integration Tests" {
             $rule = Get-ContentTypeRule -FilePath "docs/engineering-fundamentals/README.md" -Config $script:Config
             $rule | Should -Not -BeNullOrEmpty
             $rule.name | Should -Be "conceptual-guide"
-        }
-        
-        It "Should match section introduction pattern for about.md" {
-            $rule = Get-ContentTypeRule -FilePath "docs/chat-modes/about.md" -Config $script:Config
-            $rule | Should -Not -BeNullOrEmpty
-            $rule.name | Should -Be "section-introduction"
         }
         
         It "Should match landing page pattern for docs/README.md" {
@@ -179,12 +173,6 @@ Describe "Schema System Integration Tests" {
             $schema | Should -Not -BeNullOrEmpty
         }
         
-        It "Should load section introduction schema" {
-            $rule = Get-ContentTypeRule -FilePath "docs/patterns/about.md" -Config $script:Config
-            $schema = Get-SchemaDefinition -SchemaName $rule.schema
-            $schema | Should -Not -BeNullOrEmpty
-        }
-        
         It "Should load landing page schema" {
             $rule = Get-ContentTypeRule -FilePath "docs/README.md" -Config $script:Config
             $schema = Get-SchemaDefinition -SchemaName $rule.schema
@@ -263,15 +251,16 @@ Describe "Schema System Integration Tests" {
             $testFile = Join-Path $script:TestDir "test-chapter.md"
             @"
 ---
-title: Test Chapter
-description: Test description
+title: "Chapter 1: Test Chapter"
+description: Test description for validating chapter content schema compliance
 author: Test Author
 date: 2025-11-16
 chapter: 1
-part: 1
+part: "I"
 keywords:
   - testing
   - schema
+  - validation
 ---
 # Test Content
 "@ | Out-File $testFile -Encoding UTF8
@@ -373,11 +362,6 @@ Describe "End-to-End Validation Tests" {
         It "Should validate landing page successfully" {
             $landingPage = Join-Path $script:RepoRoot "docs\README.md"
             Test-Path $landingPage | Should -Be $true
-        }
-        
-        It "Should validate section introductions successfully" {
-            $aboutFiles = Get-ChildItem -Path (Join-Path $script:RepoRoot "docs") -Filter "about.md" -Recurse -ErrorAction SilentlyContinue
-            $aboutFiles.Count | Should -BeGreaterThan 0
         }
     }
 }
