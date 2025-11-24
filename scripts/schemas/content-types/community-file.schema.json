@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hve-ai-companion-guide/schemas/content-types/community-file.schema.json",
+  "title": "Community File Frontmatter",
+  "description": "Frontmatter schema for root community files (CONTRIBUTING.md, CODE_OF_CONDUCT.md, etc.)",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Document title",
+      "minLength": 1,
+      "maxLength": 200,
+      "examples": ["Contributing to HVE AI Companion Guide"]
+    },
+    "description": {
+      "type": "string",
+      "description": "One-sentence summary describing document purpose",
+      "minLength": 10,
+      "maxLength": 500,
+      "examples": ["Guidelines for contributing to the HVE AI Companion Guide project"]
+    },
+    "author": {
+      "type": "string",
+      "description": "Document author (suggested field)",
+      "default": "HVE Core Team",
+      "minLength": 2
+    },
+    "ms.date": {
+      "type": "string",
+      "description": "Microsoft-style date field in ISO 8601 format (YYYY-MM-DD) - suggested field",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "examples": ["2025-11-16"]
+    }
+  },
+  "required": ["title", "description"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "title": "Contributing to HVE AI Companion Guide",
+      "description": "Guidelines for contributing to the HVE AI Companion Guide project",
+      "author": "HVE Core Team",
+      "ms.date": "2025-11-16"
+    }
+  ]
+}

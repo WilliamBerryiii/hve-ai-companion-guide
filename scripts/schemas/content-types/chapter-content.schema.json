@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hve-ai-companion-guide/schemas/content-types/chapter-content.schema.json",
+  "title": "Chapter Content Frontmatter",
+  "description": "Frontmatter schema for chapter content in parts (docs/part*/**/*.md)",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Chapter title in format 'Chapter N: Title'",
+      "pattern": "^Chapter \\d+: .+$",
+      "minLength": 1,
+      "maxLength": 200,
+      "examples": ["Chapter 3: The Research Phase"]
+    },
+    "description": {
+      "type": "string",
+      "description": "One-sentence learning objective with key outcome",
+      "minLength": 10,
+      "maxLength": 500,
+      "examples": ["Master evidence gathering techniques for confident implementation planning"]
+    },
+    "author": {
+      "type": "string",
+      "description": "Document author",
+      "default": "HVE Core Team",
+      "minLength": 2
+    },
+    "ms.date": {
+      "$ref": "../definitions/common-fields.json#/$defs/ms.date"
+    },
+    "chapter": {
+      "type": "integer",
+      "description": "Chapter number (1-14)",
+      "minimum": 1,
+      "maximum": 14,
+      "examples": [3]
+    },
+    "part": {
+      "type": "string",
+      "description": "Book part designation",
+      "enum": ["I", "II", "III"],
+      "examples": ["I"]
+    },
+    "prerequisites": {
+      "type": "array",
+      "description": "Array of prerequisite chapter filenames",
+      "items": {
+        "type": "string",
+        "pattern": "^chapter-\\d+$"
+      },
+      "uniqueItems": true,
+      "examples": [["chapter-2"], ["chapter-1", "chapter-2"]]
+    },
+    "keywords": {
+      "type": "array",
+      "description": "Keywords for search optimization (3-8 recommended)",
+      "items": {
+        "type": "string",
+        "minLength": 2
+      },
+      "uniqueItems": true,
+      "minItems": 3,
+      "maxItems": 8,
+      "examples": [["Research phase", "evidence gathering", "Ask Mode", "Task Researcher"]]
+    }
+  },
+  "required": ["title", "description", "author", "ms.date", "chapter", "part", "keywords"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "title": "Chapter 3: The Research Phase",
+      "description": "Master evidence gathering techniques for confident implementation planning",
+      "author": "HVE Core Team",
+      "ms.date": "2025-11-16",
+      "chapter": 3,
+      "part": "I",
+      "prerequisites": ["chapter-2"],
+      "keywords": [
+        "Research phase",
+        "evidence gathering",
+        "Ask Mode",
+        "Task Researcher"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HVE Core - AI Companion Coding Guide</title>
+  <meta name="description" content="Enterprise guide for using microsoft/hve-core with AI-assisted development">
+  
+  <!-- Docsify Theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  
+  <!-- Font Awesome for Alert Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Design System Variables (must load first) -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  
+  <!-- Microsoft Fluent UI Branding - Custom CSS -->
+  <link rel="stylesheet" href="assets/css/microsoft-theme.css">
+  
+  <!-- Frontmatter Metadata Display -->
+  <link rel="stylesheet" href="assets/css/metadata.css">
+</head>
+<body>
+  <div id="app">Loading...</div>
+  
+  <script>
+    window.$docsify = {
+      // ========================================
+      // Basic Configuration
+      // ========================================
+      name: 'HVE Core Guide',
+      repo: 'WilliamBerryiii/hve-ai-companion-guide',
+      homepage: 'README.md',
+      
+      // ========================================
+      // Navigation
+      // ========================================
+      loadSidebar: true,
+      subMaxLevel: 3,                // Sidebar depth
+      auto2top: true,                // Scroll to top on route change
+      
+      // ========================================
+      // Sidebar Collapse (reduces visual overwhelm)
+      // ========================================
+      sidebarDisplayLevel: 1,        // Start with only top-level sections visible
+      
+      // ========================================
+      // Search
+      // ========================================
+      search: {
+        maxAge: 86400000,            // 1 day cache
+        paths: 'auto',
+        placeholder: 'Search...',
+        noData: 'No results found',
+        depth: 3
+      },
+      
+      // ========================================
+      // Copy Code Plugin
+      // ========================================
+      copyCode: {
+        buttonText: 'Copy',
+        errorText: 'Error',
+        successText: 'Copied!'
+      },
+      
+      // ========================================
+      // Pagination Plugin (Book-style navigation)
+      // ========================================
+      pagination: {
+        previousText: 'Previous',
+        nextText: 'Next',
+        crossChapter: true,
+        crossChapterText: true
+      },
+      
+      // ========================================
+      // Flexible Alerts Plugin (GitHub-style callouts)
+      // ========================================
+      'flexible-alerts': {
+        note: {
+          label: "Note",
+          icon: "fas fa-info-circle",
+          className: "note"
+        },
+        tip: {
+          label: "Tip",
+          icon: "fas fa-lightbulb",
+          className: "tip"
+        },
+        important: {
+          label: "Important",
+          icon: "fas fa-exclamation-circle",
+          className: "important"
+        },
+        warning: {
+          label: "Warning",
+          icon: "fas fa-exclamation-triangle",
+          className: "warning"
+        },
+        caution: {
+          label: "Caution",
+          icon: "fas fa-ban",
+          className: "caution"
+        }
+      },
+      
+      // ========================================
+      // Emoji Support (built-in)
+      // ========================================
+      // Uses GitHub emoji shortcodes: :emoji_name:
+      // Example: :rocket: :book: :bulb:
+      
+      // ========================================
+      // Markdown Configuration
+      // ========================================
+      markdown: {
+        smartypants: true,           // Typographic quotes
+        breaks: true,                // GitHub-style line breaks
+      },
+      
+      // ========================================
+      // Theme Settings
+      // ========================================
+      themeColor: '#0078d4',         // Microsoft Blue (for loading spinner)
+      
+      // ========================================
+      // Other Options
+      // ========================================
+      notFoundPage: true,            // Show custom 404 page
+      relativePath: false,           // Use absolute paths
+      coverpage: false,              // Enable if you create _coverpage.md
+      logo: '',                      // Optional: Add Microsoft/project logo
+      
+    };
+  </script>
+  
+  <!-- ========================================
+       Docsify Core
+       ======================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  
+  <!-- ========================================
+       Mermaid Diagram Support
+       ======================================== -->
+  <!-- Mermaid Diagram Support -->
+  <script src="https://unpkg.com/mermaid@latest/dist/mermaid.min.js"></script>
+  <script src="assets/js/docsify/mermaid-integration.js"></script>
+  
+  <!-- ========================================
+       Plugins
+       ======================================== -->
+  
+  <!-- Search Plugin - Disabled until content pages are created -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script> -->
+  
+  <!-- Copy Code Plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
+  
+  <!-- Pagination Plugin (Book-style prev/next) -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
+  
+  <!-- Flexible Alerts Plugin (GitHub-style callouts) -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-flexible-alerts"></script>
+  
+  <!-- Sidebar Collapse Plugin (collapsible sections) -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  
+  <!-- ========================================
+       Frontmatter Plugin
+       ======================================== -->
+  <!-- YAML parser for frontmatter processing -->
+  <script src="https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  
+  <!-- Frontmatter display plugin -->
+  <script src="assets/js/plugins/docsify-frontmatter-plugin.js"></script>
+  
+  <!-- ========================================
+       Syntax Highlighting (Prism.js)
+       Add languages as needed
+       ======================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-powershell.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-csharp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bicep.min.js"></script>
+</body>
+</html>

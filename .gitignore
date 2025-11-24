@@ -301,6 +301,9 @@ FakesAssemblies/
 .ntvs_analysis.dat
 node_modules/
 
+# Workflow output logs
+logs/
+
 # Visual Studio 6 build log
 *.plg
 
@@ -403,6 +406,8 @@ FodyWeavers.xsd
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
+!.vscode/mcp.json
+!.vscode/README.md
 
 # Local History for Visual Studio Code
 .history/
@@ -416,3 +421,29 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# =============================================================================
+# Generated Artifacts
+# =============================================================================
+
+# Scanner, linter, and test result files
+*.log
+
+# Checkov security scan reports
+checkov-results.json
+checkov-junit.xml
+
+# Generated PR from Copilot
+pr.md
+pr-reference.xml
+
+# Copilot tracking
+.copilot-tracking/
+
+# Temporary working files
+tmp/
+
+# MCP server configuration - exclude local token files
+.mcp/*-local.json
+.mcp/*.local.json
+.mcp/.env

@@ -1,0 +1,108 @@
+/* ========================================
+   Microsoft Fluent UI Theme for Docsify
+   Source: https://developer.microsoft.com/fluentui
+   ======================================== */
+
+:root {
+  /* Primary Theme Colors */
+  --theme-color: #0078d4;                  /* Microsoft Primary Blue */
+  --theme-color-dark: #005a9e;             /* Darker blue for hover states */
+  --theme-color-light: #71afe5;            /* Lighter blue for accents */
+  
+  /* Light Mode Colors */
+  --color-bg: #ffffff;                     /* Pure white background */
+  --color-text: #323130;                   /* Microsoft neutral primary */
+  --color-text-secondary: #605e5c;         /* Microsoft neutral secondary */
+  
+  /* Sidebar - Light Mode */
+  --sidebar-bg: #faf9f8;                   /* Microsoft neutral lightest */
+  --sidebar-text: #323130;
+  --sidebar-border-color: #edebe9;         /* Microsoft neutral light */
+  --sidebar-nav-link-color: #323130;
+  --sidebar-nav-link-color--hover: #0078d4;
+  --sidebar-nav-link-color--active: #0078d4;
+  --sidebar-nav-link-bg--active: #deecf9;  /* Microsoft theme lighter */
+  
+  /* Navbar */
+  --navbar-bg: #ffffff;
+  --navbar-text: #323130;
+  --navbar-border-color: #edebe9;
+  
+  /* Code Blocks */
+  --code-block-bg: #f3f2f1;                /* Microsoft neutral lighter */
+  --code-inline-bg: #f3f2f1;
+  --code-inline-color: #323130;
+  
+  /* Links */
+  --link-color: #0078d4;
+  --link-color--hover: #005a9e;
+  
+  /* Blockquotes */
+  --blockquote-border-color: #0078d4;
+  --blockquote-color: #605e5c;
+  
+  /* Cover Page (if used) */
+  --cover-bg: linear-gradient(135deg, #0078d4 0%, #106ebe 100%);
+  --cover-color: #ffffff;
+}
+
+/* ========================================
+   Dark Mode - Microsoft Dark Theme
+   ======================================== */
+[data-theme="dark"] {
+  /* Primary theme color stays consistent */
+  --theme-color: #3a96dd;                  /* Slightly lighter blue for dark mode */
+  --theme-color-dark: #2b88d8;
+  --theme-color-light: #71afe5;
+  
+  /* Dark Mode Backgrounds & Text */
+  --color-bg: #1b1a19;                     /* Dark background */
+  --color-text: #ffffff;
+  --color-text-secondary: #d2d0ce;         /* Microsoft neutral quaternary */
+  
+  /* Sidebar - Dark Mode */
+  --sidebar-bg: #201f1e;                   /* Microsoft neutral dark */
+  --sidebar-text: #ffffff;
+  --sidebar-border-color: #3b3a39;         /* Microsoft neutral primary alt */
+  --sidebar-nav-link-color: #ffffff;
+  --sidebar-nav-link-color--hover: #3a96dd;
+  --sidebar-nav-link-color--active: #3a96dd;
+  --sidebar-nav-link-bg--active: rgba(58, 150, 221, 0.1);
+  
+  /* Navbar - Dark Mode */
+  --navbar-bg: #1b1a19;
+  --navbar-text: #ffffff;
+  --navbar-border-color: #3b3a39;
+  
+  /* Code Blocks - Dark Mode */
+  --code-block-bg: #292827;
+  --code-inline-bg: #292827;
+  --code-inline-color: #ffffff;
+  
+  /* Links - Dark Mode */
+  --link-color: #3a96dd;
+  --link-color--hover: #71afe5;
+  
+  /* Blockquotes - Dark Mode */
+  --blockquote-border-color: #3a96dd;
+  --blockquote-color: #d2d0ce;
+}
+
+/* ========================================
+   Transitions & Additional Styling
+   ======================================== */
+
+/* Ensure smooth transitions between themes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Copy button styling (Microsoft accent) */
+.docsify-copy-code-button {
+  background: #0078d4 !important;
+  color: #ffffff !important;
+}
+
+.docsify-copy-code-button:hover {
+  background: #005a9e !important;
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hve-ai-companion-guide/schemas/content-types/workflow-guide.schema.json",
+  "title": "Workflow Guide Frontmatter",
+  "description": "Frontmatter schema for step-by-step workflow guides (docs/workflows/*.md)",
+  "type": "object",
+  "allOf": [
+    {
+      "properties": {
+        "title": {
+          "$ref": "../definitions/common-fields.json#/$defs/title",
+          "pattern": "^.+ Workflow$",
+          "description": "Workflow title ending with ' Workflow'"
+        },
+        "description": {
+          "$ref": "../definitions/common-fields.json#/$defs/description"
+        },
+        "author": {
+          "$ref": "../definitions/common-fields.json#/$defs/author"
+        },
+        "ms.date": {
+          "$ref": "../definitions/common-fields.json#/$defs/ms.date"
+        },
+        "keywords": {
+          "$ref": "../definitions/common-fields.json#/$defs/keywords"
+        }
+      },
+      "required": ["title", "description", "author", "ms.date", "keywords"]
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "title": "Merge Conflict Resolution Workflow",
+      "description": "Systematic conflict resolution using Core RPI pattern for evidence-based merging",
+      "author": "HVE Core Team",
+      "ms.date": "2025-11-16",
+      "keywords": [
+        "merge conflicts",
+        "Core RPI",
+        "code quality",
+        "conflict resolution"
+      ]
+    }
+  ]
+}

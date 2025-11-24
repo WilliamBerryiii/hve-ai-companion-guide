@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hve-ai-companion-guide/schemas/content-types/conceptual-guide.schema.json",
+  "title": "Conceptual Guide Frontmatter",
+  "description": "Frontmatter schema for deep explanations of foundational concepts (docs/*/README.md, excluding docs/README.md)",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Conceptual guide title",
+      "minLength": 1,
+      "maxLength": 200,
+      "examples": ["Understanding the RPI Framework"]
+    },
+    "description": {
+      "type": "string",
+      "description": "One-sentence explanation of the concept and its value",
+      "minLength": 10,
+      "maxLength": 500,
+      "examples": ["Explore the Research-Plan-Implement methodology that powers hypervelocity engineering"]
+    },
+    "author": {
+      "type": "string",
+      "description": "Document author",
+      "default": "HVE Core Team",
+      "minLength": 2
+    },
+    "ms.date": {
+      "$ref": "../definitions/common-fields.json#/$defs/ms.date"
+    },
+    "keywords": {
+      "type": "array",
+      "description": "Keywords for search optimization (3-8 recommended)",
+      "items": {
+        "type": "string",
+        "minLength": 2
+      },
+      "uniqueItems": true,
+      "minItems": 3,
+      "maxItems": 8,
+      "examples": [["RPI framework", "methodology", "engineering", "best practices"]]
+    }
+  },
+  "required": ["title", "description", "author", "ms.date", "keywords"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "title": "Understanding the RPI Framework",
+      "description": "Explore the Research-Plan-Implement methodology that powers hypervelocity engineering",
+      "author": "HVE Core Team",
+      "ms.date": "2025-11-16",
+      "keywords": [
+        "RPI framework",
+        "methodology",
+        "engineering",
+        "best practices"
+      ]
+    }
+  ]
+}

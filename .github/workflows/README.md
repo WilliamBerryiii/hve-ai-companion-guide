@@ -1,0 +1,630 @@
+---
+title: GitHub Actions Workflows
+description: Modular CI/CD workflow architecture for validation, security scanning, and automated maintenance
+author: HVE Core Team
+ms.date: 2025-11-12
+ms.topic: reference
+keywords:
+  - github actions
+  - ci/cd
+  - workflows
+  - security scanning
+  - automation
+  - reusable workflows
+  - validation
+  - security
+estimated_reading_time: 25
+---
+
+This directory contains GitHub Actions workflows for continuous integration, security scanning, and automated maintenance of the `hve-ai-companion-guide` documentation repository.
+
+## Overview
+
+Workflows run automatically on pull requests, pushes to protected branches, and scheduled intervals. They enforce code quality standards, validate documentation, perform security scans, and ensure consistency across the codebase.
+
+## Architecture
+
+Modular reusable workflows following Single Responsibility Principle. Each workflow handles one specific tool or validation task.
+
+## Workflow Organization
+
+### Naming Conventions
+
+| Pattern       | Purpose                          | Example                      |
+|---------------|----------------------------------|------------------------------|
+| `*-scan.yml`  | Security scanning, SARIF outputs | `dependency-pinning-scan.yml` |
+| `*-check.yml` | Validation, compliance checking  | `markdown-link-check.yml` |
+| `*-lint.yml`  | Code quality, formatting         | `markdown-lint.yml`       |
+| Orchestrators | Compose multiple workflows       | `pr-validation.yml`       |
+
+### Workflow Types
+
+**Reusable** (`workflow_call`): Called by other workflows, accept inputs, expose outputs, single-task focused.
+
+**Standalone** (`schedule`/`push`/`pull_request`): Run on events, may compose reusable workflows.
+
+## Orchestrator Workflows
+
+Compose multiple reusable workflows for comprehensive validation and security scanning.
+
+| Workflow                          | Triggers                                | Jobs                                                      | Mode                       | Purpose                              |
+|-----------------------------------|-----------------------------------------|-----------------------------------------------------------|----------------------------|--------------------------------------|
+| `pr-validation.yml`               | PR to main/develop (open, push, reopen) | 8 jobs (7 reusable workflows + 1 inline)                  | Strict validation          | Pre-merge quality gate with security |
+| `main.yml`                        | Push to main                            | 5 jobs (5 reusable workflows)                             | Strict mode, SARIF uploads | Post-merge validation                |
+| `weekly-security-maintenance.yml` | Schedule (Sun 2AM UTC)                  | 3 (validate-pinning, check-staleness, summary)            | Soft-fail warnings         | Weekly security posture              |
+
+**pr-validation.yml jobs**: spell-check, markdown-lint, table-format, frontmatter-validation, link-lang-check, markdown-link-check, dependency-pinning-check
+
+**main.yml jobs**: spell-check, markdown-lint, table-format, dependency-pinning-scan, deploy-pages
+
+### GitHub Pages Deployment
+
+The `main.yml` orchestrator includes automated deployment to GitHub Pages after all validation jobs succeed.
+
+**Deployment Workflow**: `deploy-pages.yml`
+
+**Trigger**: Automatically runs after successful validation (spell-check, markdown-lint, table-format, dependency-pinning-scan)
+
+**Features**:
+
+* **OIDC Authentication**: Uses OpenID Connect for secure authentication without long-lived credentials
+* **Concurrency Control**: Prevents concurrent deployments with `cancel-in-progress: false`
+* **Artifact Upload**: Packages `docs/` directory for deployment
+* **Environment**: Targets `github-pages` environment with deployment URL output
+* **Security**: SHA-pinned actions, Step Security hardening, minimal permissions
+
+**Deployment Process**:
+
+1. Validation jobs run on push to main branch
+2. If all validations pass, deploy-pages job starts
+3. Workflow configures GitHub Pages, uploads artifact, and deploys
+4. Site becomes available at GitHub Pages URL
+
+**Repository Configuration Required**:
+
+Before the deployment workflow can run successfully, configure these repository settings:
+
+1. **Settings → Pages → Source**: Select "GitHub Actions"
+2. **Settings → Actions → Workflow permissions**: Enable "Read and write permissions"
+3. **Settings → Environments**: Create "github-pages" environment
+4. **Environment → Deployment branches**: Configure "main" branch only
+
+**Post-Deployment Validation**:
+
+* Site loads at GitHub Pages URL (https://[username].github.io/[repo]/)
+* Navigation works (sidebar, pagination)
+* Assets load correctly (CSS, JS from CDN)
+* Mermaid diagrams render
+* Search functionality works
+* All documentation pages accessible
+
+**Testing Strategy**:
+
+1. **Pre-Deployment Validation**: Run validation workflows on feature branch
+   * Create PR to trigger `pr-validation.yml`
+   * Verify all validation jobs pass
+   * Merge to main only after successful validation
+
+2. **Deployment Testing**: Monitor first deployment after setup
+   * Check workflow execution in Actions tab
+   * Verify all steps complete successfully
+   * Confirm artifact upload and deployment steps
+
+3. **Post-Deployment Verification**: Validate deployed site
+   * Access GitHub Pages URL
+   * Test navigation and search functionality
+   * Verify all pages render correctly
+   * Check browser console for errors
+
+4. **Ongoing Monitoring**: Regular deployment health checks
+   * Monitor workflow runs in Actions tab
+   * Review deployment environment status
+   * Check for failed deployments
+
+**Troubleshooting**:
+
+* **Deployment fails with permission error**: Verify repository settings for GitHub Pages and workflow permissions
+* **Site returns 404**: Ensure repository settings point to GitHub Actions as Pages source
+* **Assets don't load**: Check that Docsify CDN links are accessible
+* **Deployment never triggers**: Verify all validation jobs complete successfully
+
+## Reusable Workflows
+
+### Validation Workflows
+
+| Workflow                     | Tool                     | Purpose                              | Key Inputs                                                                                                      | Artifacts                      |
+|------------------------------|--------------------------|--------------------------------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------|
+| `spell-check.yml`            | cspell                   | Validate spelling across all files   | `soft-fail` (false)                                                                                             | spell-check-results            |
+| `markdown-lint.yml`          | markdownlint-cli         | Enforce markdown standards           | `soft-fail` (false)                                                                                             | markdown-lint-results          |
+| `table-format.yml`           | markdown-table-formatter | Verify table formatting (check-only) | `soft-fail` (false)                                                                                             | table-format-results           |
+| `frontmatter-validation.yml` | Custom PS script         | YAML frontmatter validation          | `soft-fail` (false), `changed-files-only` (true), `skip-footer-validation` (false), `warnings-as-errors` (true) | frontmatter-validation-results |
+| `link-lang-check.yml`        | Custom PS script         | Detect language-specific URLs        | `soft-fail` (false)                                                                                             | link-lang-check-results        |
+| `markdown-link-check.yml`    | markdown-link-check      | Validate links (internal/external)   | `soft-fail` (true)                                                                                              | markdown-link-check-results    |
+
+All validation workflows use `permissions: contents: read`, publish PR annotations, and retain artifacts for 30 days.
+
+### Deployment Workflows
+
+| Workflow             | Tool                | Purpose                       | Key Permissions                                | Environment    |
+|----------------------|---------------------|-------------------------------|------------------------------------------------|----------------|
+| `deploy-pages.yml`   | GitHub Pages        | Deploy docs to GitHub Pages   | `contents: read, pages: write, id-token: write` | github-pages   |
+
+The deployment workflow uses OIDC authentication for secure, credential-free deployment and implements concurrency control to prevent deployment conflicts.
+
+**Usage example**:
+
+```yaml
+jobs:
+  spell-check:
+    uses: ./.github/workflows/spell-check.yml
+    with:
+      soft-fail: false
+
+  deploy-pages:
+    needs: [validation-jobs]
+    uses: ./.github/workflows/deploy-pages.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+```
+
+## Workflow Result Publishing Strategy
+
+Each modular workflow implements comprehensive 4-channel result publishing:
+
+1. **PR Annotations**: Warnings/errors appear on Files Changed tab
+2. **Artifacts**: Raw output files retained for 30 days
+3. **SARIF Reports**: Security tab integration (security workflows only)
+4. **Job Summaries**: Rich markdown summaries in Actions tab
+
+## Security Best Practices
+
+All workflows in this repository follow security best practices:
+
+### SHA Pinning
+
+* All GitHub Actions use full 40-character commit SHAs
+* Comments include semantic version tags for human readability
+* Example: `uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2`
+
+### Minimal Permissions
+
+* Workflows use minimal permissions by default (`contents: read`)
+* Additional permissions granted only when required for specific jobs
+* Example: `security-events: write` only for SARIF uploads
+
+### Credential Protection
+
+* `persist-credentials: false` used in checkouts to prevent credential leakage
+* Secrets inherited explicitly with `secrets: inherit`
+* No hardcoded tokens or credentials
+
+### Network Hardening
+
+* `step-security/harden-runner` used in all jobs for egress policy auditing
+* Egress policy set to `audit` mode for visibility
+
+## Maintenance
+
+### Updating SHA Pins
+
+The repository includes PowerShell scripts in `scripts/security/` for SHA pinning maintenance:
+
+* `Update-ActionSHAPinning.ps1` - Update GitHub Actions SHA pins
+* `Update-DockerSHAPinning.ps1` - Update Docker image SHA pins
+* `Update-ShellScriptSHAPinning.ps1` - Update shell script dependencies
+* `Test-SHAStaleness.ps1` - Check for stale SHA pins
+* `Test-DependencyPinning.ps1` - Validate SHA pinning compliance
+
+### Dependabot Integration
+
+Dependabot is configured to automatically create PRs for:
+
+* GitHub Actions updates
+* npm package updates
+* Other dependency updates
+
+The SHA staleness check workflow complements Dependabot by monitoring for stale pins between updates.
+
+## Security Workflows
+
+### Reusable Security Workflows
+
+#### `dependency-review.yml`
+
+**Purpose**: Reviews dependency changes in pull requests for known vulnerabilities
+
+**Triggers**: `pull_request`, `workflow_call`
+
+**Features**:
+
+* **Threshold**: Fails on moderate or higher severity vulnerabilities
+* **PR Comments**: Automatically comments on PRs with vulnerability summary
+* **Coverage**: Checks npm packages against GitHub Advisory Database
+* **Integration**: Works with Dependabot alerts and security advisories
+
+**Behavior**: Blocks PRs introducing vulnerable dependencies (moderate+ severity)
+
+#### `dependency-pinning-scan.yml`
+
+**Purpose**: Validates that all GitHub Actions use SHA-pinned versions
+
+**Inputs**:
+
+* `threshold` (number, default: 95): Minimum compliance percentage
+* `dependency-types` (string, default: 'actions,containers'): Types to validate
+* `soft-fail` (boolean, default: false): Continue on failures
+* `upload-sarif` (boolean, default: false): Upload to Security tab
+* `upload-artifact` (boolean, default: true): Upload JSON results
+
+**Outputs**:
+
+* `compliance-score`: Percentage of dependencies properly pinned
+* `unpinned-count`: Number of unpinned dependencies
+* `is-compliant`: Boolean indicating threshold met
+
+#### `sha-staleness-check.yml`
+
+**Purpose**: Detects outdated GitHub Action SHA pins
+
+**Inputs**:
+
+* `max-age-days` (number, default: 30): Maximum age before stale
+
+**Outputs**:
+
+* `stale-count`: Number of stale SHA pins
+* `has-stale`: Boolean indicating stale pins found
+
+**Severity Levels**:
+
+* Info: 0-30 days
+* Low: 31-90 days
+* Medium: 91-180 days
+* High: 181-365 days
+* Critical: >365 days
+
+## Architecture Decisions
+
+### Documentation-Focused Validation Strategy
+
+**Architecture:** This documentation repository focuses on content quality and security validation rather than code analysis. Workflows validate markdown, links, spelling, and security posture without CodeQL or PowerShell analysis.
+
+**Current Validation Strategy:**
+
+* **PR validation**: Comprehensive content quality checks on all PR activity
+* **Main branch**: Post-merge validation to ensure quality standards
+* **Weekly maintenance**: Security posture monitoring and SHA pin staleness checks
+
+This architecture ensures:
+
+* Documentation quality and consistency
+* Valid links and proper markdown formatting
+* Security compliance for GitHub Actions dependencies
+* Efficient use of GitHub Actions minutes
+
+**Workflow Execution Matrix**:
+
+| Event                                | Workflows That Run                                       | Content Validation |
+| Open PR to main/develop              | `pr-validation.yml` (8 jobs)                            | ✅ Yes              |
+| Push to PR branch                    | `pr-validation.yml` (8 jobs)                            | ✅ Yes              |
+| Merge to main                        | `main.yml` (5 jobs)                                     | ✅ Yes              |
+| Sunday 2AM UTC                       | `weekly-security-maintenance.yml` (3 jobs)              | ✅ Yes              |
+| Feature branch push (no open PR)[^1] | None                                                    | ❌ No               |
+
+[^1]: Feature branches without an open PR are not validated. Open a PR to main or develop to trigger validation workflows.
+
+## Adding New Workflows
+
+To add a new workflow to the repository:
+
+1. Create `{tool-name}.yml` following existing patterns
+2. Implement 4-channel result publishing (annotations, artifacts, SARIF if security, summaries)
+3. Add harden-runner and SHA pinning
+4. Use minimal permissions
+5. Add soft-fail input support
+6. Update `pr-validation.yml` and `main.yml` to include new job
+7. Document in this README
+
+## Using Reusable Workflows
+
+### Basic Usage
+
+Call a reusable workflow from another workflow using the `uses` keyword:
+
+```yaml
+jobs:
+  security-scan:
+    name: CodeQL Security Analysis
+    uses: ./.github/workflows/codeql-analysis.yml
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+```
+
+### Passing Inputs
+
+Provide inputs to reusable workflows using the `with` keyword:
+
+```yaml
+jobs:
+  pinning-check:
+    uses: ./.github/workflows/dependency-pinning-scan.yml
+    with:
+      threshold: 95
+      dependency-types: 'actions,containers'
+      soft-fail: true
+      upload-sarif: true
+      upload-artifact: true
+```
+
+### Accessing Outputs
+
+Access outputs from reusable workflows in downstream jobs:
+
+```yaml
+jobs:
+  security-scan:
+    uses: ./.github/workflows/dependency-pinning-scan.yml
+    with:
+      soft-fail: true
+
+  summary:
+    needs: security-scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check compliance
+        run: |
+          echo "Compliance: ${{ needs.security-scan.outputs.compliance-score }}%"
+          echo "Unpinned: ${{ needs.security-scan.outputs.unpinned-count }}"
+```
+
+## Common Patterns
+
+### Workflow Structure
+
+All workflows follow a consistent pattern:
+
+```yaml
+name: Workflow Name
+on:
+  pull_request:
+    paths:
+      - '**/*.ext'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@<sha>  # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup environment
+        # Install dependencies
+      - name: Run validation
+        # Execute validation script
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@<sha>  # v4
+```
+
+### Artifact Handling
+
+* **Retention**: 30 days for all artifacts
+* **Naming**: `{workflow-name}-results`
+* **Contents**: JSON results, markdown summaries, logs
+* **Condition**: `if: always()` to upload even on failure
+
+### GitHub Annotations
+
+All workflows create annotations in the format:
+
+```text
+::error file={file},line={line}::{message}
+::warning file={file},line={line}::{message}
+```
+
+These appear in:
+
+* PR files changed view
+* Workflow run summary
+* Checks tab
+
+### Step Summaries
+
+Workflows generate markdown summaries displayed in the workflow run:
+
+* Overall status (passed/failed)
+* Statistics (files checked, issues found)
+* Tables of violations with file paths
+* Links to artifacts
+
+## Local Testing
+
+### Security Scripts
+
+```powershell
+# Dependency pinning validation
+.\scripts\security\Test-DependencyPinning.ps1 -Path .github/workflows -Verbose
+
+# SHA staleness check
+.\scripts\security\Test-SHAStaleness.ps1 -MaxAge 30 -OutputFormat github
+
+# Update stale SHA pins
+.\scripts\security\Update-ActionSHAPinning.ps1 -Path .github/workflows -UpdateStale
+```
+
+### Validation Scripts
+
+```powershell
+# PowerShell analysis
+.\scripts\linting\Invoke-PSScriptAnalyzer.ps1 -ChangedFilesOnly
+
+# Frontmatter validation
+.\scripts\linting\Validate-MarkdownFrontmatter.ps1 -ChangedFilesOnly
+
+# Link validation
+.\scripts\linting\Markdown-Link-Check.ps1
+
+# Language path check
+.\scripts\linting\Invoke-LinkLanguageCheck.ps1
+```
+
+```bash
+# Markdown linting
+npm run lint:md
+
+# Spell checking
+npm run spell-check
+
+# Table formatting
+npm run format:tables
+```
+
+## Best Practices
+
+### When to Extract a Reusable Workflow
+
+Extract workflow logic to a reusable workflow when:
+
+* The logic is duplicated across multiple workflows (DRY principle)
+* The workflow performs a focused, reusable task (single responsibility)
+* The workflow needs to be tested or maintained independently
+* The workflow could benefit other projects or teams
+
+**Do NOT extract** when:
+
+* The logic is highly specific to a single workflow
+* The extraction would create more complexity than it solves
+* The workflow is fewer than 20 lines and unlikely to be reused
+
+### Input and Output Design
+
+**Inputs:**
+
+* Use descriptive names with clear documentation
+* Provide sensible defaults for optional inputs
+* Use appropriate types (`string`, `number`, `boolean`)
+* Consider `required: false` with defaults over `required: true`
+
+**Outputs:**
+
+* Export key metrics and results for downstream jobs
+* Use consistent naming conventions across workflows
+* Include both raw values and computed flags (e.g., `count` and `has-items`)
+
+Example:
+
+```yaml
+workflow_call:
+  inputs:
+    max-age-days:
+      description: 'Maximum SHA age in days before considered stale'
+      required: false
+      type: number
+      default: 30
+  outputs:
+    stale-count:
+      description: 'Number of stale SHA pins found'
+      value: ${{ jobs.check.outputs.stale-count }}
+    has-stale:
+      description: 'Whether any stale SHA pins were found'
+      value: ${{ jobs.check.outputs.has-stale }}
+```
+
+### Permissions
+
+* Declare minimal required permissions at workflow and job levels
+* Use `permissions: {}` to disable all permissions when not needed
+* Escalate permissions only where necessary (e.g., `security-events: write` for SARIF upload)
+
+Example:
+
+```yaml
+permissions:
+  contents: read
+  security-events: write  # Required for SARIF upload
+```
+
+### Security Considerations
+
+* All actions MUST be pinned to SHA commits (not tags or branches)
+* Include SHA comment showing the tag/version (e.g., `# v4.2.2`)
+* Use Harden Runner for audit logging
+* Disable credential persistence when checking out code: `persist-credentials: false`
+
+## Troubleshooting
+
+### "Unable to find reusable workflow" error
+
+This lint error appears in VS Code but workflows run correctly on GitHub. The editor cannot resolve local workflow files at edit time. Ignore this error if:
+
+* The workflow file exists at the specified path
+* The workflow has a `workflow_call` trigger
+* The workflow runs successfully on GitHub
+
+### Outputs not available in downstream jobs
+
+Ensure outputs are defined at three levels:
+
+1. Step outputs: `echo "key=value" >> $GITHUB_OUTPUT`
+2. Job outputs: `outputs.key: ${{ steps.step-id.outputs.key }}`
+3. Workflow outputs: `outputs.key: ${{ jobs.job-id.outputs.key }}`
+
+### SARIF upload failures
+
+SARIF uploads require:
+
+* `security-events: write` permission
+* SARIF file generated by the scanner
+* Valid SARIF format (JSON schema validation)
+
+Use `continue-on-error: true` to prevent workflow failure on SARIF upload issues.
+
+### Workflow Fails But Local Test Passes
+
+* Check environment differences (Node.js version, PowerShell version)
+* Verify all dependencies are installed in workflow
+* Review workflow logs for specific error messages
+
+### Artifacts Not Uploading
+
+* Ensure `if: always()` condition is present
+* Verify artifact path exists before upload
+* Check for file permission issues
+
+### Annotations Not Appearing
+
+* Verify annotation format: `::error file={file},line={line}::{message}`
+* Ensure file paths are relative to repository root
+* Check that workflow has write permissions
+
+## Configuration Files
+
+| File                                                  | Purpose                      | Used By                     |
+|-------------------------------------------------------|------------------------------|-----------------------------|
+| `scripts/linting/PSScriptAnalyzer.psd1`               | PowerShell linting rules     | `ps-script-analyzer.yml`    |
+| `.markdownlint.json`                                  | Markdown formatting rules    | `markdown-lint.yml`         |
+| `scripts/linting/markdown-link-check.config.json`     | Link checking configuration  | `markdown-link-check.yml`   |
+| `.cspell.json`                                        | Spell checking configuration | `spell-check.yml`           |
+| `.github/instructions/markdown.instructions.md`       | Markdown style guide         | All markdown workflows      |
+| `.github/instructions/commit-message.instructions.md` | Commit message standards     | All workflows (informative) |
+
+## Resources
+
+* [GitHub Actions: Reusing workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows)
+* [GitHub Actions: Workflow syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
+* [GitHub Actions: Security hardening](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)
+* [SARIF specification](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)
+
+---
+
+<!-- markdownlint-disable MD036 -->
+*🤖 Crafted with precision by ✨Copilot following brilliant human instruction, then carefully refined by our team of discerning human reviewers.*
+<!-- markdownlint-enable MD036 -->
