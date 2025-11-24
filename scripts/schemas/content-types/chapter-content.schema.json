@@ -26,7 +26,7 @@
       "default": "HVE Core Team",
       "minLength": 2
     },
-    "date": {
+    "ms.date": {
       "type": "string",
       "description": "Last modified date in ISO 8601 format (YYYY-MM-DD)",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
@@ -68,14 +68,14 @@
       "examples": [["Research phase", "evidence gathering", "Ask Mode", "Task Researcher"]]
     }
   },
-  "required": ["title", "description", "author", "date", "chapter", "part", "keywords"],
+  "required": ["title", "description", "author", "ms.date", "chapter", "part", "keywords"],
   "additionalProperties": false,
   "examples": [
     {
       "title": "Chapter 3: The Research Phase",
       "description": "Master evidence gathering techniques for confident implementation planning",
       "author": "HVE Core Team",
-      "date": "2025-11-16",
+      "ms.date": "2025-11-16",
       "chapter": 3,
       "part": "I",
       "prerequisites": ["chapter-2"],

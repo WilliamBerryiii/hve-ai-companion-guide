@@ -25,7 +25,7 @@
       "default": "HVE Core Team",
       "minLength": 2
     },
-    "date": {
+    "ms.date": {
       "type": "string",
       "description": "Last modified date in ISO 8601 format (YYYY-MM-DD)",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
@@ -44,14 +44,14 @@
       "examples": [["RPI framework", "methodology", "engineering", "best practices"]]
     }
   },
-  "required": ["title", "description", "author", "date", "keywords"],
+  "required": ["title", "description", "author", "ms.date", "keywords"],
   "additionalProperties": false,
   "examples": [
     {
       "title": "Understanding the RPI Framework",
       "description": "Explore the Research-Plan-Implement methodology that powers hypervelocity engineering",
       "author": "HVE Core Team",
-      "date": "2025-11-16",
+      "ms.date": "2025-11-16",
       "keywords": [
         "RPI framework",
         "methodology",

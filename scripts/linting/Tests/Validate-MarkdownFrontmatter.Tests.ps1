@@ -254,7 +254,7 @@ Describe "Schema System Integration Tests" {
 title: "Chapter 1: Test Chapter"
 description: Test description for validating chapter content schema compliance
 author: Test Author
-date: 2025-11-16
+ms.date: 2025-11-16
 chapter: 1
 part: "I"
 keywords:
