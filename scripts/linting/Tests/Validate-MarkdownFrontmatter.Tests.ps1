@@ -35,9 +35,17 @@ Describe "Schema System Integration Tests" {
             $config.rules.Count | Should -BeGreaterThan 0
         }
         
-        It "Should contain 10 validation rules" {
+        It "Should have validation rules with required properties" {
             $config = Get-ValidationConfig
-            $config.rules.Count | Should -Be 10
+            $config.rules | Should -Not -BeNullOrEmpty
+            $config.rules | Should -HaveCount 10 -Because "Current configuration has 10 rules"
+            
+            # Validate each rule has required structure
+            $config.rules | ForEach-Object {
+                $_.name | Should -Not -BeNullOrEmpty -Because "Rule must have a name"
+                $_.schema | Should -Not -BeNullOrEmpty -Because "Rule must reference a schema"
+                $_.requiredFields | Should -Not -BeNullOrEmpty -Because "Rule must define required fields"
+            }
         }
         
         It "Should contain excludePatterns array" {

@@ -26,10 +26,7 @@
       "minLength": 2
     },
     "ms.date": {
-      "type": "string",
-      "description": "Last modified date in ISO 8601 format (YYYY-MM-DD)",
-      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-      "examples": ["2025-11-16"]
+      "$ref": "../definitions/common-fields.json#/$defs/ms.date"
     },
     "keywords": {
       "type": "array",

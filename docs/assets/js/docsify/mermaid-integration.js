@@ -255,14 +255,33 @@
   function createErrorDisplay(element, error, code) {
     const errorContainer = document.createElement('div');
     errorContainer.className = 'mermaid-error';
-    errorContainer.innerHTML = `
-      <strong>Mermaid Diagram Error:</strong><br>
-      <code>${error.message || 'Unknown error'}</code><br>
-      <details style="margin-top: 10px;">
-        <summary>Debug Information</summary>
-        <pre style="margin: 5px 0; font-size: 12px;">${code}</pre>
-      </details>
-    `;
+
+    // Create error message elements safely
+    const strong = document.createElement('strong');
+    strong.textContent = 'Mermaid Diagram Error:';
+    errorContainer.appendChild(strong);
+    errorContainer.appendChild(document.createElement('br'));
+
+    const codeEl = document.createElement('code');
+    codeEl.textContent = error.message || 'Unknown error';
+    errorContainer.appendChild(codeEl);
+    errorContainer.appendChild(document.createElement('br'));
+
+    // Create debug details safely
+    const details = document.createElement('details');
+    details.style.marginTop = '10px';
+
+    const summary = document.createElement('summary');
+    summary.textContent = 'Debug Information';
+    details.appendChild(summary);
+
+    const pre = document.createElement('pre');
+    pre.style.margin = '5px 0';
+    pre.style.fontSize = '12px';
+    pre.textContent = code;
+    details.appendChild(pre);
+
+    errorContainer.appendChild(details);
 
     try {
       element.parentNode.replaceChild(errorContainer, element);

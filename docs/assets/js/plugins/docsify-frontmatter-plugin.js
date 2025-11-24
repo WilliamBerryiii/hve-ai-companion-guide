@@ -290,7 +290,7 @@
           // Pattern 2: <p>---</p> content <p>---</p>
           /^<p>---<\/p>\s*<p>([\s\S]*?)<\/p>\s*<p>---<\/p>\s*/,
           // Pattern 3: Multiple <p> tags with line breaks
-          /^<p>---<\/p>\s*((?:<p>[\s\S]*?<\/p>\s*)*)<p>---<\/p>\s*/,
+          /^<p>---<\/p>\s*(?:<p>[\s\S]*?<\/p>\s*)<p>---<\/p>\s*/,
           // Pattern 4: Pre-formatted block
           /^<pre><code>---\r?\n([\s\S]*?)\r?\n---<\/code><\/pre>\s*/,
           // Pattern 5: Plain paragraph blocks (most common in Docsify)
