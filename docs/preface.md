@@ -1,3 +1,16 @@
+---
+title: Preface
+description: Introduction to the HVE AI Companion Guide - the journey from concept to production and why AI amplifies what you already have
+author: Bill Berry
+ms.date: 2025-11-23
+keywords:
+  - AI-assisted development
+  - RPI framework
+  - engineering fundamentals
+  - GitHub Copilot
+  - hypervelocity engineering
+---
+
 # Preface
 
 In February 2025, the core Edge-AI development team made a decision that would fundamentally change how we write software: from that point forward, we would write 100% of our code using GitHub Copilot. Not as a writing assistant. Not as a productivity boost. But as my primary development interface.
@@ -34,7 +47,7 @@ The learning curve for my team, arguably pioneers figuring all this out in real-
 
 ## Why Your Career Depends on This
 
-Let me be direct: your career depends on mastering AI-assisted development. This isn't hyperbole. AI-assisted development is here to stay, and the developers who learn to work effectively with these tools will separate themselves from those who don't.
+Let me be direct: your career depends on becoming proficient in AI-assisted development. This isn't hyperbole. AI-assisted development is here to stay, and the developers who learn to work effectively with these tools will separate themselves from those who don't.
 
 The biggest mistake I see is people giving up too early, concluding "AI isn't ready" or "it doesn't work for my domain." What I've learned is that AI works across all project types and domains ... brownfield, greenfield, legacy systems, cutting-edge platforms. The variable isn't whether AI can help. The variable is whether you have the engineering fundamentals in place for AI to amplify.
 
