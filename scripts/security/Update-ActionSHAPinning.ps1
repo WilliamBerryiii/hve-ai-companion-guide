@@ -618,10 +618,10 @@ function Get-SHAForAction {
                     return "$actionPath@$latestSHA"
                 }
                 elseif ($latestSHA -eq $mappedSHA) {
-                    Write-SecurityLog "ActionSHAMap entry up-to-date: $ActionRef" -Level 'Info' | Out-Null
+                    Write-SecurityLog "ActionSHAMap entry up-to-date: $ActionRef" -Level 'Info'
                 }
                 elseif (-not $latestSHA) {
-                    Write-SecurityLog "Failed to fetch latest SHA for $ActionRef mapping - keeping mapped SHA (likely rate limited)" -Level 'Warning' | Out-Null
+                    Write-SecurityLog "Failed to fetch latest SHA for $ActionRef mapping - keeping mapped SHA (likely rate limited)" -Level 'Warning'
                 }
             }
         }
@@ -683,7 +683,7 @@ function Update-WorkflowFile {
                     ChangeType = 'SHA-Pinned'
                 }
                 $actionsPinned++
-                Write-SecurityLog "Pinned: $originalRef -> $pinnedRef" -Level 'Success' | Out-Null
+                Write-SecurityLog "Pinned: $originalRef -> $pinnedRef" -Level 'Success'
             }
             elseif ($pinnedRef -eq $originalRef) {
                 $changes += @{
