@@ -1,4 +1,16 @@
-# Section 1: Chapter Introduction & Setup Philosophy
+---
+title: "Section 1: Chapter Introduction & Setup Philosophy"
+description: Understand the three-layer setup philosophy and how Chapter 2 builds on engineering fundamentals
+author: HVE Core Team
+ms.date: 2025-11-26
+chapter: 2
+part: I
+keywords:
+  - setup-philosophy
+  - hve-core
+  - development-environment
+  - ai-tools
+---
 
 You've assessed your codebase's readiness in Chapter 1. Now it's time to build the toolkit that transforms those engineering fundamentals into systematic, evidence-based workflows.
 
@@ -57,21 +69,21 @@ The **hve-core framework** provides these specialized modes through VS Code exte
 
 ## Installation Overview: Three Layers
 
-**Layer 1: Core Prerequisites**
+### Layer 1: Core Prerequisites
 
 * Visual Studio Code (latest stable)
 * Node.js (LTS version 18.x or 20.x)
 * Git (2.40+)
 * GitHub account with Copilot subscription
 
-**Layer 2: HVE Core Framework**
+### Layer 2: HVE Core Framework
 
 * Clone hve-core repository
 * Install npm dependencies
 * Configure VS Code workspace settings
 * Verify chat modes available
 
-**Layer 3: Optional Enhancements**
+### Layer 3: Optional Enhancements
 
 * MCP server for SDK research (Context7)
 * Additional VS Code extensions (GitLens, REST Client, etc.)

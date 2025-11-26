@@ -1,4 +1,16 @@
-# Section 2: GitHub Copilot Subscription & Installation
+---
+title: "Section 2: GitHub Copilot Subscription & Installation"
+description: Choose the right Copilot subscription tier and install required VS Code extensions
+author: HVE Core Team
+ms.date: 2025-11-26
+chapter: 2
+part: I
+keywords:
+  - github-copilot
+  - subscription-tiers
+  - vscode-extensions
+  - copilot-installation
+---
 
 You're ready to install the AI engine that powers hypervelocity engineering. GitHub Copilot (as of November 2024) provides the foundation for all HVE workflows—from research to planning to implementation. This section guides you through subscription verification, extension installation, and configuration for optimal performance.
 

@@ -1,4 +1,16 @@
-# MCP Server Setup (Optional)
+---
+title: MCP Server Setup (Optional)
+description: Extend GitHub Copilot with Model Context Protocol servers for documentation access and development operations
+author: HVE Core Team
+ms.date: 2025-11-26
+chapter: 2
+part: I
+keywords:
+  - mcp-server
+  - model-context-protocol
+  - documentation-servers
+  - devops-integration
+---
 
 You've verified that all five chat modes work correctly. Your HVE environment is now fully functional for the core workflows covered in this book.
 

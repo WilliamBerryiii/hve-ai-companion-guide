@@ -1,4 +1,16 @@
-# HVE-Core Framework Installation
+---
+title: HVE-Core Framework Installation
+description: Install and configure the hve-core framework for structured AI-assisted engineering workflows
+author: HVE Core Team
+ms.date: 2025-11-26
+chapter: 2
+part: I
+keywords:
+  - hve-core
+  - framework-installation
+  - node-js
+  - workspace-configuration
+---
 
 With Copilot configured, you're ready for the core of HVE: the **hve-core framework**. This framework transforms Copilot from a code completion tool into a structured engineering partner.
 

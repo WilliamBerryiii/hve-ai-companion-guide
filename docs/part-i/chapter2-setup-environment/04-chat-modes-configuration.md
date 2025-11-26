@@ -1,4 +1,18 @@
-# Chat Modes Configuration & Verification
+---
+title: Chat Modes Configuration & Verification
+description: Configure and verify the five GitHub Copilot chat modes for Research, Plan, Implement workflows
+author: HVE Core Team
+ms.date: 2025-11-26
+chapter: 2
+part: I
+keywords:
+  - chat-modes
+  - ask-mode
+  - task-researcher
+  - task-planner
+  - edit-mode
+  - agent-mode
+---
 
 With GitHub Copilot and hve-core installed, it's time to configure the **chat modes** that power the Research → Plan → Implement workflow. This section explains what chat modes are, how to access them, and how to verify they're working correctly.
 
