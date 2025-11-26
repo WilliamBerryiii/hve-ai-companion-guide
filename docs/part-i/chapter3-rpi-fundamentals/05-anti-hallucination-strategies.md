@@ -279,7 +279,7 @@ const pool = new Pool({
 > [!NOTE]
 > **Answers**:
 >
-> **Example 1**: The `skipSuccessfulRequests` option is real in `express-rate-limit` v6.x+, but verify it exists in your installed version by checking the official documentation at [express-rate-limit GitHub](https://github.com/nfriedly/express-rate-limit). Type checking with TypeScript would confirm the option exists. The hallucination risk here is version assumptions—this option didn't exist in earlier versions.
+> **Example 1**: The `skipSuccessfulRequests` option is real in `express-rate-limit` v6.x+, but verify it exists in your installed version by checking the official documentation at [express-rate-limit GitHub](https://github.com/express-rate-limit/express-rate-limit). Type checking with TypeScript would confirm the option exists. The hallucination risk here is version assumptions—this option didn't exist in earlier versions.
 >
 > **Example 2**: The `pg` Pool constructor uses `max` (not `maxConnections`), `idleTimeoutMillis` (not `idleTimeout`), and doesn't have a `retryAttempts` option. Verify by checking the pg documentation at [node-postgres Pool API](https://node-postgres.com/apis/pool) or using TypeScript autocomplete. These are plausible-sounding names that follow patterns from other database libraries but don't match pg's actual API.
 

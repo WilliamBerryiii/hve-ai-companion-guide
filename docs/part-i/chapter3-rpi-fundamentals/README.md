@@ -3,6 +3,8 @@ title: The RPI Method - Research, Plan, Implement
 description: Learn the evidence-based workflow that reduces AI hallucination risk through systematic validation and ensures high-quality development
 author: HVE Core Team
 ms.date: 2025-11-19
+chapter: 3
+part: I
 prerequisites:
   - chapter-2
 keywords:
