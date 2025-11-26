@@ -59,7 +59,7 @@ If you're in either group, this guide will show you how to structure your engine
 
 This work wouldn't exist without Allen Greaves, whose early pioneering of agent-based approaches showed what was possible. Katrien De Graeve, whose vision for Edge-AI created the context for these discoveries. Larry Lieberman, Chris Risner, Leigh Tami, David Ruttka, and Eliise Seling, whose collaboration pushed the boundaries of what we thought achievable. To Dan Massey who gave Edge-AI the room to find life.
 
-Thank you to Machteld Bögels, Emmeline Hoops, and Olha Konstantinova for their dedication to making hve-core accessible. To the entire Edge-AI core team, who lived through the messy early iterations and helped refine these practices under pressure. To Matt Dotson, who told me I should get into this Copilt thing And to my daughters, Mia who showed me how using AI can improve communication skills and Adelyn, who's help review parts of this book.
+Thank you to Machteld Bögels, Emmeline Hoops, and Olha Konstantinova for their dedication to making hve-core accessible. To the entire Edge-AI core team, who lived through the messy early iterations and helped refine these practices under pressure. To Matt Dotson, who told me I should get into this Copilot thing. And to my daughters, Mia who showed me how using AI can improve communication skills and Adelyn, who helped review parts of this book.
 
 ## Your Path Forward
 
