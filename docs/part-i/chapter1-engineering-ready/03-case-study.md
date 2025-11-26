@@ -29,7 +29,7 @@ keywords:
 
 Meet Sarah, a senior engineer at a mid-size SaaS company. She's talented, experienced, and excited about GitHub Copilot. Her team adopted it three months ago, and she's seen impressive code generation—when it works. Today, she's about to discover why "when it works" is the problem.
 
-#### Scenario: MidSize SaaS Company
+## Scenario: MidSize SaaS Company
 
 * **Team**: 8 developers led by Sarah as technical lead
 * **Product**: B2B project management platform (Node.js/React)

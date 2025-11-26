@@ -19,7 +19,7 @@ But here's the truth that makes this worth doing: **honest assessment is the fas
 
 This assessment is for *you*, not for judgment. Whatever you discover about your codebase is valuable information. There's no failing score here: only starting points.
 
-### How the Assessment Works
+## How the Assessment Works
 
 * Rate your codebase on a 5-point scale for each pillar
 * Sum scores across all four pillars (maximum: 20 points)
