@@ -74,3 +74,11 @@ jobs:
       soft-fail: false
       upload-sarif: true
       upload-artifact: false
+
+  codeql-analysis:
+    name: CodeQL Security Analysis
+    uses: ./.github/workflows/codeql-analysis.yml
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
