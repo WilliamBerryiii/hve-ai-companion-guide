@@ -261,7 +261,7 @@ TOTAL:           ____ / 20
 [Copy interpretation from Section 4 for your tier]
 
 **AI Effectiveness Prediction:**
-[XX-XX% time savings expected]
+[Expected AI effectiveness level]
 
 **Recommended Action:**
 [Proceed to Ch 2 / Improve fundamentals first / etc.]
@@ -430,7 +430,7 @@ Take a moment to appreciate what you've accomplished. This kind of honest self-a
 ## Total Score: 13/20 - Adequate (Proceed with Caution)
 
 **Interpretation:**
-Basic fundamentals in place but significant gaps. AI tools can typically deliver 25-45% time savings. Recommended action: Spend 1-2 weeks improving fundamentals before full AI adoption.
+Basic fundamentals in place but significant gaps. AI tools can provide moderate assistance but with notable limitations. Recommended action: Spend 1-2 weeks improving fundamentals before full AI adoption.
 
 ## Priority Improvements
 
