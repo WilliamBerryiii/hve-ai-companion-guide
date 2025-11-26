@@ -15,21 +15,19 @@ keywords:
 
 You've seen the assessment framework. Now it's time to apply it to your own codebase.
 
-In the next 30 minutes, you'll discover exactly where your codebase stands and create a clear path forward. No judgment, no grading—just data that helps you make smart decisions about AI adoption.
+Through this exercise, you'll discover exactly where your codebase stands and create a clear path forward. No judgment, no grading—just data that helps you make smart decisions about AI adoption.
 
 Whatever you discover is valuable information. Ready? Let's find out what you're working with.
 
 ## What You'll Discover
 
-**In the next 30 minutes, you'll:**
+**Through this exercise, you'll:**
 
 * Assess your codebase across all four engineering pillars
 * Calculate your AI-readiness score (1-20 scale)
 * Identify your highest-leverage improvement opportunities
 * Create a realistic 2-week improvement plan
 * Make a confident decision about when to adopt AI assistance
-
-**Time Required:** 20-30 minutes
 
 **What You'll Need:**
 
@@ -38,7 +36,7 @@ Whatever you discover is valuable information. Ready? Let's find out what you're
 * Text editor for documenting findings
 * Openness to honest self-assessment
 
-## Preparation (2 min)
+## Preparation
 
 ### Select Your Codebase
 
@@ -64,13 +62,13 @@ Whatever you discover is valuable information. Ready? Let's find out what you're
 * We provide sample legacy codebase for assessment practice
 * Download from: [github.com/hve-core/assessment-starter](https://github.com/hve-core/assessment-starter)
 
-## Phase 1: Discover Your Baseline (12-15 min)
+## Phase 1: Discover Your Baseline
 
 You're about to take an honest look at your codebase's fundamentals. This takes courage. Most developers avoid this kind of honest assessment. Remember: you're not grading yourself, you're gathering data to make smart improvement decisions.
 
 Whatever you discover is your starting point. No judgment here.
 
-### Step 1: Testing Assessment (3 min)
+### Step 1: Testing Assessment
 
 Let's start with tests. Take a deep breath and look at what's actually there, not what you wish was there.
 
@@ -105,7 +103,7 @@ npm test -- --coverage
 * How this makes me feel: [honest reaction]
 ```
 
-### Step 2: Linting Assessment (3 min)
+### Step 2: Linting Assessment
 
 You're doing great. Now let's look at code consistency. This pillar is often the quickest to improve—many teams go from score 1 to score 4 in under two hours.
 
@@ -144,7 +142,7 @@ cat .github/workflows/*.yml | grep lint
 * What this reveals: [insights about your team's consistency practices]
 ```
 
-### Step 3: Documentation Assessment (3 min)
+### Step 3: Documentation Assessment
 
 You're halfway through the assessment. Whatever you're discovering, you're building clarity about your starting point.
 
@@ -186,7 +184,7 @@ ls -la docs/adr/ docs/decisions/
 * What this reveals about knowledge sharing: [your insights]
 ```
 
-### Step 4: Source Control Assessment (3 min)
+### Step 4: Source Control Assessment
 
 Almost there—one more pillar to assess. You're doing the hard work of honest evaluation, and that takes real courage.
 
@@ -227,7 +225,7 @@ ls -la .github/PULL_REQUEST_TEMPLATE.md
 * What this reveals about team communication: [your insights]
 ```
 
-## Phase 2: See What You've Discovered (2 min)
+## Phase 2: See What You've Discovered
 
 **You did it!** You've completed the assessment. Whatever you discovered about your codebase is valuable information. Now let's see what your scores reveal.
 
@@ -261,13 +259,13 @@ TOTAL:           ____ / 20
 [Copy interpretation from Section 4 for your tier]
 
 **AI Effectiveness Prediction:**
-[XX-XX% time savings expected]
+[Expected AI effectiveness level]
 
 **Recommended Action:**
 [Proceed to Ch 2 / Improve fundamentals first / etc.]
 ```
 
-## Phase 3: Discover Your Opportunities (6-8 min)
+## Phase 3: Discover Your Opportunities
 
 Now comes the exciting part: turning your assessment into an improvement roadmap. Every gap you identified is an opportunity to make AI assistance more effective.
 
@@ -309,10 +307,10 @@ For each pillar scoring <4, identify ONE improvement taking <2 hours:
 
 **Example Quick Wins:**
 
-* **Testing**: Add test framework + 5 tests for critical function (2 hours → +1 score)
-* **Linting**: Install ESLint + Prettier with defaults (1 hour → +2 score)
-* **Documentation**: Write 50-line README with setup + architecture (1.5 hours → +1 score)
-* **Source Control**: Add PR template with checklist (0.5 hours → +1 score)
+* **Testing**: Add test framework + 5 tests for critical function → +1 score
+* **Linting**: Install ESLint + Prettier with defaults → +2 score
+* **Documentation**: Write 50-line README with setup + architecture → +1 score
+* **Source Control**: Add PR template with checklist → +1 score
 
 ### 3. Create Prioritized Action Plan
 
@@ -341,7 +339,7 @@ For each pillar scoring <4, identify ONE improvement taking <2 hours:
 **New tier**: [Current tier] → [Target tier]
 ```
 
-## Phase 4: Document Complete Assessment (2 min)
+## Phase 4: Document Complete Assessment
 
 **Save your assessment as:**
 
@@ -430,7 +428,7 @@ Take a moment to appreciate what you've accomplished. This kind of honest self-a
 ## Total Score: 13/20 - Adequate (Proceed with Caution)
 
 **Interpretation:**
-Basic fundamentals in place but significant gaps. AI tools can typically deliver 25-45% time savings. Recommended action: Spend 1-2 weeks improving fundamentals before full AI adoption.
+Basic fundamentals in place but significant gaps. AI tools can provide moderate assistance but with notable limitations. Recommended action: Spend 1-2 weeks improving fundamentals before full AI adoption.
 
 ## Priority Improvements
 

@@ -317,10 +317,8 @@ The chat feature worked perfectly:
 * Tests validated every component
 * Code followed team patterns automatically
 
-**Total time**: 5 days vs 10+ days (original feature)  
-**AI effectiveness**: 60% time savings (vs. negative productivity originally)
-
-**Sarah's Reflection**: "The fundamentals didn't slow us down. They gave AI what it needed to actually help us move faster—*and* safer."
+**Total time**: Completed within original estimate
+**AI effectiveness**: Highly effective assistance (vs. counterproductive originally)
 
 ## Lessons Learned
 
@@ -335,8 +333,8 @@ You might recognize your own team's journey in some of these discoveries:
    * Good fundamentals → AI suggestions improve code
 
 2. **Upfront investment pays dividends**
-   * 3 weeks fundamentals work → 40% faster feature development
-   * ROI breakeven after ~6 features
+   * 3 weeks fundamentals work → noticeably faster feature development
+   * Investment typically pays for itself within several features
 
 3. **Tests are non-negotiable for AI work**
    * Without tests: No way to validate AI suggestions

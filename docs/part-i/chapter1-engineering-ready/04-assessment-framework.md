@@ -41,12 +41,12 @@ This assessment doesn't measure code quality for humans—it measures **how disc
 
 ### Score Levels and What They Mean
 
-| Score Range | Discoverability Level   | What AI Can Discover                                                        | Productivity Impact              |
+| Score Range | Discoverability Level   | What AI Can Discover                                                        | AI Effectiveness                 |
 |-------------|-------------------------|-----------------------------------------------------------------------------|----------------------------------|
-| **18-20**   | Highly Discoverable     | All behavior specs, all contracts, all context, all patterns                | 60-88% time savings              |
-| **15-17**   | Moderately Discoverable | Most behavior specs, most contracts, key context, consistent patterns       | 45-60% time savings              |
-| **11-14**   | Partially Discoverable  | Some behavior specs, some contracts, limited context, inconsistent patterns | 25-45% time savings              |
-| **6-10**    | Minimally Discoverable  | Few specs, weak contracts, minimal context, unclear patterns                | Minimal or negative productivity |
+| **18-20**   | Highly Discoverable     | All behavior specs, all contracts, all context, all patterns                | Highly effective AI assistance   |
+| **15-17**   | Moderately Discoverable | Most behavior specs, most contracts, key context, consistent patterns       | Effective AI assistance          |
+| **11-14**   | Partially Discoverable  | Some behavior specs, some contracts, limited context, inconsistent patterns | Moderate AI assistance           |
+| **6-10**    | Minimally Discoverable  | Few specs, weak contracts, minimal context, unclear patterns                | Limited AI assistance            |
 | **1-5**     | Not Discoverable        | AI finds almost nothing to work with. AI must guess at everything           | High risk of AI-created problems |
 
 ### Discoverability Progression
@@ -59,11 +59,11 @@ graph LR
     G[Score 6-10<br/>Minimally Discoverable] --> H[AI Discovers<br/>Little]
     I[Score 1-5<br/>Not Discoverable] --> J[AI Discovers<br/>Almost Nothing]
     
-    B --> K[60-88%<br/>Time Savings]
-    D --> L[45-60%<br/>Time Savings]
-    F --> M[25-45%<br/>Time Savings]
-    H --> N[Minimal<br/>Productivity]
-    J --> O[Negative<br/>Productivity]
+    B --> K[Highly Effective<br/>AI Assistance]
+    D --> L[Effective<br/>AI Assistance]
+    F --> M[Moderate<br/>AI Assistance]
+    H --> N[Limited<br/>AI Assistance]
+    J --> O[High Risk of<br/>AI Problems]
     
     style A fill:#90ee90,stroke:#228b22
     style C fill:#b0e57c,stroke:#7cbc66
@@ -160,7 +160,7 @@ If you have no linter or formatter installed, and your code style varies signifi
 * Code style inconsistent across files
 * Style discussions in every PR
 * **AI Risk**: ⚠️⚠️⚠️ Very high - AI mimics inconsistency
-* **Good News**: Linting setup typically takes 1-2 hours and yields immediate AI benefits
+* **Good News**: Linting is one of the fastest pillars to improve and yields immediate AI benefits
 
 ### Score 2 - Tools Installed, Not Enforced
 
@@ -407,14 +407,14 @@ ls -la commitlint.config.js .commitlintrc.*
 ### 15-17 points: ✅ Good - Mostly Ready
 
 * Solid foundation with minor gaps
-* AI tools can typically deliver 45-60% time savings
+* AI tools can deliver effective assistance with consistent results
 * **Action**: Proceed to Chapter 2, but prioritize filling gaps
 * **Focus**: Address 1-2 lowest-scoring pillars in parallel with learning
 
 ### 11-14 points: ⚠️ Adequate - Proceed with Caution
 
 * Basic fundamentals in place but significant gaps
-* AI tools can typically deliver 25-45% time savings
+* AI tools can provide moderate assistance, though results may be inconsistent
 * **Action**: Choose one of:
   1. Proceed to Ch 2 but expect frustration (learn in parallel with improvement)
   2. Spend 1-2 weeks improving fundamentals first (recommended)

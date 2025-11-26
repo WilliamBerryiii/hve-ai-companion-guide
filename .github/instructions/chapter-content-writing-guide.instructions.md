@@ -314,7 +314,9 @@ then carefully refined by our team of discerning human reviewers.*
 **Sentence Style:** Clear, structured, building complexity gradually
 
 > [!IMPORTANT]
-> **Do NOT include time savings, cost savings, productivity metrics, or duration estimates in chapter content.** Focus exclusively on technical depth, learning outcomes, and practical application. Avoid any references to "X minutes", "faster", "efficiency gains", or similar time-oriented language.
+> **Do NOT include time savings, cost savings, productivity metrics, or exercise duration estimates in chapter content.** Focus exclusively on technical depth, learning outcomes, and practical application. Avoid references to "faster", "efficiency gains", or similar productivity-oriented language.
+>
+> **Exception:** Reading time estimates (e.g., "Reading time: 5-7 minutes") are acceptable and encouraged in section introductions and READMEs to help readers plan their learning sessions.
 
 **Example Opening:**
 ```markdown
