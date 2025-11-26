@@ -1,10 +1,12 @@
 ---
-title: Setting Up Your AI Development Environment
+title: "Chapter 2: Setting Up Your AI Development Environment"
 description: Install and configure the hve-core framework, GitHub Copilot, and essential VS Code extensions for hypervelocity engineering
 author: HVE Core Team
 ms.date: 2025-11-18
 chapter: 2
 part: I
+prerequisites:
+  - chapter-1-engineering-ready
 keywords:
   - hve-core
   - github-copilot
@@ -45,7 +47,7 @@ Let's verify you're ready for installation and configuration.
 1. ✅ Have you completed Chapter 1 and understand engineering fundamentals? → [Review Chapter 1](../chapter1-engineering-ready/)
 2. ✅ Do you have administrative rights on your development machine? (Required for software installation)
 3. ✅ Do you have an active GitHub account? (Required for Copilot access) → [Create account](https://github.com/signup)
-4. ✅ Are you comfortable using command line/terminal? → [Review Ch 1, Section 3](../chapter1-engineering-ready/#section-3)
+4. ✅ Are you comfortable using command line/terminal? → [Review Ch 1](../chapter1-engineering-ready/)
 
 If you answered "no" to any question, review the linked chapter or acquire necessary permissions before proceeding.
 
@@ -111,9 +113,9 @@ Choose the path that matches your learning style and experience level.
 
 ---
 
-## Your Journey Through This Chapter
+## Introduction
 
-In the next 35-45 minutes, you'll build a complete AI-assisted development environment. By the end, you'll have:
+Through this chapter, you'll build a complete AI-assisted development environment. By the end, you'll have:
 
 **What you'll accomplish:**
 

@@ -66,7 +66,7 @@ All chat modes are accessed via the **agent picker dropdown** in GitHub Copilot 
 
 ## Verifying Chat Modes Work
 
-### Test 1: Ask Mode (Quick Check) ⏱️ 2 minutes
+### Test 1: Ask Mode (Quick Check)
 
 1. Open Copilot Chat sidebar (`Ctrl+Alt+I` or `Cmd+Alt+I`)
 2. Click the **agent picker dropdown** at the top
@@ -80,7 +80,6 @@ All chat modes are accessed via the **agent picker dropdown** in GitHub Copilot 
 **Expected response:**
 
 * Lists actual directories from your workspace
-* Response takes 5-10 seconds
 * No files created
 
 **Success criteria:**
@@ -91,7 +90,7 @@ All chat modes are accessed via the **agent picker dropdown** in GitHub Copilot 
 
 ---
 
-### Test 2: Task Researcher (Research Document Creation) ⏱️ 5-7 minutes
+### Test 2: Task Researcher (Research Document Creation)
 
 1. Open Copilot Chat sidebar
 2. Click the **agent picker dropdown**
@@ -126,7 +125,7 @@ Research the project structure and identify where configuration files are locate
 
 ---
 
-### Test 3: Task Planner (Plan Document Creation) ⏱️ 5-7 minutes
+### Test 3: Task Planner (Plan Document Creation)
 
 1. Open Copilot Chat sidebar
 2. Click the **agent picker dropdown**
@@ -164,7 +163,7 @@ Create a simple plan for adding a new configuration validation function. Use fin
 
 ---
 
-### Test 4: Edit Mode (File Modification) ⏱️ 3-5 minutes
+### Test 4: Edit Mode (File Modification)
 
 Create a test file: `test-edit.js`
 
@@ -199,7 +198,7 @@ Add JSDoc comment to this function
 
 ---
 
-### Test 5: Agent Switching ⏱️ 5-7 minutes
+### Test 5: Agent Switching
 
 Test that you can switch between agents in same chat session:
 

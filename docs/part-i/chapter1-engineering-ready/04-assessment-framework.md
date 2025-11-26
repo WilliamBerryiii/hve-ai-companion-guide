@@ -160,7 +160,7 @@ If you have no linter or formatter installed, and your code style varies signifi
 * Code style inconsistent across files
 * Style discussions in every PR
 * **AI Risk**: ⚠️⚠️⚠️ Very high - AI mimics inconsistency
-* **Good News**: Linting setup typically takes 1-2 hours and yields immediate AI benefits
+* **Good News**: Linting is one of the fastest pillars to improve and yields immediate AI benefits
 
 ### Score 2 - Tools Installed, Not Enforced
 

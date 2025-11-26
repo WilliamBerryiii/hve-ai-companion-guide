@@ -88,7 +88,7 @@ This is where your journey transforms from hoping AI will help to *knowing* how 
 > * Comprehensive documentation (README, ADRs, inline comments)
 > * Clean Git history with PR reviews
 >
-> You can **skim this chapter** (10 minutes) to confirm your readiness and proceed directly to Chapter 2. Use the assessment in Section 4 as a quick verification checklist.
+> You can **skim this chapter** to confirm your readiness and proceed directly to Chapter 2. Use the assessment in Section 4 as a quick verification checklist.
 
 ---
 

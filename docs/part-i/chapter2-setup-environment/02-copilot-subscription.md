@@ -80,7 +80,7 @@ To install the GitHub Copilot extension, follow these steps:
 2. Open Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X`).
 3. Search: `GitHub Copilot`
 4. Click **Install** on the official "GitHub Copilot" extension (published by GitHub).
-5. Wait for installation to complete (10-20 seconds).
+5. Wait for installation to complete.
 
 ### Step 2: Install GitHub Copilot Chat Extension
 

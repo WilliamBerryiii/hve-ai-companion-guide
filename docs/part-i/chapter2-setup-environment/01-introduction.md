@@ -57,30 +57,28 @@ The **hve-core framework** provides these specialized modes through VS Code exte
 
 ## Installation Overview: Three Layers
 
-**Layer 1: Core Prerequisites** (15-20 min)
+**Layer 1: Core Prerequisites**
 
 * Visual Studio Code (latest stable)
 * Node.js (LTS version 18.x or 20.x)
 * Git (2.40+)
 * GitHub account with Copilot subscription
 
-**Layer 2: HVE Core Framework** (10-15 min)
+**Layer 2: HVE Core Framework**
 
 * Clone hve-core repository
 * Install npm dependencies
 * Configure VS Code workspace settings
 * Verify chat modes available
 
-**Layer 3: Optional Enhancements** (10-15 min)
+**Layer 3: Optional Enhancements**
 
 * MCP server for SDK research (Context7)
 * Additional VS Code extensions (GitLens, REST Client, etc.)
 * Keybinding customizations
 
-**Total setup time: 35-50 minutes** (including verification)
-
 > [!NOTE]
-> **Installation is iterative, not blocking.** You can start using basic HVE workflows after Layer 1+2 (25-35 min), then add Layer 3 enhancements as needed.
+> **Installation is iterative, not blocking.** You can start using basic HVE workflows after completing Layers 1 and 2, then add Layer 3 enhancements as needed.
 
 ## What This Chapter Covers vs. Chapter 1
 

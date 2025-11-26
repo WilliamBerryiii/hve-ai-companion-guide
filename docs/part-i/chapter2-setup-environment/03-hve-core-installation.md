@@ -238,7 +238,7 @@ Open `.vscode/settings.json`:
 
 * `useProjectFiles: true` - Allows Copilot to read your codebase (essential for research)
 * `.copilot-tracking` - Directory where research/planning documents are stored
-* `chatModes` - Templates for specialized modes (Task Researcher, etc.)
+* `chat.modeFilesLocations` - Location of chat mode template files (Task Researcher, etc.)
 
 ### Step 4: Create tracking directories
 
