@@ -173,9 +173,6 @@ If you have no linter or formatter installed, and your code style varies signifi
 > [!NOTE]
 > Time savings percentages represent observed ranges across various projects and should be considered estimates. Actual results vary based on codebase complexity, team experience, and feature types.
 
-> [!NOTE]
-> Time savings percentages represent observed ranges across various projects and should be considered estimates. Actual results vary based on codebase complexity, team experience, and feature types.
-
 ### Score 3 - Manual Enforcement
 
 * Tools installed and configured

@@ -18,10 +18,14 @@ keywords:
 >
 > If you're ready to assess your own codebase, skip ahead to [The Assessment Framework](04-assessment-framework.md). This scenario shows the concepts in action but isn't required for the hands-on exercise.
 
+<!-- markdownlint-disable MD028 -->
+
 > [!NOTE]
 > **Teaching Scenario**
 >
 > This scenario is a composite teaching example, not a documented case study. The character, company, and timeline are fictional but illustrate patterns commonly observed in AI adoption without engineering fundamentals. Names, details, and specific circumstances are designed for instructional clarity.
+
+<!-- markdownlint-enable MD028 -->
 
 Meet Sarah, a senior engineer at a mid-size SaaS company. She's talented, experienced, and excited about GitHub Copilot. Her team adopted it three months ago, and she's seen impressive code generation—when it works. Today, she's about to discover why "when it works" is the problem.
 
