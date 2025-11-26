@@ -14,14 +14,14 @@ keywords:
 
 ## The AI Effectiveness Paradox
 
-You've heard the promises: AI pair programmers can deliver 60-88% time savings for software development tasks. GitHub Copilot, ChatGPT, and other AI assistants are transforming how code gets written. Your organization is eager to adopt these tools.
+You've heard the promises: AI pair programmers can dramatically accelerate software development. GitHub Copilot, ChatGPT, and other AI assistants are transforming how code gets written. Your organization is eager to adopt these tools.
 
 But here's a pattern commonly observed in AI adoption across development teams: **AI works best where it's least needed.** This isn't meant to discourage you ... quite the opposite. Understanding this pattern is the first step toward making AI work brilliantly for *your* team.
 
 **The Paradox:**
 
-* ✅ **Well-structured codebase**: Comprehensive tests, clear documentation, consistent style → AI delivers significant time savings
-* ⚠️ **Average codebase**: Partial tests, inconsistent patterns, minimal docs → AI delivers moderate time savings
+* ✅ **Well-structured codebase**: Comprehensive tests, clear documentation, consistent style → highly effective AI assistance
+* ⚠️ **Average codebase**: Partial tests, inconsistent patterns, minimal docs → moderate AI assistance
 * ❌ **Under-developed codebase**: No tests, no docs, inconsistent everything → AI creates more problems than it solves
 
 You might recognize your own codebase somewhere in this spectrum. That's perfectly normal as most codebases fall in the middle range. The good news? This isn't a flaw in AI, it's a feature you can leverage.
