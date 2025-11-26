@@ -1,6 +1,6 @@
 ---
 title: HVE AI Companion Guide
-description: Master the Research → Plan → Implement (RPI) framework for AI-assisted development with hve-core and GitHub Copilot
+description: The Research → Plan → Implement (RPI) framework for AI-assisted development with HVE Core and GitHub Copilot
 author: HVE Core Team
 ms.date: 2025-11-15
 keywords:
@@ -11,15 +11,13 @@ keywords:
   - engineering fundamentals
 ---
 
-> Master the Research → Plan → Implement (RPI) framework for AI-assisted development with hve-core and GitHub Copilot.
-
 ## 🎯 What You'll Learn
 
 Transform your development workflow with systematic AI assistance:
 
 * **60-88% time reduction**[^1] across engineering workflows
 * **Evidence-based development** preventing AI hallucinations
-* **Chat mode mastery** for Discovery, Research, Planning, and Implementation
+* **Chat mode proficiency** for Discovery, Research, Planning, and Implementation
 * **Role-specific applications** for Engineers, TPMs, BPMs, and Leaders
 
 ## 🚀 Quick Start
@@ -53,15 +51,15 @@ graph LR
 
 ## 🤖 GitHub Copilot Chat Modes
 
-Master the right mode for each RPI phase:
+Learn the right mode for each RPI phase:
 
-| Mode | Best For | Time Savings | Learn More |
-|------|----------|--------------|------------|
-| **Ask Mode** | Quick discovery, landscape reconnaissance | 5-10 min sessions | [Ask Mode Guide](part-ii/chapter5-ask-mode/) |
-| **Task Researcher** | Deep research, evidence gathering | 60-70% reduction | [Task Researcher Guide](part-ii/chapter6-task-researcher/) |
-| **Task Planner** | Implementation planning | 60-70% reduction | [Task Planner Guide](part-ii/chapter7-task-planner/) |
-| **Edit Mode** | Controlled refactoring | 75-88% reduction | [Edit Mode Guide](part-ii/chapter8-edit-mode/) |
-| **Agent Mode** | Autonomous execution | 60-88% reduction[^1] | [Agent Mode Guide](part-ii/chapter9-agent-mode/) |
+| Mode                | Best For                                  | Time Savings         | Learn More                                                 |
+|---------------------|-------------------------------------------|----------------------|------------------------------------------------------------|
+| **Ask Mode**        | Quick discovery, landscape reconnaissance | 5-10 min sessions    | [Ask Mode Guide](part-ii/chapter5-ask-mode/)               |
+| **Task Researcher** | Deep research, evidence gathering         | 60-70% reduction     | [Task Researcher Guide](part-ii/chapter6-task-researcher/) |
+| **Task Planner**    | Implementation planning                   | 60-70% reduction     | [Task Planner Guide](part-ii/chapter7-task-planner/)       |
+| **Edit Mode**       | Controlled refactoring                    | 75-88% reduction     | [Edit Mode Guide](part-ii/chapter8-edit-mode/)             |
+| **Agent Mode**      | Autonomous execution                      | 60-88% reduction[^1] | [Agent Mode Guide](part-ii/chapter9-agent-mode/)           |
 
 **[Chat Modes Deep Dive →](part-ii/)**
 
@@ -76,22 +74,57 @@ Real-world applications with documented time savings:
 
 **[All Workflows →](part-ii/chapter11-advanced-workflows/)**
 
-## 👔 Choose Your Path
+## 🎓 Learning Path
 
-Jump to role-specific guides:
+This guide is structured as a progressive learning journey:
 
-* **[Development Teams](part-iv/chapter15-dev-team-roles/)** - Scaling HVE workflows across TPM, DevOps, and Software Engineer roles
-* **[Technical Program Managers](part-iv/chapter16-program-managers/)** - Briefings, audits, technical depth
-* **[Business Program Managers](part-iv/chapter16-program-managers/)** - Customer briefings, M365 Copilot
-* **[Engineering Leaders](part-iv/chapter17-organizational-scaling/)** - Automated reporting, team scaling
+### Part I: Engineering Foundations (Chapters 1-4)
+
+Essential prerequisites and your first RPI workflow
+
+* [Chapter 1: Are You Engineering-Ready?](part-i/chapter1-engineering-ready/)
+* [Chapter 2: Setting Up Your Environment](part-i/chapter2-setup-environment/)
+* [Chapter 3: The RPI Method](part-i/chapter3-rpi-fundamentals/)
+* [Chapter 4: Your First Complete Workflow](part-i/chapter4-first-workflow/)
+
+### Part II: Deep Dive into Practice (Chapters 5-11)
+
+Learn each GitHub Copilot chat mode and advanced workflow patterns
+
+* [Chapter 5: Discovery and Research Modes](part-ii/chapter5-discovery-research-modes/)
+* [Chapter 6: Planning and Architecture Modes](part-ii/chapter6-planning-architecture-modes/)
+* [Chapter 7: Implementation Modes](part-ii/chapter7-implementation-modes/)
+* [Chapter 8: Advanced Workflows](part-ii/chapter8-advanced-workflows/)
+* [Chapter 9: Prompt Engineering and Chat Mode Development](part-ii/chapter9-agent-mode/)
+* [Chapter 10: AI Build Systems for Uniformity](part-ii/chapter10-adr-creator/)
+* [Chapter 11: Advanced Debugging and Troubleshooting](part-ii/chapter11-advanced-workflows/)
+
+### Part III: Advanced Prompting Patterns (Chapters 12-16)
+
+Custom agents, workflow orchestration, and meta-prompting
+
+* [Chapter 12: Prompt Files and Instructions Basics](part-iii/chapter12-prompt-files-basics/)
+* [Chapter 13: Advanced Instruction Patterns](part-iii/chapter13-instruction-patterns/)
+* [Chapter 14: Custom Agents and Workflow Orchestration](part-iii/chapter14-custom-agents/)
+* [Chapter 15: Meta-Prompting and Self-Improving Systems](part-iii/chapter15-meta-prompting/)
+* [Chapter 16: Advanced Architecture and Integration](part-iii/chapter16-advanced-architecture/)
+
+### Part IV: Organizational Scaling (Chapters 15-17)
+
+Apply HVE patterns across roles and scale to enterprise teams
+
+* [Chapter 15: For Development Teams](part-iv/chapter15-dev-team-roles/)
+* [Chapter 16: For Program Managers](part-iv/chapter16-program-managers/)
+* [Chapter 17: For Leaders and Scaling Organizations](part-iv/chapter17-organizational-scaling/)
 
 ## 📖 About This Guide
 
-This guide builds on the **#SeasonOfHVE** blog series, bringing together 17 posts into a structured learning resource. Content covers:
+This guide builds on the **#SeasonOfHVE** blog series, bringing together content into a structured learning resource. Content covers:
 
 * Engineering fundamentals as AI prerequisite
 * RPI framework and variations (D-RPI, 1→3→All, Agent+Ask)
 * Chat mode deep dives with evidence-based examples
+* Advanced prompting patterns with custom agents and meta-prompting
 * Real-world workflows with time reduction metrics
 * Role-specific applications across engineering roles
 
