@@ -53,7 +53,7 @@ Each transformation step reduces ambiguity and increases specificity. You can't 
 
 **Output**: Research documents with evidence, sources, and examples
 
-**Chat Mode**: Use Copilot Chat for quick exploration (often 5-10 min for exploratory questions), or Task Researcher (hve-core) mode for comprehensive investigation (often 20-60 min depending on complexity)
+**Chat Mode**: Use Copilot Chat for quick exploration, or Task Researcher (hve-core) mode for comprehensive investigation
 
 **What happens in research:**
 

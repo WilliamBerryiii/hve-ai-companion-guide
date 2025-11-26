@@ -39,7 +39,7 @@ You've learned the Research → Plan → Implement methodology that transforms u
 
 ## Standard exercise: Your first RPI workflow
 
-Apply the complete RPI method to a practical refactoring task. This exercise typically takes 20-30 minutes and demonstrates the full workflow.
+Apply the complete RPI method to a practical refactoring task. This exercise demonstrates the full workflow.
 
 ### Exercise overview
 
@@ -61,7 +61,7 @@ async function updateUserProfile(userId, updates) {
 
 This exercise uses native Copilot features (Chat, Edits) and custom hve-core modes (Task Researcher, Task Planner). Access custom modes via the agent picker dropdown—see [Section 1](./01-introduction.md) for setup details.
 
-### Phase 1: Research (roughly 8-10 minutes)
+### Phase 1: Research
 
 Follow these steps to gather evidence about refactoring approaches:
 
@@ -74,7 +74,7 @@ Follow these steps to gather evidence about refactoring approaches:
 7. Review the document at `.copilot-tracking/research/YYYYMMDD-refactoring-patterns-research.md`
 8. Verify the document includes at least three refactoring patterns with sources
 
-### Phase 2: Plan (roughly 6-8 minutes)
+### Phase 2: Plan
 
 Create a structured implementation strategy based on research:
 
@@ -87,7 +87,7 @@ Create a structured implementation strategy based on research:
 4. Review the implementation plan and verify steps are clear and sequenced correctly
 5. Confirm each step references research findings
 
-### Phase 3: Implement (roughly 6-10 minutes)
+### Phase 3: Implement
 
 Execute the plan step-by-step with validation:
 
@@ -132,7 +132,6 @@ Use these criteria to verify successful completion of each phase.
 
 * You can trace implementation code back to specific plan steps
 * You can trace plan steps back to research findings with sources
-* Typical time: 20-30 minutes from start to completion
 * You feel confident the refactoring follows best practices grounded in research
 
 ### Example output

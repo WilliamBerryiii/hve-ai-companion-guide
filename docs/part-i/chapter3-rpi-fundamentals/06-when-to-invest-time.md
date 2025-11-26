@@ -177,9 +177,9 @@ If you answered yes to any question, continue research with targeted investigati
 
 Set a maximum research duration based on task size, but allow extension if critical gaps remain:
 
-* **Small tasks (1-2 hours total)**: suggested 15-30 minutes research
-* **Medium tasks (half-day to full day)**: suggested 30-60 minutes research
-* **Large tasks (multi-day)**: suggested 60-120 minutes research
+* **Small tasks (1-2 hours total)**: brief research sufficient for familiar patterns
+* **Medium tasks (half-day to full day)**: moderate research covering key unknowns
+* **Large tasks (multi-day)**: comprehensive research exploring alternatives and trade-offs
 
 If you hit the time limit but critical gaps remain, extend by one time-box increment and narrow your research scope to specific unanswered questions.
 
