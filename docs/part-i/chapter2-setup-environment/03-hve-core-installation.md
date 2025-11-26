@@ -88,13 +88,13 @@ cd ~/dev/tools
 
 ### Step 2: Clone hve-core repository
 
+> [!NOTE]
+> **Repository location**: The URL below is illustrative. Check the official HVE documentation for the canonical repository URL.
+
 ```bash
 git clone https://github.com/WilliamBerryiii/hve-core.git
 cd hve-core
 ```
-
-> [!NOTE]
-> **Repository location**: The URL above is illustrative. Check the official HVE documentation for the canonical repository URL.
 
 ### Step 3: Verify clone succeeded
 
@@ -142,7 +142,7 @@ This command checks:
 
 * ✅ All required dependencies installed
 * ✅ VS Code workspace configuration valid
-* ✅ Template files present and parseable
+* ✅ Template files present and parsable
 * ✅ Chat mode definitions loadable
 
 **Expected output:**

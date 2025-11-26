@@ -68,7 +68,7 @@ You have a fully configured HVE development environment:
 
 ---
 
-**Previous:** [MCP Server Setup (Optional)](./05-mcp-server-setup.md) | **Next:** [Chapter 3: RPI Framework Fundamentals](../../part-i/chapter3-rpi-fundamentals/README.md)
+**Previous:** [MCP Server Setup (Optional)](./05-mcp-server-setup.md) | **Next:** [Chapter 3: RPI Framework Fundamentals](../chapter3-rpi-fundamentals/README.md)
 
 <!-- markdownlint-disable MD036 -->
 *🤖 Crafted with precision by ✨Copilot following brilliant human instruction,
