@@ -1,5 +1,5 @@
 ---
-title: Scenario - Cost of Skipping Engineering Fundamentals
+title: Teaching Scenario - Cost of Skipping Engineering Fundamentals
 description: Explore a teaching scenario illustrating how weak engineering fundamentals blocked AI effectiveness and the transformation after improvement
 author: HVE Core Team
 ms.date: 2025-11-18

@@ -62,7 +62,7 @@ Whatever you discover is valuable information. Ready? Let's find out what you're
 #### Option 4: Starter Project (If no codebase available)
 
 * We provide sample legacy codebase for assessment practice
-* Download from: [github.com/hve-core/assessment-starter]
+* Download from: [github.com/hve-core/assessment-starter](https://github.com/hve-core/assessment-starter)
 
 ## Phase 1: Discover Your Baseline (12-15 min)
 
@@ -83,7 +83,7 @@ ls -la test/ tests/ __tests__/ spec/
 **Run test coverage (if tests exist):**
 
 ```bash
-# Use language-specific command from Section 4
+# Use language-specific command from the Assessment Framework
 # Example for JavaScript:
 npm test -- --coverage
 ```
@@ -242,7 +242,7 @@ Source Control:  ____ / 5
 TOTAL:           ____ / 20
 ```
 
-**Determine your readiness tier:**
+**Determine your readiness tier** (see [Assessment Framework](04-assessment-framework.md#interpreting-your-score) for full details):
 
 * 18-20: Excellent - AI-Ready
 * 15-17: Good - Mostly Ready
@@ -533,7 +533,7 @@ pip install pytest pytest-cov
 
 * Don't debate opinions ("I think our tests are good")
 * Look at objective metrics (coverage percentage, violation counts)
-* Use the documented criteria in Section 4 as tiebreaker
+* Use the documented criteria in the [Assessment Framework](04-assessment-framework.md) as tiebreaker
 
 **Process:**
 

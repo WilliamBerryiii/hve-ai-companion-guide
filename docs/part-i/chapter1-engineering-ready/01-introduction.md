@@ -20,8 +20,8 @@ But here's a pattern commonly observed in AI adoption across development teams: 
 
 **The Paradox:**
 
-* ✅ **Well-structured codebase**: Comprehensive tests, clear documentation, consistent style → AI delivers 70%+ time savings
-* ⚠️ **Average codebase**: Partial tests, inconsistent patterns, minimal docs → AI delivers 30-40% time savings
+* ✅ **Well-structured codebase**: Comprehensive tests, clear documentation, consistent style → AI delivers significant time savings
+* ⚠️ **Average codebase**: Partial tests, inconsistent patterns, minimal docs → AI delivers moderate time savings
 * ❌ **Under-developed codebase**: No tests, no docs, inconsistent everything → AI creates more problems than it solves
 
 You might recognize your own codebase somewhere in this spectrum. That's perfectly normal as most codebases fall in the middle range. The good news? This isn't a flaw in AI, it's a feature you can leverage.
