@@ -95,7 +95,7 @@ Use the standardized 5-point scoring system to assess your codebase across all f
 
 ### [5. Exercise: Audit Your Codebase](05-exercise.md)
 
-Complete a hands-on 20-30 minute audit of your codebase using the assessment framework. Create a prioritized action plan (using AI) to recommended next steps.
+Complete a hands-on audit of your codebase using the assessment framework. Create a prioritized action plan with AI-recommended next steps.
 
 Choose the path that matches your learning style and experience level.
 
