@@ -23,7 +23,7 @@ I started documenting our approach through what became the #SeasonOfHVE blog ser
 
 Here's the uncomfortable truth we learned: AI doesn't make bad engineers good or good engineers great automatically. AI amplifies what you already have. If your codebase is chaos, AI will help you create chaos faster. If your fundamentals are weak, AI will compound your weaknesses at scale.
 
-But if you have solid engineering fundamentals ... comprehensive tests, clear architectural decisions, organized code structure, a clean git history, than AI becomes a force multiplier that's hard to overstate. The discoverability principle is everything: AI can only help you build on what it can find and understand.
+But if you have solid engineering fundamentals ... comprehensive tests, clear architectural decisions, organized code structure, a clean git history, then AI becomes a force multiplier that's hard to overstate. The discoverability principle is everything: AI can only help you build on what it can find and understand.
 
 This realization shifted our entire approach. The question wasn't "How do I prompt better?" It was "How do I structure my work so AI can amplify my default engineering practices instead of my worst habits?"
 
@@ -59,7 +59,7 @@ If you're in either group, this guide will show you how to structure your engine
 
 This work wouldn't exist without Allen Greaves, whose early pioneering of agent-based approaches showed what was possible. Katrien De Graeve, whose vision for Edge-AI created the context for these discoveries. Larry Lieberman, Chris Risner, Leigh Tami, David Ruttka, and Eliise Seling, whose collaboration pushed the boundaries of what we thought achievable. To Dan Massey who gave Edge-AI the room to find life.
 
-Thank you to Machteld Bögels, Emmeline Hoops, and Olha Konstantinova for their dedication to making hve-core accessible. To the entire Edge-AI core team, who lived through the messy early iterations and helped refine these practices under pressure. To Matt Dotson, who told me I should get into this Copilt thing And to my daughters, Mia who showed me how using AI can improve communication skills and Adelyn, who's help review parts of this book.
+Thank you to Machteld Bögels, Emmeline Hoops, and Olha Konstantinova for their dedication to making hve-core accessible. To the entire Edge-AI core team, who lived through the messy early iterations and helped refine these practices under pressure. To Matt Dotson, who told me I should get into this Copilot thing. And to my daughters, Mia who showed me how using AI can improve communication skills and Adelyn, who helped review parts of this book.
 
 ## Your Path Forward
 

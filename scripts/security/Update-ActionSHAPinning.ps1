@@ -614,7 +614,7 @@ function Get-SHAForAction {
                 $latestSHA = Get-LatestCommitSHA -Owner $owner -Repo $repo
 
                 if ($latestSHA -and $latestSHA -ne $mappedSHA) {
-                    Write-SecurityLog "Update available for mapping: $ActionRef ($($mappedSHA.Substring(0,8))... -> $($latestSHA.Substring(0,8))...)" -Level 'Success' | Out-Null
+                    Write-SecurityLog "Update available for mapping: $ActionRef ($($mappedSHA.Substring(0,8))... -> $($latestSHA.Substring(0,8))...)" -Level 'Success'
                     return "$actionPath@$latestSHA"
                 }
                 elseif ($latestSHA -eq $mappedSHA) {

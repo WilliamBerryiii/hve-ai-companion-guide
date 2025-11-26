@@ -425,12 +425,6 @@ Use heading style that distinguishes between procedural and conceptual content.
 
 ❌ Not recommended: `## Configure Chat Mode Settings`
 
-**When to use H1 headings:**
-
-* **Files with frontmatter `title:` field:** Do NOT include H1 heading in document body. Start with H2 headings after frontmatter.
-* **Files without `title:` in frontmatter:** Begin document with H1 heading that acts as page title.
-* **Rationale:** Including both frontmatter title and H1 heading causes MD025 violation (multiple top-level headings).
-
 **Task-based headings:** Start with bare infinitive verb (base form, no "to").
 
 | Recommended            | Not Recommended           |
@@ -451,7 +445,8 @@ Use heading style that distinguishes between procedural and conceptual content.
 
 **Structural rules:**
 
-* **No level skipping:** H2 → H3 → H4, never H2 → H4
+* **One H1 per page:** Acts as page title
+* **No level skipping:** H1 → H2 → H3, never H1 → H3
 * **Heading hierarchy:** Use to structure content, not for font size
 
 **Code in headings:**
@@ -482,15 +477,11 @@ keywords:
   - hve-core
   - engineering fundamentals
 ---
-
-## Getting Started
-
-Content begins with H2 heading after frontmatter when title field is present...
 ```
 
 **Required fields:**
 
-* **title:** Page title (when present, do NOT include H1 heading in document body)
+* **title:** Page title
 * **description:** Brief summary of page content and purpose
 * **author:** Content author or team name
 * **ms.date:** Last update date in YYYY-MM-DD format

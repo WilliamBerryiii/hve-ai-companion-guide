@@ -266,7 +266,7 @@ function Get-ContentTypeRule {
     $relativePath = $normalizedPath -replace [regex]::Escape($repoRoot), ''
     $relativePath = $relativePath.TrimStart('/')
     
-    Write-Verbose "Matching file: $relativePath"
+    Write-Verbose "Checking file: $relativePath"
     
     # Match against rules in order (first match wins)
     foreach ($rule in $Config.rules) {
