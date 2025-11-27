@@ -86,7 +86,7 @@ If you're in either group, this guide will show you how to structure your engine
 
 ## Acknowledgments
 
-This work wouldn't exist without Allen Greaves, whose early pioneering of agent-based approaches showed what was possible. Katrien De Graeve, whose vision for Edge-AI created the context for these discoveries. Larry Lieberman, Chris Risner, Leigh Tami, David Ruttka, and Eliise Seling, whose collaboration pushed the boundaries of what we thought achievable. To Dan Massey who gave Edge-AI & HVE Core the room to take a first breaths and time to find footing.
+This work wouldn't exist without Allen Greaves, whose early pioneering of agent-based approaches showed what was possible. Katrien De Graeve, whose vision for Edge-AI created the context for these discoveries. Larry Lieberman, Chris Risner, Leigh Tami, David Ruttka, and Eliise Seling, whose collaboration pushed the boundaries of what we thought achievable. To Dan Massey who gave Edge-AI & HVE Core the room to take a first breath and time to find footing.
 
 Thank you to Machteld Bögels, Emmeline Hoops, and Olha Konstantinova for their dedication to making hve-core developer friendly with your feedback. To the entire Edge-AI core team, who lived through the messy early iterations and helped refine these practices under pressure. To Matt Dotson, who told me "You should get into this Copilot thing."
 
