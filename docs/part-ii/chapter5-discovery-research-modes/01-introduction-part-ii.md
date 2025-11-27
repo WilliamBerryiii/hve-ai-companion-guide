@@ -12,7 +12,7 @@ keywords:
   - chapter-4-progression
 ---
 
-Chapter 4 introduced structured Ask Mode discovery—the four-step workflow, codebase queries with `@workspace`, and the Extract → Verify → Learn pattern for validating AI responses. You learned to ask effective questions and verify claims against your codebase.
+Chapter 4 introduced structured Ask Mode discovery—the four-step workflow and codebase queries with `@workspace`. You learned to ask effective questions and verify claims against your codebase.
 
 This chapter advances from foundation to mastery. You'll learn advanced question patterns, systematic escalation criteria, and context pre-seeding strategies that make subsequent research dramatically more effective. The goal: transform ad-hoc discovery into a repeatable discipline you can apply to any unfamiliar codebase.
 
@@ -60,12 +60,12 @@ The pattern: Ask Mode builds understanding you keep in your head. Task Researche
 
 This chapter follows a progressive learning structure:
 
-1. **When to Use Ask Mode** - Decision framework and escalation criteria
-2. **Effective Question Formulation** - 5 question patterns with before/after examples
-3. **Recognizing Incomplete Answers** - Red flags and verification strategies
-4. **Extract → Verify → Learn** - Three-step pattern for validating AI responses
-5. **The 5-10 Minute Discovery Workflow** - Step-by-step process with practice exercises
-6. **Chapter Summary** - Key takeaways and preview of Chapter 6
+1. **When to Use Ask Mode** (Section 2) - Decision framework and escalation criteria
+2. **Effective Question Formulation** (Section 3) - 5 question patterns with before/after examples
+3. **Recognizing Incomplete Answers** (Section 4) - Red flags and verification strategies
+4. **Extract → Verify → Learn** (Section 5) - Three-step pattern for validating AI responses
+5. **The 5-10 Minute Discovery Workflow** (Section 6) - Step-by-step process with practice exercises
+6. **Chapter Summary** (Section 7) - Key takeaways and preview of Chapter 6
 
 Each section builds on prior concepts. Read sequentially on first pass; you can jump to specific sections for reference later.
 

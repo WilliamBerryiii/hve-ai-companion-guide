@@ -158,7 +158,7 @@ Copilot: Result<T, E> is newer pattern, but adoption is incomplete.
 
 When you keep the same chat thread from Ask Mode through Task Researcher, discoveries carry forward. This **context pre-seeding** technique dramatically accelerates subsequent research—files loaded during discovery remain available, patterns identified inform deeper analysis.
 
-Section 5 covers this technique in depth with the full workflow. For now, remember: don't close your Ask Mode chat when escalating to Task Researcher. Same thread = warm context.
+Section 6 covers this technique in depth with the full workflow. For now, remember: don't close your Ask Mode chat when escalating to Task Researcher. Same thread = warm context.
 
 ---
 
