@@ -31,7 +31,7 @@ Research → [Verify → Iterate → Reflect] → Plan → [Verify → Iterate �
 **This isn't a final step—it's a continuous cycle:**
 
 | Phase | Verify | Iterate | Reflect |
-|-------|--------|---------|---------|
+| ----- | ------ | ------- | ------- |
 | **Research** | Check claims against sources, gather supporting links | Fill knowledge gaps with learning path | What did I learn? What's still unknown? |
 | **Planning** | Verify plan covers all research findings | Adjust plan based on gaps discovered | Is this plan actionable? What's missing? |
 | **Implementation** | Run tests, validate against plan | Fix bugs, handle edge cases | What patterns emerged? What would I do differently? |
