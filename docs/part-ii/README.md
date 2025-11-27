@@ -2,7 +2,7 @@
 title: "Part II: Deep Dive into Practice"
 description: Learn all chat modes, RPI variations, and advanced workflows to achieve proficiency in AI-assisted development
 author: HVE Core Team
-ms.date: 2025-11-18
+ms.date: 2025-11-27
 keywords:
   - chat-modes
   - rpi-variations
@@ -56,19 +56,35 @@ Learn to conduct systematic evidence-based research with Task Researcher mode. M
 
 ### Chapter 7: Task Planner Mode - Strategic Planning
 
-TBD
+**Time:** 55-60 minutes | **Level:** Moderate
+
+Learn to transform research documents into structured implementation plans using Task Planner mode. Master the research-to-plan handoff workflow, apply dependency analysis to identify prerequisite work and implementation order, and create plan documents that serve as contracts between planning and implementation phases. Recognize when a plan is implementation-ready and when it needs refinement.
+
+[Start Chapter 7](./chapter7-implementation-modes/README.md)
 
 ### Chapter 8: Edit Mode - Precision Implementation
 
-TBD
+**Time:** 60 minutes | **Level:** Moderate
+
+Master the execution phase with three implementation modes: Edit Mode for precise file modifications, Insert Mode for creating new files and scaffolding, and Inline Copilot for rapid line-level coding. Apply test-driven implementation workflows, learn the mode selection framework for choosing the optimal approach, and verify each implementation step using plan-defined criteria.
+
+[Start Chapter 8](./chapter8-implementation-modes/README.md)
 
 ### Chapter 9: Agent Mode - Autonomous Execution
 
-TBD
+**Time:** 50-60 minutes | **Level:** Moderate-Advanced
+
+Master Agent Mode for autonomous multi-step implementation with strategic supervision. Learn the Agent+Ask pattern for maintaining control while leveraging faster automation, monitor Agent execution effectively, and decide when to use Agent Mode versus Edit or Insert based on task complexity and risk. Combine Agent Mode with other modes in hybrid workflows.
+
+[Start Chapter 9](./chapter9-agent-mode/README.md)
 
 ### Chapter 10: ADR Creator Mode - Documenting Decisions
 
-TBD
+**Time:** 50 minutes | **Level:** Moderate
+
+Learn ADR Creator mode for capturing architecture decisions in standardized MADR format with AI assistance. Understand why architecture decision records matter for long-term maintainability, capture decision context and rationale effectively, and integrate ADR creation into your RPI workflow. Build a searchable library of architecture decisions for team knowledge sharing.
+
+[Start Chapter 10](./chapter10-adr-creator/README.md)
 
 ### Chapter 11: Advanced Workflows and Complex Scenarios
 
