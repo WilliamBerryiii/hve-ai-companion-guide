@@ -178,14 +178,26 @@ async function sendProfileCompleteEmail(user) {
 **2. Review Copilot's suggestion** (example):
 
 ```javascript
+// Escape user input to prevent XSS in HTML emails
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, (m) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[m]);
+}
+
 async function sendProfileCompleteEmail(user) {
   if (!user.name || !user.email) {
     throw new Error('User missing required fields for email');
   }
 
-  const subject = `Welcome, ${user.name}! Your profile is complete`;
+  const safeName = escapeHtml(user.name);
+  const subject = `Welcome, ${safeName}! Your profile is complete`;
   const htmlBody = `
-    <h1>Welcome to Our Platform, ${user.name}!</h1>
+    <h1>Welcome to Our Platform, ${safeName}!</h1>
     <p>Your profile is now complete. You can now:</p>
     <ul>
       <li>Connect with other users</li>
@@ -203,7 +215,7 @@ async function sendProfileCompleteEmail(user) {
   });
 }
 
-module.exports = { sendProfileCompleteEmail };
+module.exports = { escapeHtml, sendProfileCompleteEmail };
 ```
 
 **3. Validate against plan:**
