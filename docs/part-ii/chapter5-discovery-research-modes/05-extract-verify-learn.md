@@ -1,8 +1,10 @@
 ---
 title: 'Extract → Verify → Learn: The Discovery Quality Pattern'
 description: 'Master the three-step pattern that transforms AI responses from raw output into verified, actionable knowledge you can trust and build upon.'
-lastUpdated: '2025-11-26'
-author: 'HVE Guide Team'
+author: HVE Core Team
+ms.date: 2025-11-26
+chapter: 5
+part: "II"
 ---
 
 Discovery mode produces answers—but answers aren't knowledge until you've validated them. This section introduces the pattern that transforms AI responses from "something I read" into "something I know."

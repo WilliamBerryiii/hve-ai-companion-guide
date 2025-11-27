@@ -63,12 +63,13 @@ This chapter follows a progressive learning structure:
 1. **When to Use Ask Mode** - Decision framework and escalation criteria
 2. **Effective Question Formulation** - 5 question patterns with before/after examples
 3. **Recognizing Incomplete Answers** - Red flags and verification strategies
-4. **The 5-10 Minute Discovery Workflow** - Step-by-step process with practice exercises
-5. **Chapter Summary** - Key takeaways and preview of Chapter 6
+4. **Extract → Verify → Learn** - Three-step pattern for validating AI responses
+5. **The 5-10 Minute Discovery Workflow** - Step-by-step process with practice exercises
+6. **Chapter Summary** - Key takeaways and preview of Chapter 6
 
 Each section builds on prior concepts. Read sequentially on first pass; you can jump to specific sections for reference later.
 
-Three **Quick Check** exercises (5-7 minutes each) are embedded in Section 5. These are lightweight practice scenarios—not comprehensive projects. The goal: build muscle memory for the discovery workflow so it becomes instinctive.
+Three **Quick Check** exercises (5-7 minutes each) are embedded in Section 6. These are lightweight practice scenarios—not comprehensive projects. The goal: build muscle memory for the discovery workflow so it becomes instinctive.
 
 ## How This Chapter Connects to Your Daily Work
 
