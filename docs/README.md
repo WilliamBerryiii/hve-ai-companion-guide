@@ -15,9 +15,9 @@ keywords:
 
 Transform your development workflow with systematic AI assistance:
 
-* **60-88% time reduction**[^1] across engineering workflows
 * **Evidence-based development** preventing AI hallucinations
 * **Chat mode proficiency** for Discovery, Research, Planning, and Implementation
+* **Structured workflows** delivering consistent, validated results
 * **Role-specific applications** for Engineers, TPMs, BPMs, and Leaders
 
 ## 🚀 Quick Start
@@ -53,24 +53,24 @@ graph LR
 
 Learn the right mode for each RPI phase:
 
-| Mode                | Best For                                  | Time Savings         | Learn More                                                              |
-|---------------------|-------------------------------------------|----------------------|-------------------------------------------------------------------------|
-| **Ask Mode**        | Quick discovery, landscape reconnaissance | 5-10 min sessions    | [Ask Mode Guide](part-ii/chapter5-discovery-research-modes/)            |
-| **Task Researcher** | Deep research, evidence gathering         | 60-70% reduction     | [Task Researcher Guide](part-ii/chapter6-planning-architecture-modes/)  |
-| **Task Planner**    | Implementation planning                   | 60-70% reduction     | [Task Planner Guide](part-ii/chapter7-implementation-modes/)            |
-| **Edit Mode**       | Controlled refactoring                    | 75-88% reduction     | [Edit Mode Guide](part-ii/chapter8-implementation-modes/)               |
-| **Agent Mode**      | Autonomous execution                      | 60-88% reduction[^1] | [Agent Mode Guide](part-ii/chapter9-agent-mode/)                        |
+| Mode                | Best For                                  | RPI Phase       | Learn More                                                              |
+|---------------------|-------------------------------------------|-----------------|-------------------------------------------------------------------------|
+| **Ask Mode**        | Quick discovery, landscape reconnaissance | Research        | [Ask Mode Guide](part-ii/chapter5-discovery-research-modes/)            |
+| **Task Researcher** | Deep research, evidence gathering         | Research        | [Task Researcher Guide](part-ii/chapter6-planning-architecture-modes/)  |
+| **Task Planner**    | Implementation planning                   | Plan            | [Task Planner Guide](part-ii/chapter7-implementation-modes/)            |
+| **Edit Mode**       | Controlled refactoring                    | Implement       | [Edit Mode Guide](part-ii/chapter8-implementation-modes/)               |
+| **Agent Mode**      | Autonomous execution                      | Implement       | [Agent Mode Guide](part-ii/chapter9-agent-mode/)                        |
 
 **[Chat Modes Deep Dive →](part-ii/)**
 
 ## 🎯 Popular Workflows
 
-Real-world applications with documented time savings:
+Real-world applications of the RPI framework:
 
-* **[Merge Conflict Resolution](part-ii/chapter11-advanced-workflows/)** - 2-4 hours → 50-60 minutes *(75-83% faster)*
-* **[Performance Review Automation](part-ii/chapter11-advanced-workflows/)** - 10 hours → 3 hours *(70% faster)*
-* **[Executive Briefing Generation](part-ii/chapter11-advanced-workflows/)** - 6-9 hours → 70 minutes *(80-88% faster)*
-* **[Engineering Fundamentals Audit](part-ii/chapter11-advanced-workflows/)** - 4-6 hours → 30 minutes *(87-92% faster)*
+* **[Merge Conflict Resolution](part-ii/chapter11-advanced-workflows/)** - Systematic evidence gathering for complex conflicts
+* **[Performance Review Automation](part-ii/chapter11-advanced-workflows/)** - Structured data extraction and synthesis
+* **[Executive Briefing Generation](part-ii/chapter11-advanced-workflows/)** - Multi-source research with validated outputs
+* **[Engineering Fundamentals Audit](part-ii/chapter11-advanced-workflows/)** - Comprehensive codebase assessment patterns
 
 **[All Workflows →](part-ii/chapter11-advanced-workflows/)**
 
@@ -147,10 +147,6 @@ This guide builds on the **#SeasonOfHVE** blog series, bringing together content
 * **Edge AI Repository**: [microsoft/edge-ai](https://github.com/microsoft/edge-ai) - Edge AI team resources and examples
 * **This Guide Repository**: [WilliamBerryiii/hve-ai-companion-guide](https://github.com/WilliamBerryiii/hve-ai-companion-guide)
 * **Issues & Discussions**: [GitHub Issues](https://github.com/WilliamBerryiii/hve-ai-companion-guide/issues)
-
----
-
-[^1]: Time reduction ranges reflect variation across different workflow types, task complexity, developer experience, and baseline practices. Based on documented HVE workflows and GitHub Copilot research studies (2023-2024) measuring specific engineering tasks. Metrics include code generation, documentation, testing, refactoring, and program management activities. Individual results vary significantly. These represent observed time reductions in controlled scenarios, not guaranteed outcomes.
 
 ---
 
