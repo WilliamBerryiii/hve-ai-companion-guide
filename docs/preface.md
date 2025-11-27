@@ -86,9 +86,11 @@ If you're in either group, this guide will show you how to structure your engine
 
 ## Acknowledgments
 
-This work wouldn't exist without Allen Greaves, whose early pioneering of agent-based approaches showed what was possible. Katrien De Graeve, whose vision for Edge-AI created the context for these discoveries. Larry Lieberman, Chris Risner, Leigh Tami, David Ruttka, and Eliise Seling, whose collaboration pushed the boundaries of what we thought achievable. To Dan Massey who gave Edge-AI & HVE Core the room to take it's first breath and find it's footing.
+This work wouldn't exist without Allen Greaves, whose early pioneering of agent-based approaches showed what was possible. Katrien De Graeve, whose vision for Edge-AI created the context for these discoveries. Larry Lieberman, Chris Risner, Leigh Tami, David Ruttka, and Eliise Seling, whose collaboration pushed the boundaries of what we thought achievable. To Dan Massey who gave Edge-AI & HVE Core the room to take a first breaths and time to find footing.
 
-Thank you to Machteld Bögels, Emmeline Hoops, and Olha Konstantinova for their dedication to making hve-core accessible. To the entire Edge-AI core team, who lived through the messy early iterations and helped refine these practices under pressure. To Matt Dotson, who told me I should get into this Copilot thing. And to my daughters: Mia who showed me how using AI can improve communication skills and to Adelyn, who helped review parts of this book and reminded me that a touch of snark can e a useful communication tool.
+Thank you to Machteld Bögels, Emmeline Hoops, and Olha Konstantinova for their dedication to making hve-core developer friendly with your feedback. To the entire Edge-AI core team, who lived through the messy early iterations and helped refine these practices under pressure. To Matt Dotson, who told me "You should get into this Copilot thing."
+
+To my mother and father who've waxed philosophical with me on AI and its role in society. And to my daughters: Mia who showed me how using AI can improve communication skills and to Adelyn, who helped review parts of this book and reminded me that a touch of snark can be a useful communication tool.
 
 ## Your Path Forward
 
