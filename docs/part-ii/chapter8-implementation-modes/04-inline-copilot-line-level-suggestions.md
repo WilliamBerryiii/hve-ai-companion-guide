@@ -1,27 +1,27 @@
 ---
-title: "Inline Copilot: Accelerating Line-Level Coding"
-description: Leverage Inline Copilot for real-time code suggestions and rapid development while maintaining quality
+title: "Inline Suggestions: Accelerating Line-Level Coding"
+description: Leverage Inline Suggestions for real-time code completions and rapid development while maintaining quality
 author: HVE Core Team
-ms.date: 2025-11-26
+ms.date: 2025-11-29
 chapter: 8
 part: "II"
 keywords:
-  - inline-copilot
+  - inline-suggestions
   - autocomplete
   - real-time-suggestions
   - code-completion
   - rapid-development
 ---
 
-## Inline Copilot: Accelerating Line-Level Coding
+## Inline Suggestions: Accelerating Line-Level Coding
 
-Inline Copilot in supported IDEs provides real-time code suggestions as you type. It's the fastest, most frictionless mode for writing code that follows clear patterns. This section teaches you to leverage Inline Copilot for rapid development while maintaining quality through effective review practices.
+Inline Suggestions in VS Code provide real-time code completions as you type. It's the fastest, most frictionless way to write code that follows clear patterns. This section teaches you to leverage Inline Suggestions for rapid development while maintaining quality through effective review practices.
 
-## What Inline Copilot Actually Does
+## What Inline Suggestions Actually Do
 
-Inline Copilot is GitHub Copilot's **real-time suggestion engine**. It works like intelligent autocomplete, suggesting entire code blocks based on context as you type. The suggestions appear in gray text that you can accept with a single keystroke.
+Inline Suggestions are GitHub Copilot's **real-time suggestion engine**. They work like intelligent autocomplete, suggesting entire code blocks based on context as you type. The suggestions appear in gray text that you can accept with a single keystroke.
 
-**Inline Copilot characteristics:**
+**Inline Suggestions characteristics:**
 
 * **Always active**: Suggestions appear automatically while typing
 * **Context-driven**: Uses surrounding code, comments, file patterns, and imports
@@ -29,7 +29,7 @@ Inline Copilot is GitHub Copilot's **real-time suggestion engine**. It works lik
 * **Low friction**: Tab to accept, Escape to dismiss, keep typing to ignore
 * **Iterative refinement**: Keep typing to see alternative suggestions
 
-**When to use Inline Copilot:**
+**When to use Inline Suggestions:**
 
 * Writing boilerplate code (imports, constructors, getters/setters)
 * Implementing simple logic following established patterns
@@ -37,11 +37,11 @@ Inline Copilot is GitHub Copilot's **real-time suggestion engine**. It works lik
 * Adding standard error handling and validation
 * Completing obvious next steps in algorithms
 
-Inline Copilot excels at tasks where the next step is clear from context. It accelerates the mechanical parts of coding, freeing you to focus on design and architecture.
+Inline Suggestions excel at tasks where the next step is clear from context. They accelerate the mechanical parts of coding, freeing you to focus on design and architecture.
 
-## How Inline Copilot Works
+## How Inline Suggestions Work
 
-Inline Copilot suggestions appear automatically based on several triggers. Understanding these helps you work with the suggestions effectively.
+Inline Suggestions appear automatically based on several triggers. Understanding these helps you work with the suggestions effectively.
 
 **Suggestion triggers:**
 
@@ -73,7 +73,7 @@ const qrCode = await QRCode.toDataURL(secret.otpauth_url);
 return { secret: secret.base32, qrCode };
 ```
 
-Press Tab to accept. The suggestion becomes real code. This comment-driven approach is one of the most effective ways to use Inline Copilot.
+Press Tab to accept. The suggestion becomes real code. This comment-driven approach is one of the most effective ways to use Inline Suggestions.
 
 ### Example: Pattern Completion
 
@@ -115,9 +115,9 @@ const validateEmail = (email: string) => {
 
 The suggestion mirrors the structure of your first function. Copilot recognizes and repeats patterns within the same file.
 
-## Effective Inline Copilot Workflow
+## Effective Inline Suggestions Workflow
 
-Three strategies maximize Inline Copilot's effectiveness while maintaining code quality.
+Three strategies maximize the effectiveness of Inline Suggestions while maintaining code quality.
 
 ### Strategy 1: Comment-First Development
 
@@ -289,7 +289,7 @@ Quick review is essential. Even fast suggestions require verification before acc
 **Reject (Escape or keep typing)** if any check fails.
 
 > [!WARNING]
-> Inline Copilot is the fastest mode but offers the least control. Always review suggestions carefully, especially for:
+> Inline Suggestions are the fastest Copilot tool but offer the least control. Always review suggestions carefully, especially for:
 >
 > * Security-sensitive code (authentication, encryption, data handling)
 > * Error handling logic with multiple branches
@@ -377,7 +377,7 @@ function validateEmail(email: string): string | null {
 
 First example teaches the pattern. Subsequent functions follow it automatically.
 
-## Inline Copilot Best Practices
+## Inline Suggestions Best Practices
 
 **DO:**
 
@@ -397,32 +397,36 @@ First example teaches the pattern. Subsequent functions follow it automatically.
 * ❌ Use for security-sensitive code without thorough verification
 * ❌ Let speed override quality assessment
 
-These practices balance speed and quality. Inline Copilot accelerates development without sacrificing correctness.
+These practices balance speed and quality. Inline Suggestions accelerate development without sacrificing correctness.
 
-## When NOT to Use Inline Copilot
+## When NOT to Use Inline Suggestions
 
-Inline Copilot is not the right tool for every situation. Recognize when other modes are better.
+Inline Suggestions are not the right tool for every situation. Recognize when other tools are better.
 
-**Use Edit or Insert Mode instead for:**
+**Use Inline Chat or Edit Agent instead for:**
 
 * ❌ Large structural changes requiring comprehensive view
-* ❌ Creating complete new files with multiple components
 * ❌ Complex algorithms requiring deep thought and iteration
 * ❌ Security-critical code requiring formal review process
 * ❌ Business logic with many edge cases and validations
 * ❌ Refactoring that affects multiple functions
 
-For these scenarios, use Edit Mode (modifications) or Insert Mode (new files) where you can review complete changes before accepting.
+**Use `/new` command or Agent mode instead for:**
 
-Inline Copilot excels at incremental, pattern-based development. Know its strengths and limitations to choose the right mode for each task.
+* ❌ Creating complete new files with multiple components
+* ❌ Generating project scaffolding
+
+For these scenarios, use the appropriate Copilot tool where you can review complete changes before accepting.
+
+Inline Suggestions excel at incremental, pattern-based development. Know their strengths and limitations to choose the right tool for each task.
 
 > [!TIP]
-> Use Inline Copilot for the mechanical parts of coding (boilerplate, patterns, obvious completions) but switch to Edit or Insert Mode when you need to see and review larger changes as a complete unit.
+> Use Inline Suggestions for the mechanical parts of coding (boilerplate, patterns, obvious completions) but switch to Inline Chat, Edit Agent, or Agent mode when you need to see and review larger changes as a complete unit.
 
 ---
 
-**Previous:** [Section 3: Insert Mode - Creating New Files and Scaffolding](./03-insert-mode-new-files-scaffolding.md)  
-**Next:** [Section 5: Choosing the Right Mode - Decision Framework](./05-choosing-right-mode-decision-framework.md)
+**Previous:** [Section 3: File Generation with /new Command and Agent Mode](./03-file-generation-new-command.md)  
+**Next:** [Section 5: Choosing the Right Tool - Decision Framework](./05-choosing-right-mode-decision-framework.md)
 
 <!-- markdownlint-disable MD036 -->
 *🤖 Crafted with precision by ✨Copilot following brilliant human instruction,

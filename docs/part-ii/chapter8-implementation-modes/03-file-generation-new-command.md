@@ -1,27 +1,33 @@
 ---
-title: "Insert Mode: Creating New Files and Scaffolding"
-description: Use Insert Mode to generate complete new files following your project's patterns and conventions
+title: "File Generation with /new Command and Agent Mode"
+description: Use the /new slash command and Agent mode to generate complete new files following your project's patterns and conventions
 author: HVE Core Team
-ms.date: 2025-11-26
+ms.date: 2025-11-29
 chapter: 8
 part: "II"
 keywords:
-  - insert-mode
+  - new-command
+  - slash-commands
+  - agent-mode
   - file-generation
   - scaffolding
   - new-files
   - pattern-following
 ---
 
-## Insert Mode: Creating New Files and Scaffolding
+## File Generation with /new Command and Agent Mode
 
-Insert Mode generates complete new files from your descriptions. While Edit Mode modifies existing code, Insert Mode creates fresh implementations following patterns from your codebase. This section shows you how to scaffold services, tests, and configurations that integrate seamlessly with your project.
+VS Code Copilot provides powerful tools for generating complete new files from your descriptions. While Inline Chat and Edit Agent modify existing code, the `/new` command and Agent mode create fresh implementations following patterns from your codebase. This section shows you how to scaffold services, tests, and configurations that integrate seamlessly with your project.
 
-## What Insert Mode Actually Does
+## Understanding File Generation Tools
 
-Insert Mode is GitHub Copilot's **new file generation tool**. It creates complete, working files based on your specifications and existing project patterns. No more copying templates or starting from empty files.
+VS Code Copilot offers two primary approaches for creating new files:
 
-**Insert Mode characteristics:**
+### The /new Slash Command
+
+The `/new` command is GitHub Copilot's **single-file generation tool**. Type `/new` in the Chat panel followed by your file specification, and Copilot generates a complete, working file based on your requirements.
+
+**`/new` command characteristics:**
 
 * **Whole-file generation**: Creates complete files, not fragments
 * **Pattern-aware**: Follows conventions from reference files you specify
@@ -29,29 +35,43 @@ Insert Mode is GitHub Copilot's **new file generation tool**. It creates complet
 * **Type-complete**: Generates TypeScript types and interfaces
 * **Iteration-friendly**: Can regenerate with refined prompts until correct
 
-**When to use Insert Mode:**
+### Agent Mode for Multi-File Generation
 
-* Creating new classes, services, or modules
-* Scaffolding test files with multiple test cases
-* Generating configuration files with proper structure
-* Creating new route handlers or API controllers
-* Building data models or database schemas
+Agent mode extends file generation to create multiple related files in a single operation. Select **Agent** from the mode dropdown in the Chat panel, describe your requirements, and Agent mode handles the complexity of creating interconnected files.
 
-This is your productivity multiplier when expanding functionality. Insert Mode transforms high-level descriptions into production-ready files that follow your team's conventions.
+**Agent mode characteristics:**
 
-## Invoking Insert Mode
+* **Multi-file generation**: Creates multiple related files together
+* **Context-aware**: Understands relationships between files
+* **Task-oriented**: Handles larger implementation tasks
+* **Coordinated output**: Ensures consistency across generated files
 
-Three methods start Insert Mode for new file creation. Choose based on your workflow and whether the file already exists.
+**When to use each tool:**
 
-### Method 1: Built-in /new Command (Recommended)
+| Scenario | Tool | Reason |
+|----------|------|--------|
+| Create single new service | `/new` command | Focused, explicit control |
+| Create service + tests + types | Agent mode | Handles file relationships |
+| Scaffold test file | `/new` command | Single file with clear spec |
+| Create new API module | Agent mode | Routes, handlers, tests together |
+| Generate configuration file | `/new` command | Self-contained, template-based |
+| Create feature with multiple components | Agent mode | Coordinated multi-file output |
 
-1. In Copilot Chat, type `/new` with file path
-2. Describe file contents and patterns to follow
-3. Review generated code
-4. Accept or refine with follow-up prompts
+## How to Generate New Files
+
+VS Code Copilot offers multiple methods for generating new files. Choose based on your workflow and task complexity.
+
+### Method 1: /new Slash Command (Recommended for Single Files)
+
+1. Open Chat panel (`Ctrl+Alt+I` or click Chat icon)
+2. Type `/new` followed by your file specification
+3. Example: `/new Create a TypeScript Express route handler for user authentication`
+4. Copilot generates file content in the response
+5. Review the generated code
+6. Save the file to your desired location
 
 > [!NOTE]
-> `/new` is a built-in VS Code Copilot command (like `/fix`, `/tests`, `/explain`), not a chatmode or agent. Built-in commands are invoked with slash syntax and don't require agent selection.
+> `/new` is a built-in VS Code Copilot slash command (like `/fix`, `/tests`, `/explain`). Built-in commands are invoked with slash syntax and don't require agent selection.
 
 **Example:**
 
@@ -67,9 +87,30 @@ Follow patterns from src/services/authService.ts
 Use speakeasy library (already in dependencies)
 ```
 
-**When to use:** Starting from implementation plan and file doesn't exist yet. Most explicit and controlled method.
+**When to use:** Starting from implementation plan and creating a single new file. Most explicit and controlled method.
 
-### Method 2: Inline Command in New File
+### Method 2: Agent Mode (For Multiple Related Files)
+
+1. Open Chat panel (`Ctrl+Alt+I`)
+2. Select **Agent** from the mode dropdown at the top
+3. Describe the files you want to create with full context
+4. Agent mode can create multiple related files in a single operation
+5. Review all generated files before accepting
+
+**Example:**
+
+```text
+Create a new two-factor authentication module with:
+- Service: src/services/twoFactorService.ts with generateSecret, verifyToken methods
+- Tests: src/services/__tests__/twoFactorService.test.ts with full test coverage
+- Types: src/types/twoFactor.ts with TypeScript interfaces
+
+Follow patterns from the existing authService module.
+```
+
+**When to use:** Creating multiple related files or when file creation is part of a larger task.
+
+### Method 3: Inline Chat in New File
 
 1. Create empty file in VS Code
 2. Press `Ctrl+I` (Windows/Linux) or `Cmd+I` (Mac)
@@ -78,23 +119,14 @@ Use speakeasy library (already in dependencies)
 
 **When to use:** You've already created the empty file and are ready to fill it. Good for quick iterations.
 
-### Method 3: File Explorer Context Menu
-
-1. Right-click on folder in Explorer
-2. Select "Copilot > Generate New File"
-3. Name file and describe contents
-4. Review generated code
-
-**When to use:** Mouse-driven workflow or exploring Insert Mode capabilities. Less common in production workflows.
-
 > [!TIP]
-> Always reference similar existing files when using Insert Mode. Copilot follows their patterns, ensuring consistency with your project conventions.
+> Use `/new` for single-file generation with explicit control. Use Agent mode when you need to create multiple related files or when file creation is part of a larger implementation task.
 
-## Writing Effective Insert Mode Prompts
+## Writing Effective File Generation Prompts
 
-Prompt structure determines output quality. Strong Insert Mode prompts provide complete specifications and clear pattern references.
+Prompt structure determines output quality. Strong prompts for `/new` and Agent mode provide complete specifications and clear pattern references.
 
-**Prompt structure for Insert Mode:**
+**Prompt structure for file generation:**
 
 1. **File purpose**: What this file does in the system
 2. **Key components**: Classes, functions, methods to include
@@ -104,18 +136,18 @@ Prompt structure determines output quality. Strong Insert Mode prompts provide c
 
 ### Example: Weak vs Strong Prompts
 
-**Weak Insert prompt:**
+**Weak prompt:**
 
 ```text
-Create a service for 2FA
+/new Create a service for 2FA
 ```
 
 **Problems:** What methods? What patterns? What libraries? What export format?
 
-**Strong Insert prompt:**
+**Strong prompt:**
 
 ```text
-Create TwoFactorService class following the service pattern from 
+/new Create TwoFactorService class following the service pattern from 
 src/services/authService.ts.
 
 Required methods:
@@ -136,7 +168,7 @@ Dependencies already installed: speakeasy, qrcode, crypto
 
 ## Creating a Complete Service File
 
-Let's walk through creating a complete service using Insert Mode, from plan step to working code.
+Let's walk through creating a complete service using the `/new` command, from plan step to working code.
 
 **From Chapter 7 Plan:**
 
@@ -148,10 +180,10 @@ Step 1.2: Create TwoFactorService module
 - Export: Singleton instance
 ```
 
-**Insert Mode Prompt:**
+**Using /new Command:**
 
 ```text
-Create src/services/twoFactorService.ts following the service pattern 
+/new src/services/twoFactorService.ts following the service pattern 
 from src/services/authService.ts.
 
 Class: TwoFactorService
@@ -266,11 +298,11 @@ class TwoFactorService {
 export default new TwoFactorService();
 ```
 
-The generated file is production-ready. It follows the referenced pattern, includes all specified methods, handles errors properly, and exports correctly. This is Insert Mode at its best.
+The generated file is production-ready. It follows the referenced pattern, includes all specified methods, handles errors properly, and exports correctly. This is the `/new` command at its best.
 
-## Reviewing Insert Mode Results
+## Reviewing Generated Files
 
-Unlike Edit Mode's diff review, Insert Mode requires **full file review**. You're evaluating an entire file, not just changes.
+Unlike Inline Chat's diff review, file generation requires **full file review**. You're evaluating an entire file, not just changes.
 
 **Review checklist:**
 
@@ -283,7 +315,7 @@ Unlike Edit Mode's diff review, Insert Mode requires **full file review**. You'r
 ✅ **Documentation**: JSDoc comments clear and accurate?  
 ✅ **Exports**: Correct export format for your project?
 
-**Common Insert Mode issues to catch:**
+**Common file generation issues to catch:**
 
 * ⚠️ Imports missing or using incorrect paths
 * ⚠️ Patterns diverge from reference file structure
@@ -294,7 +326,7 @@ Unlike Edit Mode's diff review, Insert Mode requires **full file review**. You'r
 
 Thorough review prevents integration issues. Catch problems now before testing reveals them later.
 
-## Refining Insert Mode Results
+## Refining Generated Results
 
 Initial generation won't always be perfect. Refinement prompts correct specific issues without regenerating the entire file.
 
@@ -339,7 +371,7 @@ We'll add backup codes in a separate step.
 
 Each refinement prompt adjusts the file incrementally. Multiple refinements are fine. Iterate until the file meets all requirements.
 
-## Insert Mode Best Practices
+## File Generation Best Practices
 
 **DO:**
 
@@ -348,6 +380,7 @@ Each refinement prompt adjusts the file incrementally. Multiple refinements are 
 * ✅ Include all required dependencies in prompt
 * ✅ Review entire generated file carefully before accepting
 * ✅ Test immediately after creation
+* ✅ Use `/new` for single files, Agent mode for related file sets
 * ✅ Refine if patterns don't match project conventions
 
 **DON'T:**
@@ -355,24 +388,24 @@ Each refinement prompt adjusts the file incrementally. Multiple refinements are 
 * ❌ Generate files without specifying patterns to follow
 * ❌ Accept without reviewing imports and types thoroughly
 * ❌ Skip testing the new file
-* ❌ Generate multiple files in one prompt (do one at a time)
+* ❌ Generate multiple unrelated files in one prompt
 * ❌ Forget to specify TypeScript types and documentation requirements
-* ❌ Use Insert Mode for modifying existing files (use Edit Mode)
+* ❌ Use file generation for modifying existing files (use Inline Chat or Edit Agent)
 
-These practices ensure Insert Mode accelerates development without sacrificing quality. Pattern references and thorough review are non-negotiable.
+These practices ensure file generation accelerates development without sacrificing quality. Pattern references and thorough review are non-negotiable.
 
-## Common Insert Mode Scenarios
+## Common File Generation Scenarios
 
-Real-world scenarios demonstrate Insert Mode's versatility across different file types.
+Real-world scenarios demonstrate file generation versatility across different file types.
 
 ### Scenario 1: Creating Test File
 
 **Plan Step:** Create unit tests for TwoFactorService
 
-**Insert Prompt:**
+**Using /new Command:**
 
 ```text
-Create src/services/__tests__/twoFactorService.test.ts
+/new src/services/__tests__/twoFactorService.test.ts
 
 Test suite for TwoFactorService following test patterns from 
 authService.test.ts.
@@ -396,10 +429,10 @@ Include setup/teardown like authService.test.ts.
 
 **Plan Step:** Add 2FA configuration module
 
-**Insert Prompt:**
+**Using /new Command:**
 
 ```text
-Create config/twoFactor.ts configuration file.
+/new config/twoFactor.ts configuration file.
 
 Export configuration object with these properties:
 - enabled: boolean (from env TWO_FACTOR_ENABLED, default false)
@@ -423,10 +456,10 @@ Include TypeScript interface for type safety.
 
 **Plan Step:** Create Mongoose model for 2FA settings
 
-**Insert Prompt:**
+**Using /new Command:**
 
 ```text
-Create src/models/TwoFactorSettings.ts Mongoose model.
+/new src/models/TwoFactorSettings.ts Mongoose model.
 
 Schema fields:
 - userId: ObjectId (required, ref: 'User')
@@ -448,15 +481,15 @@ Include TypeScript interface ITwoFactorSettings.
 
 **Result:** Complete Mongoose model with schema, virtuals, methods, statics, and TypeScript interface following project patterns.
 
-These scenarios show Insert Mode handling diverse file types while maintaining consistency with existing codebase patterns.
+These scenarios show file generation handling diverse file types while maintaining consistency with existing codebase patterns.
 
 > [!IMPORTANT]
-> Insert Mode creates files that look complete but may have subtle integration issues. Always run tests immediately after accepting generated files to catch type mismatches or missing dependencies.
+> File generation creates files that look complete but may have subtle integration issues. Always run tests immediately after accepting generated files to catch type mismatches or missing dependencies.
 
 ---
 
-**Previous:** [Section 2: Edit Mode - Controlled File Modification](./02-edit-mode-controlled-modification.md)  
-**Next:** [Section 4: Inline Copilot - Accelerating Line-Level Coding](./04-inline-copilot-line-level-suggestions.md)
+**Previous:** [Section 2: Inline Chat and Edit Agent - Controlled Code Modification](./02-edit-mode-controlled-modification.md)  
+**Next:** [Section 4: Inline Suggestions - Real-Time Completions](./04-inline-copilot-line-level-suggestions.md)
 
 <!-- markdownlint-disable MD036 -->
 *🤖 Crafted with precision by ✨Copilot following brilliant human instruction,

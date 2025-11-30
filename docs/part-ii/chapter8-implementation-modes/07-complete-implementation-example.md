@@ -1,23 +1,23 @@
 ---
 title: "Complete Implementation Example"
-description: Walk through a realistic end-to-end implementation scenario using all three modes with test-first workflow
+description: Walk through a realistic end-to-end implementation scenario using Copilot's implementation tools with test-first workflow
 author: HVE Core Team
-ms.date: 2025-11-26
+ms.date: 2025-11-29
 chapter: 8
 part: "II"
 keywords:
   - implementation-example
   - 2fa-endpoint
-  - mode-selection
+  - tool-selection
   - working-set
   - end-to-end
 ---
 
 ## Complete Implementation Example
 
-You've learned the individual modes. You've practiced test-first workflow. Now let's put everything together in a realistic implementation scenario.
+You've learned the individual tools. You've practiced test-first workflow. Now let's put everything together in a realistic implementation scenario.
 
-This section walks through implementing one complete feature from start to finish. You'll see mode selection decisions, test-first cycles, working set management, and review processes in action.
+This section walks through implementing one complete feature from start to finish. You'll see tool selection decisions, test-first cycles, working set management, and review processes in action.
 
 ## The Scenario: 2FA Setup Endpoint
 
@@ -47,8 +47,6 @@ Step 2.1: Create /api/auth/2fa/setup endpoint
   - Idempotent (calling twice regenerates secret)
 ```
 
-Estimated time: approximately 25 minutes for experienced developers (versus 45-60 minutes manual)
-
 ### Working Set Setup
 
 Before starting, establish your working set:
@@ -69,14 +67,14 @@ Before starting, establish your working set:
 
 Four files. Focused context. Ready for implementation.
 
-## Step 1: Write Tests First Using Insert Mode (8 minutes)
+## Step 1: Write Tests First Using /new Command
 
 Start with verification criteria. Five criteria mean five test cases minimum.
 
-### Insert Mode Prompt
+### /new Command Prompt
 
 ```markdown
-Create src/auth/__tests__/2fa-setup.test.ts
+/new src/auth/__tests__/2fa-setup.test.ts
 
 Test suite for 2FA setup endpoint (POST /api/auth/2fa/setup).
 
@@ -94,7 +92,7 @@ Include proper setup and teardown for test database.
 
 ### Generated Test File
 
-Insert Mode generates complete test suite. Here's what to review:
+The `/new` command generates complete test suite. Here's what to review:
 
 ```typescript
 import request from 'supertest';
@@ -208,7 +206,7 @@ Before accepting:
 
 Everything checks out. Accept the file.
 
-## Step 2: Run Tests for Red Phase (1 minute)
+## Step 2: Run Tests for Red Phase
 
 Verify tests fail for the right reasons:
 
@@ -235,11 +233,11 @@ Perfect red phase. Endpoint doesn't exist yet (404 errors). Unauthenticated test
 
 Tests are valid. Ready for implementation.
 
-## Step 3: Implement Endpoint Using Edit Mode (10 minutes)
+## Step 3: Implement Endpoint Using Inline Chat
 
-Now implement the endpoint. You're modifying an existing file, so Edit Mode is the right choice.
+Now implement the endpoint. You're modifying an existing file, so Inline Chat (`Ctrl+I`) is the right choice.
 
-### Edit Mode Prompt
+### Inline Chat Prompt
 
 ```markdown
 In src/auth/authRoutes.ts, add new POST /api/auth/2fa/setup endpoint after the existing /login route.
@@ -260,7 +258,7 @@ Follow patterns from existing routes in this file.
 
 ### Generated Changes (Diff View)
 
-Edit Mode shows diff:
+Inline Chat shows diff:
 
 ```typescript
   // Existing /login route
@@ -311,11 +309,11 @@ Walk through the review checklist:
 
 Decision: Accept this diff. We'll create encryptSecret next. This is a dependency we expected from the plan.
 
-## Step 4: Add Encryption Helper Using Inline Copilot (3 minutes)
+## Step 4: Add Encryption Helper Using Inline Suggestions
 
 Open `src/services/twoFactorService.ts`. You need to add encryption methods.
 
-### Using Inline Copilot for Utility Functions
+### Using Inline Suggestions for Utility Functions
 
 Add descriptive comment to trigger suggestion:
 
@@ -330,7 +328,7 @@ export function generateSecret(email: string) {
 export function encryptSecret(secret: string): string {
 ```
 
-Inline Copilot suggests complete implementation:
+Inline Suggestions completes the implementation:
 
 ```typescript
 export function encryptSecret(secret: string): string {
@@ -369,7 +367,7 @@ Add another comment:
 export function decryptSecret(encrypted: string): string {
 ```
 
-Inline Copilot suggests matching implementation:
+Inline Suggestions provides matching implementation:
 
 ```typescript
 export function decryptSecret(encrypted: string): string {
@@ -398,9 +396,9 @@ Review:
 
 Accept. Encryption layer complete.
 
-> **NOTE**: If Inline Copilot struggled here, you'd use Insert Mode instead: "Add encryptSecret and decryptSecret functions using Node crypto with AES-256-GCM."
+> **NOTE**: If Inline Suggestions struggled here, you'd use the `/new` command instead: "Add encryptSecret and decryptSecret functions using Node crypto with AES-256-GCM."
 
-## Step 5: Run Tests for Green Phase (1 minute)
+## Step 5: Run Tests for Green Phase
 
 Verify implementation works:
 
@@ -425,7 +423,7 @@ Time: 3.256s
 
 Perfect green phase! All tests pass. Implementation complete and verified.
 
-## Step 6: Manual Verification, Optional (2 minutes)
+## Step 6: Manual Verification (Optional)
 
 Automated tests prove correctness. Manual testing proves usability.
 
@@ -467,7 +465,7 @@ Expected response:
 
 Works perfectly. QR code can be scanned by authenticator apps. Backup codes provided for recovery.
 
-## Step 7: Commit Changes (1 minute)
+## Step 7: Commit Changes
 
 Create atomic commit with clear message:
 
@@ -498,43 +496,32 @@ Closes #123"
 
 Step complete. Move to next plan step.
 
-## Implementation Time Breakdown
+## Implementation Steps Overview
 
-Total time for complete feature: **25 minutes**
+| Step | Activity                       | Tools Used         |
+|------|--------------------------------|--------------------|
+| 1    | Write comprehensive test suite | /new command       |
+| 2    | Run tests (red phase)          | Terminal           |
+| 3    | Implement API endpoint         | Inline Chat        |
+| 4    | Add encryption helpers         | Inline Suggestions |
+| 5    | Run tests (green phase)        | Terminal           |
+| 6    | Manual verification            | curl, jq           |
+| 7    | Commit with message            | git                |
 
-| Step | Activity                       | Time   | Tools Used     |
-|------|--------------------------------|--------|----------------|
-| 1    | Write comprehensive test suite | 8 min  | Insert Mode    |
-| 2    | Run tests (red phase)          | 1 min  | Terminal       |
-| 3    | Implement API endpoint         | 10 min | Edit Mode      |
-| 4    | Add encryption helpers         | 3 min  | Inline Copilot |
-| 5    | Run tests (green phase)        | 1 min  | Terminal       |
-| 6    | Manual verification            | 2 min  | curl, jq       |
-| 7    | Commit with message            | 1 min  | git            |
+### Why Implementation Tools Help
 
-### Comparison to Manual Implementation
+#### /new command accelerated test creation
 
-**With AI modes:** 25 minutes  
-**Manual estimation:** 45-60 minutes  
-**Time saved:** Individual results vary based on experience and task complexity
-
-### Why This Was Faster
-
-#### Insert Mode accelerated test creation
-
-* 8 minutes versus 20 minutes manual
 * Comprehensive test suite with proper patterns
 * No time spent looking up testing APIs
 
-#### Edit Mode accelerated endpoint implementation
+#### Inline Chat accelerated endpoint implementation
 
-* 10 minutes versus 20 minutes manual
 * Correct pattern matching from existing routes
 * Immediate diff review caught dependency issue
 
-#### Inline Copilot accelerated utility functions
+#### Inline Suggestions accelerated utility functions
 
-* 3 minutes versus 10-15 minutes
 * No time researching Node crypto APIs
 * Matching encrypt and decrypt implementations
 
@@ -552,13 +539,13 @@ No ambiguity when all five tests pass. Each test maps directly to a verification
 
 Without tests, you'd manually verify each scenario. With tests, verification is automatic and repeatable.
 
-### Lesson 2: Mode Selection Was Natural
+### Lesson 2: Tool Selection Was Natural
 
 Decisions flowed from the decision framework:
 
-* New test file → Insert Mode
-* Modify existing route file → Edit Mode
-* Add utility functions → Inline Copilot (with fallback to Insert Mode if needed)
+* New test file → /new command
+* Modify existing route file → Inline Chat
+* Add utility functions → Inline Suggestions (with fallback to /new command if needed)
 
 No second-guessing. Each choice was obvious from context.
 
@@ -583,7 +570,7 @@ Suggestions matched project patterns because relevant patterns were visible.
 
 ### Lesson 5: Review Caught Potential Issues
 
-During Edit Mode diff review, you spotted missing `encryptSecret()`. Added before running tests. This saved a red-green-red-green cycle.
+During Inline Chat diff review, you spotted missing `encryptSecret()`. Added before running tests. This saved a red-green-red-green cycle.
 
 Active review prevents downstream debugging.
 
@@ -599,93 +586,93 @@ This seven-step process works for any plan step:
 6. Commit
 7. Next step
 
-Apply this pattern to every feature in your plan. Consistent quality at consistent speed.
+Apply this pattern to every feature in your plan. Consistent quality.
 
 ---
 
-## Exercise 7.1: Implement Complete Feature (45-60 min)
+## Exercise 7.1: Implement Complete Feature
 
 ### Exercise Overview
 
-Implement a complete two-factor authentication feature from Chapter 7's full plan. This exercises mode selection, test-first workflow, working set management, and multi-phase implementation.
+Implement a complete two-factor authentication feature from Chapter 7's full plan. This exercises tool selection, test-first workflow, working set management, and multi-phase implementation.
 
 **Scenario:** Your application needs full 2FA capability. Users enable 2FA, scan QR codes, and provide TOTP tokens during login.
 
 ### Implementation Plan (Abbreviated)
 
-#### Phase 1: Data Layer (15 min)
+#### Phase 1: Data Layer
 
 * Create database migration for 2FA fields
 * Update User model with new fields
 * Add TypeScript type definitions
 
-#### Phase 2: Business Logic (20 min)
+#### Phase 2: Business Logic
 
 * Create TwoFactorService class
 * Add 2FA setup endpoint
 * Update login endpoint to verify tokens
 
-#### Phase 3: UI (Optional, 10 min)
+#### Phase 3: UI (Optional)
 
 * Create 2FA setup React component
 * Add QR code display component
 
 ### Your Tasks
 
-#### Phase 1 Implementation (15 min)
+#### Phase 1 Implementation
 
-1. **Create migration tests** (Insert Mode)
+1. **Create migration tests** (/new command)
    * Test file: `src/migrations/__tests__/add-2fa-fields.test.ts`
    * Verify fields created, proper types, default values
 
-2. **Create migration** (Insert Mode)
+2. **Create migration** (/new command)
    * File: `src/migrations/20240115_add_2fa_fields.ts`
    * Add: twoFactorSecret, twoFactorEnabled, twoFactorBackupCodes
    * Follow patterns from existing migrations
 
-3. **Update User model** (Edit Mode)
+3. **Update User model** (Inline Chat)
    * File: `src/models/User.ts`
    * Add field definitions with proper types
 
-4. **Add TypeScript types** (Inline Copilot)
+4. **Add TypeScript types** (Inline Suggestions)
    * File: `src/types/auth.ts`
    * Types for 2FA setup response, verification request
 
 5. **Verify Phase 1 tests pass**
 
-#### Phase 2 Implementation (20 min)
+#### Phase 2 Implementation
 
-1. **Write service tests** (Insert Mode)
+1. **Write service tests** (/new command)
    * Test file: `src/services/__tests__/twoFactorService.test.ts`
    * Test: generateSecret, verifyToken, encryptSecret, decryptSecret
 
-2. **Create TwoFactorService** (Insert Mode)
+2. **Create TwoFactorService** (/new command)
    * File: `src/services/twoFactorService.ts`
    * Follow patterns from existing service classes
    * Include all four methods
 
-3. **Write endpoint tests** (Insert Mode)
+3. **Write endpoint tests** (/new command)
    * You did this in Section 7 example
    * Apply same approach
 
-4. **Add setup endpoint** (Edit Mode)
+4. **Add setup endpoint** (Inline Chat)
    * You did this in Section 7 example
    * Apply same implementation
 
-5. **Update login logic** (Edit Mode)
+5. **Update login logic** (Inline Chat)
    * Add 2FA token verification to login flow
    * Follow test-first workflow from Section 6
 
 6. **Verify all Phase 2 tests pass**
 
-#### Phase 3 Implementation - Optional (10 min)
+#### Phase 3 Implementation - Optional
 
-1. **Create React component** (Insert Mode)
+1. **Create React component** (/new command)
    * Component: `src/components/TwoFactorSetup.tsx`
    * Display QR code and backup codes
    * Enable/disable button
 
-2. **Add QR display** (Edit or Inline)
+2. **Add QR display** (Inline Chat or Inline Suggestions)
    * Render QR code as image
    * Display backup codes list
 
@@ -700,7 +687,7 @@ You've succeeded when:
 ✅ Setup endpoint returns QR code  
 ✅ Login endpoint verifies TOTP token  
 ✅ Test-first workflow used consistently  
-✅ Appropriate mode selected for each task  
+✅ Appropriate tool selected for each task  
 ✅ Working set managed effectively throughout
 
 ### Verification Strategy
@@ -724,7 +711,7 @@ Final verification:
 This exercise tests your ability to:
 
 * Translate plan steps to executable tests
-* Select optimal modes for each task type
+* Select optimal tools for each task type
 * Manage working set for optimal suggestions
 * Verify incrementally with confidence
 * Handle dependencies between steps
@@ -735,7 +722,7 @@ You should complete this with minimal external help. Reference previous sections
 
 **Previous:** [Test-Driven Implementation Workflow](./06-test-driven-implementation-workflow.md)  
 **Next:** [Summary](./08-summary.md)  
-**Up:** [Chapter 8: Implementation Modes](./README.md)
+**Up:** [Chapter 8: Implementation Tools](./README.md)
 
 ---
 
