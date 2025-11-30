@@ -61,7 +61,7 @@ The Edit Agent in the Chat panel handles larger or multi-file modifications:
 **When to use each:**
 
 | Scenario | Tool | Why |
-|----------|------|-----|
+| -------- | ---- | --- |
 | Modify single function | Inline Chat | Focused, fast |
 | Add validation to existing code | Inline Chat | Targeted change |
 | Refactor across files | Edit Agent | Multi-file coordination |
