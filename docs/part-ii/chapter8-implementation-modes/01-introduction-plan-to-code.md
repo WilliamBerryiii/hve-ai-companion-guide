@@ -45,13 +45,13 @@ You wrote this code yourself. **This chapter teaches you to delegate implementat
 
 GitHub Copilot provides several tools for code generation, each optimized for different tasks. Understanding when to use each tool helps you choose the right approach for each task.
 
-| Tool                      | Best For                 | Control Level           | Review Style         |
-|---------------------------|--------------------------|-------------------------|----------------------|
-| **Inline Chat** (`Ctrl+I`)| Modifying existing code  | High (explicit changes) | Before-after diff    |
-| **Edit Agent**            | Multi-file modifications | High (scoped changes)   | Diff review per file |
-| **`/new` Command**        | Creating single files    | Medium (template-based) | Full file review     |
-| **Agent Mode**            | Multi-file generation    | Medium (task-scoped)    | Review all files     |
-| **Inline Suggestions**    | Line-level completions   | Low (autocomplete-like) | Accept/reject inline |
+| Tool                       | Best For                 | Control Level           | Review Style         |
+|----------------------------|--------------------------|-------------------------|----------------------|
+| **Inline Chat** (`Ctrl+I`) | Modifying existing code  | High (explicit changes) | Before-after diff    |
+| **Edit Agent**             | Multi-file modifications | High (scoped changes)   | Diff review per file |
+| **`/new` Command**         | Creating single files    | Medium (template-based) | Full file review     |
+| **Agent Mode**             | Multi-file generation    | Medium (task-scoped)    | Review all files     |
+| **Inline Suggestions**     | Line-level completions   | Low (autocomplete-like) | Accept/reject inline |
 
 ### Example: Implementing "Add 2FA Setup Endpoint"
 

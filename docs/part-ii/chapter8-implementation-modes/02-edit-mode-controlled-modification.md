@@ -60,14 +60,14 @@ The Edit Agent in the Chat panel handles larger or multi-file modifications:
 
 **When to use each:**
 
-| Scenario | Tool | Why |
-| -------- | ---- | --- |
-| Modify single function | Inline Chat | Focused, fast |
-| Add validation to existing code | Inline Chat | Targeted change |
-| Refactor across files | Edit Agent | Multi-file coordination |
-| Rename with all usages | Edit Agent | Broad scope needed |
-| Quick fix in current file | Inline Chat | Immediate, contextual |
-| Large-scale pattern changes | Edit Agent | Consistency required |
+| Scenario                        | Tool        | Why                     |
+|---------------------------------|-------------|-------------------------|
+| Modify single function          | Inline Chat | Focused, fast           |
+| Add validation to existing code | Inline Chat | Targeted change         |
+| Refactor across files           | Edit Agent  | Multi-file coordination |
+| Rename with all usages          | Edit Agent  | Broad scope needed      |
+| Quick fix in current file       | Inline Chat | Immediate, contextual   |
+| Large-scale pattern changes     | Edit Agent  | Consistency required    |
 
 ## How to Invoke Inline Chat and Edit Agent
 

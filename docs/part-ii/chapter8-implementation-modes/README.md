@@ -48,7 +48,7 @@ By the end of this chapter, you will:
 
 **Quiz - Are You Ready?**
 
-1. ✅ Have you created an implementation plan using Task Planner? → [Review Chapter 7](../chapter7-task-planner/)
+1. ✅ Have you created an implementation plan using Task Planner? → [Review Chapter 7](../chapter7-implementation-modes/)
 2. ✅ Do you understand the Implementation phase of RPI? → [Review Chapter 3, Section 4](../../part-i/chapter3-rpi-fundamentals/04-implementation-phase.md)
 3. ✅ Have you completed the manual implementation exercise from Chapter 4? → [Review Chapter 4, Section 4](../../part-i/chapter4-first-workflow/04-implementation-executing-the-plan.md)
 4. ✅ Can you read and understand implementation plan steps? → [Review Chapter 7, Section 3](../chapter7-task-planner/03-task-planner-structured-implementation.md)

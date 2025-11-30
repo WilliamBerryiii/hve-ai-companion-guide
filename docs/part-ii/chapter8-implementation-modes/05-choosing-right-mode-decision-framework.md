@@ -68,20 +68,20 @@ The first question is always: does this file exist? If not, determine if you nee
 
 Different tasks have natural tool fits. This table provides quick reference:
 
-| Task Type                      | Recommended Tool                                        | Why                                            |
-|--------------------------------|---------------------------------------------------------|------------------------------------------------|
-| Create new service or class    | `/new` command                                          | Full file generation from specification        |
-| Create multiple related files  | Agent mode                                              | Coordinated multi-file generation              |
-| Add function to existing file  | Inline Chat (`Ctrl+I`)                                  | Precise placement with diff review             |
-| Modify existing function logic | Inline Chat (`Ctrl+I`)                                  | Controlled changes with clear before and after |
-| Write test cases               | `/new` (first file) then Inline Suggestions (more tests)| Pattern-based generation                       |
-| Add imports or boilerplate     | Inline Suggestions                                      | Fast, low-risk completions                     |
-| Refactor function internals    | Inline Chat (`Ctrl+I`)                                  | Structural changes need review                 |
-| Refactor across multiple files | Edit Agent                                              | Coordinated changes across codebase            |
-| Create configuration file      | `/new` command                                          | Complete file from specification               |
-| Add validation checks          | Inline Chat or Inline Suggestions                       | Depends on complexity                          |
-| Implement algorithm            | Manual with Inline Suggestions assist                   | Need to think through logic                    |
-| Update API routes              | Inline Chat (`Ctrl+I`)                                  | Precise modifications to routing               |
+| Task Type                      | Recommended Tool                                         | Why                                            |
+|--------------------------------|----------------------------------------------------------|------------------------------------------------|
+| Create new service or class    | `/new` command                                           | Full file generation from specification        |
+| Create multiple related files  | Agent mode                                               | Coordinated multi-file generation              |
+| Add function to existing file  | Inline Chat (`Ctrl+I`)                                   | Precise placement with diff review             |
+| Modify existing function logic | Inline Chat (`Ctrl+I`)                                   | Controlled changes with clear before and after |
+| Write test cases               | `/new` (first file) then Inline Suggestions (more tests) | Pattern-based generation                       |
+| Add imports or boilerplate     | Inline Suggestions                                       | Fast, low-risk completions                     |
+| Refactor function internals    | Inline Chat (`Ctrl+I`)                                   | Structural changes need review                 |
+| Refactor across multiple files | Edit Agent                                               | Coordinated changes across codebase            |
+| Create configuration file      | `/new` command                                           | Complete file from specification               |
+| Add validation checks          | Inline Chat or Inline Suggestions                        | Depends on complexity                          |
+| Implement algorithm            | Manual with Inline Suggestions assist                    | Need to think through logic                    |
+| Update API routes              | Inline Chat (`Ctrl+I`)                                   | Precise modifications to routing               |
 
 > **TIP**: When uncertain, start with Inline Chat (`Ctrl+I`). It provides the most visibility and control while you build confidence.
 
@@ -279,4 +279,7 @@ There's no shame in week one behaviors in month three. Some codebases are comple
 
 ---
 
-*This guide was created using GitHub Copilot and human expertise. Last updated: November 2025.*
+<!-- markdownlint-disable MD036 -->
+*🤖 Crafted with precision by ✨Copilot following brilliant human instruction,
+then carefully refined by our team of discerning human reviewers.*
+<!-- markdownlint-enable MD036 -->

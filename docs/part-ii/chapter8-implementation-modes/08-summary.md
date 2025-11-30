@@ -228,4 +228,7 @@ Chapter 9 explores Agent mode in depth. This autonomous implementation approach 
 
 ---
 
-*This guide was created using GitHub Copilot and human expertise. Last updated: November 2025.*
+<!-- markdownlint-disable MD036 -->
+*🤖 Crafted with precision by ✨Copilot following brilliant human instruction,
+then carefully refined by our team of discerning human reviewers.*
+<!-- markdownlint-enable MD036 -->

@@ -48,14 +48,14 @@ Agent mode extends file generation to create multiple related files in a single 
 
 **When to use each tool:**
 
-| Scenario | Tool | Reason |
-| -------- | ---- | ------ |
-| Create single new service | `/new` command | Focused, explicit control |
-| Create service + tests + types | Agent mode | Handles file relationships |
-| Scaffold test file | `/new` command | Single file with clear spec |
-| Create new API module | Agent mode | Routes, handlers, tests together |
-| Generate configuration file | `/new` command | Self-contained, template-based |
-| Create feature with multiple components | Agent mode | Coordinated multi-file output |
+| Scenario                                | Tool           | Reason                           |
+|-----------------------------------------|----------------|----------------------------------|
+| Create single new service               | `/new` command | Focused, explicit control        |
+| Create service + tests + types          | Agent mode     | Handles file relationships       |
+| Scaffold test file                      | `/new` command | Single file with clear spec      |
+| Create new API module                   | Agent mode     | Routes, handlers, tests together |
+| Generate configuration file             | `/new` command | Self-contained, template-based   |
+| Create feature with multiple components | Agent mode     | Coordinated multi-file output    |
 
 ## How to Generate New Files
 

@@ -630,4 +630,7 @@ export function validateEmail(email: string): string[] {
 
 ---
 
-*This guide was created using GitHub Copilot and human expertise. Last updated: November 2025.*
+<!-- markdownlint-disable MD036 -->
+*🤖 Crafted with precision by ✨Copilot following brilliant human instruction,
+then carefully refined by our team of discerning human reviewers.*
+<!-- markdownlint-enable MD036 -->
