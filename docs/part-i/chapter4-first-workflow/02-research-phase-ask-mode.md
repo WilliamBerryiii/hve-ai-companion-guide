@@ -294,12 +294,12 @@ Check each against the actual codebase and tell me what's accurate.
 ```markdown
 ## Research Verification
 
-| Claim | Source | Verified? | Notes |
-|-------|--------|-----------|-------|
-| nodemailer v6.9.0 | package.json | ✅ Yes | Actual: 6.9.7 |
-| Immediate send (no queue) | emailService.js | ✅ Yes | No job queue found |
-| PUT /users/:id/profile | routes/users.js | ✅ Yes | Line 45-62 |
-| Error handling exists | emailService.js | ❌ No | No try-catch found |
+| Claim                     | Source          | Verified? | Notes              |
+|---------------------------|-----------------|-----------|--------------------|
+| nodemailer v6.9.0         | package.json    | ✅ Yes     | Actual: 6.9.7      |
+| Immediate send (no queue) | emailService.js | ✅ Yes     | No job queue found |
+| PUT /users/:id/profile    | routes/users.js | ✅ Yes     | Line 45-62         |
+| Error handling exists     | emailService.js | ❌ No      | No try-catch found |
 
 **Verification Score:** 3/4 claims verified (75%)
 **Action Required:** Add error handling (not in codebase, must implement)
@@ -368,12 +368,12 @@ Before planning, confirm each gap has a path to resolution:
 ```markdown
 ## Knowledge Gap Resolution Matrix
 
-| Knowledge Gap | Resolution Source | Confidence | Status |
-|--------------|-------------------|------------|--------|
-| Profile completion definition | Product decision (define in plan) | High | Ready |
-| Email error handling | nodemailer docs + codebase pattern | High | Docs reviewed |
-| Queue vs immediate send | Architecture (use existing: immediate) | High | Decided |
-| Email template format | nodemailer docs (can defer) | Medium | Deferred |
+| Knowledge Gap                 | Resolution Source                      | Confidence | Status        |
+|-------------------------------|----------------------------------------|------------|---------------|
+| Profile completion definition | Product decision (define in plan)      | High       | Ready         |
+| Email error handling          | nodemailer docs + codebase pattern     | High       | Docs reviewed |
+| Queue vs immediate send       | Architecture (use existing: immediate) | High       | Decided       |
+| Email template format         | nodemailer docs (can defer)            | Medium     | Deferred      |
 
 **All critical gaps resolved:** ✅ Ready for planning
 ```

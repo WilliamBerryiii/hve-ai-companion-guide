@@ -53,13 +53,13 @@ graph LR
 
 Learn the right mode for each RPI phase:
 
-| Mode                | Best For                                  | RPI Phase       | Learn More                                                              |
-|---------------------|-------------------------------------------|-----------------|-------------------------------------------------------------------------|
-| **Ask Mode**        | Quick discovery, landscape reconnaissance | Research        | [Ask Mode Guide](part-ii/chapter5-discovery-research-modes/)            |
-| **Task Researcher** | Deep research, evidence gathering         | Research        | [Task Researcher Guide](part-ii/chapter6-planning-architecture-modes/)  |
-| **Task Planner**    | Implementation planning                   | Plan            | [Task Planner Guide](part-ii/chapter7-implementation-modes/)            |
-| **Edit Mode**       | Controlled refactoring                    | Implement       | [Edit Mode Guide](part-ii/chapter8-implementation-modes/)               |
-| **Agent Mode**      | Autonomous execution                      | Implement       | [Agent Mode Guide](part-ii/chapter9-agent-mode/)                        |
+| Mode                | Best For                                  | RPI Phase | Learn More                                                             |
+|---------------------|-------------------------------------------|-----------|------------------------------------------------------------------------|
+| **Ask Mode**        | Quick discovery, landscape reconnaissance | Research  | [Ask Mode Guide](part-ii/chapter5-discovery-research-modes/)           |
+| **Task Researcher** | Deep research, evidence gathering         | Research  | [Task Researcher Guide](part-ii/chapter6-planning-architecture-modes/) |
+| **Task Planner**    | Implementation planning                   | Plan      | [Task Planner Guide](part-ii/chapter7-implementation-modes/)           |
+| **Edit Mode**       | Controlled refactoring                    | Implement | [Edit Mode Guide](part-ii/chapter8-implementation-modes/)              |
+| **Agent Mode**      | Autonomous execution                      | Implement | [Agent Mode Guide](part-ii/chapter9-agent-mode/)                       |
 
 **[Chat Modes Deep Dive →](part-ii/)**
 

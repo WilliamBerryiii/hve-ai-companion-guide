@@ -49,11 +49,11 @@ Extract the claims:
 
 Extracted claims need different verification strategies based on their type:
 
-| Claim Type | Verification Strategy |
-| ---------- | --------------------- |
-| API/syntax facts | Check official documentation |
-| Behavior claims | Write a minimal test case |
-| Best practices | Find multiple authoritative sources |
+| Claim Type          | Verification Strategy                         |
+|---------------------|-----------------------------------------------|
+| API/syntax facts    | Check official documentation                  |
+| Behavior claims     | Write a minimal test case                     |
+| Best practices      | Find multiple authoritative sources           |
 | Context assumptions | Compare against your actual code/requirements |
 
 **Verification in practice:**
