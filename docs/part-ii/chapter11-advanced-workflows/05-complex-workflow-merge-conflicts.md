@@ -176,94 +176,94 @@ For each conflict:
 
 This controlled approach prevents the AI from making autonomous decisions about critical integration logic while still providing intelligent guidance.
 
-## Complete Example: OAuth and Two-Factor Authentication Merge
+## Complete Example: Inventory Tracking and Analytics Merge
 
-This realistic example demonstrates the workflow resolving a complex authentication feature conflict.
+This realistic example demonstrates the workflow resolving a complex e-commerce feature conflict.
 
 ### Scenario Setup
 
-**Feature branch:** `feature/oauth-login`
+**Feature branch:** `feature/inventory-tracking`
 
-* Added OAuth authentication for Google and GitHub
-* Modified login flow to support OAuth
-* Updated user model with OAuth fields
-* Added OAuth configuration
+* Added inventory management for warehouse and dropship fulfillment
+* Modified product creation flow to support inventory providers
+* Updated product model with inventory fields
+* Added inventory sync configuration
 
 **Main branch (evolved during feature development):**
 
-* Added two-factor authentication support
-* Modified login flow for 2FA verification
-* Updated user model with 2FA fields
-* Added security middleware
+* Added product analytics for view tracking and reporting
+* Modified product display to track views
+* Updated product model with analytics fields
+* Added analytics middleware
 
-**Conflict situation:** 15 files with conflicts, including critical authentication code in `models/User.js`, `routes/auth.js`, `middleware/auth.js`, and configuration files.
+**Conflict situation:** 15 files with conflicts, including critical product code in `models/Product.js`, `routes/products.js`, `middleware/analytics.js`, and configuration files.
 
 ### Research Phase Example
 
 ### Task Researcher prompt
 
 ```markdown
-Analyze merge conflict for OAuth authentication feature merging into 
-main branch with 2FA support.
+Analyze merge conflict for inventory tracking feature merging into 
+main branch with analytics support.
 
 Branches:
-- feature/oauth-login: Adds OAuth (Google, GitHub)
-- main: Added 2FA support
+- feature/inventory-tracking: Adds inventory management (warehouse, dropship)
+- main: Added product analytics
 
 Conflicted files:
-- models/User.js (user schema changes)
-- routes/auth.js (login flow modifications)
-- middleware/auth.js (authentication logic changes)
-- config/auth.config.js (configuration changes)
+- models/Product.js (product schema changes)
+- routes/products.js (product flow modifications)
+- middleware/analytics.js (tracking logic changes)
+- config/inventory.config.js (configuration changes)
 - [11 more files listed]
 
 Research:
-1. How OAuth and 2FA should integrate
-2. User model schema combining both features
-3. Login flow supporting both OAuth and 2FA
-4. Security considerations for combined implementation
-5. Testing strategy for integrated authentication
+1. How inventory tracking and analytics should integrate
+2. Product model schema combining both features
+3. Product flow supporting both inventory and analytics
+4. Data consistency considerations for combined implementation
+5. Testing strategy for integrated product management
 ```
 
 ### Research document excerpt
 
-The research reveals that OAuth and 2FA can coexist. Users can authenticate via OAuth or password, and both types can optionally enable 2FA for additional security.
+The research reveals that inventory tracking and analytics can coexist. Products can have any inventory provider (warehouse, dropship, or direct), and all products can have analytics tracking enabled independently.
 
-**Integration strategy:** Combined login flow checks authentication method first (OAuth vs password), then applies 2FA if enabled for that user. The user model contains fields for both features without conflict.
+**Integration strategy:** Combined product flow assigns inventory provider during creation, then tracks analytics events on product views and interactions. The product model contains fields for both features without conflict.
 
-**Resolution priority:** Start with `models/User.js` as foundation, then `middleware/auth.js` for core logic, then `routes/auth.js` for routing, then configuration, then remaining files.
+**Resolution priority:** Start with `models/Product.js` as foundation, then `middleware/analytics.js` for tracking logic, then `routes/products.js` for routing, then configuration, then remaining files.
 
-**Testing requirements:** Four authentication paths must work: OAuth without 2FA, OAuth with 2FA, password without 2FA, password with 2FA.
+**Testing requirements:** Six product paths must work: warehouse product with analytics, warehouse product without analytics, dropship product with analytics, dropship product without analytics, direct product with analytics, direct product without analytics.
 
 ### Planning Phase Example
 
 ### Task Planner prompt
 
 ```markdown
-Create resolution plan for OAuth+2FA merge conflict.
-Reference research: 20251117-oauth-2fa-merge-research.md.
+Create resolution plan for inventory+analytics merge conflict.
+Reference research: 20251117-inventory-analytics-merge-research.md.
 
 Create plan following research priority order:
-1. User model (combine both schemas)
-2. Auth middleware (support both methods)
-3. Auth routes (integrated flow)
+1. Product model (combine both schemas)
+2. Analytics middleware (support tracking)
+3. Product routes (integrated flow)
 4. Configuration (combined settings)
 5. Tests (comprehensive coverage)
 ```
 
 ### Plan document excerpt
 
-#### File 1: models/User.js
+#### File 1: models/Product.js
 
-Conflict involves both branches modifying user schema. Resolution: Keep OAuth fields (`oauthProvider`, `oauthId`) from feature branch and 2FA fields (`twoFactorSecret`, `twoFactorEnabled`) from main. Combine into single schema. Password field can be null for OAuth users. Both authentication types can use 2FA.
+Conflict involves both branches modifying product schema. Resolution: Keep inventory fields (`inventoryProvider`, `inventoryId`, `stockLevel`) from feature branch and analytics fields (`viewCount`, `analyticsEnabled`, `lastViewedAt`) from main. Combine into single schema. Inventory provider can be null for direct-fulfillment products. All product types can have analytics enabled.
 
-#### File 2: middleware/auth.js
+#### File 2: middleware/analytics.js
 
-Conflict involves authentication logic. Resolution: Create combined flow that verifies session, checks authentication method (OAuth or password), then checks if 2FA verification is required and completed. Preserve OAuth verification from feature branch and 2FA check from main.
+Conflict involves tracking logic. Resolution: Create combined flow that checks if analytics is enabled for the product, then records view events with inventory context. Preserve inventory status checks from feature branch and view tracking from main.
 
-#### File 3: routes/auth.js
+#### File 3: routes/products.js
 
-Conflict involves route additions. Resolution: Keep OAuth routes (`/auth/google`, `/auth/github`, `/auth/callback`) from feature branch and 2FA routes (`/auth/2fa/setup`, `/auth/2fa/verify`) from main. Modify `/auth/login` to handle both methods.
+Conflict involves route additions. Resolution: Keep inventory routes (`/products/:id/inventory`, `/products/:id/sync`, `/products/:id/stock`) from feature branch and analytics routes (`/products/:id/views`, `/products/:id/analytics`) from main. Modify `/products/:id` to return both inventory and analytics data.
 
 The plan continues with detailed strategies for all 15 conflicted files.
 
@@ -273,10 +273,10 @@ The plan continues with detailed strategies for all 15 conflicted files.
 
 ```markdown
 Resolve merge conflicts per plan.
-Plan: 20251117-oauth-2fa-merge-plan.md
-Research: 20251117-oauth-2fa-merge-research.md
+Plan: 20251117-inventory-analytics-merge-plan.md
+Research: 20251117-inventory-analytics-merge-research.md
 
-Start with models/User.js (first in priority order).
+Start with models/Product.js (first in priority order).
 
 Show me the conflict, propose resolution combining both schemas, 
 explain how fields interact.
@@ -284,46 +284,50 @@ explain how fields interact.
 
 ### Edit Mode interaction
 
-AI shows the conflict in `models/User.js`:
+AI shows the conflict in `models/Product.js`:
 
 ```javascript
-<<<<<<< HEAD (main - 2FA changes)
-const userSchema = new Schema({
-  username: String,
-  email: String,
-  password: String,
-  twoFactorSecret: String,
-  twoFactorEnabled: { type: Boolean, default: false }
+<<<<<<< HEAD (main - Analytics changes)
+const productSchema = new Schema({
+  name: String,
+  sku: String,
+  price: Number,
+  description: String,
+  viewCount: { type: Number, default: 0 },
+  analyticsEnabled: { type: Boolean, default: false }
 });
 =======
-const userSchema = new Schema({
-  username: String,
-  email: String,
-  password: String,
-  oauthProvider: { type: String, enum: ['google', 'github', null] },
-  oauthId: String
+const productSchema = new Schema({
+  name: String,
+  sku: String,
+  price: Number,
+  description: String,
+  inventoryProvider: { type: String, enum: ['warehouse', 'dropship', null] },
+  inventoryId: String
 });
->>>>>>> feature/oauth-login
+>>>>>>> feature/inventory-tracking
 ```
 
 ### AI proposes resolution
 
 ```javascript
-const userSchema = new Schema({
-  username: String,
-  email: String,
-  password: String,
-  // OAuth fields (from feature branch)
-  oauthProvider: { type: String, enum: ['google', 'github', null] },
-  oauthId: String,
-  // 2FA fields (from main)
-  twoFactorSecret: String,
-  twoFactorEnabled: { type: Boolean, default: false },
-  twoFactorVerified: { type: Boolean, default: false }
+const productSchema = new Schema({
+  name: String,
+  sku: String,
+  price: Number,
+  description: String,
+  // Inventory fields (from feature branch)
+  inventoryProvider: { type: String, enum: ['warehouse', 'dropship', null], default: null },
+  inventoryId: String,
+  stockLevel: { type: Number, default: 0 },
+  // Analytics fields (from main)
+  viewCount: { type: Number, default: 0 },
+  analyticsEnabled: { type: Boolean, default: false },
+  lastViewedAt: { type: Date, default: null }
 });
 ```
 
-**AI explains reasoning:** Password can be null for OAuth users. OAuth users can enable 2FA for extra security. The `twoFactorVerified` field tracks whether the current session passed 2FA challenge. All fields coexist without conflict.
+**AI explains reasoning:** Inventory provider can be null for direct-fulfillment products. All products can have analytics tracking enabled regardless of inventory source. The `stockLevel` field tracks current inventory for warehouse and dropship products. The `lastViewedAt` field records the most recent view event. All fields coexist without conflict.
 
 You review and approve. AI applies the resolution and moves to the next file.
 
@@ -341,14 +345,14 @@ Tests identify any integration issues. Edit Mode proposes fixes based on the new
 
 ### Manual testing checklist
 
-* OAuth login with Google provider
-* OAuth login with GitHub provider
-* Password-based login
-* 2FA setup for password user
-* 2FA setup for OAuth user
-* Login with 2FA (password authentication)
-* Login with 2FA (OAuth authentication)
-* Logout for both authentication types
+* Create warehouse product with analytics enabled
+* Create warehouse product without analytics
+* Create dropship product with analytics enabled
+* Create dropship product without analytics
+* Create direct-fulfillment product with analytics
+* Create direct-fulfillment product without analytics
+* Inventory sync for warehouse products
+* View tracking increments for analytics-enabled products
 
 ### Results
 
