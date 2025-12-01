@@ -15,11 +15,11 @@ keywords:
 
 ## Test-Driven Implementation Workflow
 
-You have your plan from Chapter 7. You know your implementation modes. Now it's time to write code.
+You have your plan from Chapter 7. You know your implementation tools. Now it's time to write code.
 
 But there's a critical step that transforms implementation from guesswork into verification: **writing tests first**.
 
-This section teaches test-driven implementation using AI modes. You'll learn to translate plan verification criteria into executable tests, implement to pass those tests, and build confidence through incremental proof.
+This section teaches test-driven implementation using AI tools. You'll learn to translate plan verification criteria into executable tests, implement to pass those tests, and build confidence through incremental proof.
 
 ## Why Test-First?
 
@@ -66,9 +66,9 @@ This isn't traditional Test-Driven Development (TDD). It's a practical, AI-assis
 Here's the lightweight cycle for AI-assisted test-driven implementation:
 
 1. **Read plan step** and verification criteria
-2. **Write test** based on criteria (using Edit or Insert modes)
+2. **Write test** based on criteria (using Inline Chat or /new command)
 3. **Run test** (should fail, indicating red phase)
-4. **Implement code** to pass test (using Edit, Insert, or Inline modes)
+4. **Implement code** to pass test (using Inline Chat, /new command, or Inline Suggestions)
 5. **Run test again** (should pass, indicating green phase)
 6. **Refactor if needed** (tests still pass)
 7. **Move to next step**
@@ -156,9 +156,9 @@ Step 2.3: Update login endpoint to verify 2FA token
 
 Three verification criteria means three test cases minimum.
 
-### Step 2: Write Tests (Using Insert Mode)
+### Step 2: Write Tests (Using /new Command)
 
-Prompt for Insert Mode:
+Prompt for /new command:
 
 ```text
 Create src/auth/__tests__/2fa-login.test.ts
@@ -305,9 +305,9 @@ Perfect! Tests fail because 2FA verification isn't implemented yet. The fourth t
 
 This proves tests are valid and ready to guide implementation.
 
-### Step 4: Implement (Using Edit Mode)
+### Step 4: Implement (Using Inline Chat)
 
-Edit Mode prompt:
+Inline Chat (`Ctrl+I`) prompt:
 
 ```text
 In the login handler (src/auth/authRoutes.ts, lines 78-95), add 2FA verification:
@@ -413,29 +413,29 @@ git commit -m "feat: add 2FA verification to login endpoint
 
 Step complete. Move to next plan step and repeat cycle.
 
-## Using AI Modes for Test Creation
+## Using AI Tools for Test Creation
 
-Tests are code. Use the same AI modes for test creation:
+Tests are code. Use the same AI tools for test creation:
 
-### Insert Mode for test files
+### /new Command for test files
 
 * New test suites from scratch
 * Following patterns from existing tests
 * Complete test file generation
 
-### Edit Mode for adding tests
+### Inline Chat for adding tests
 
 * Adding test cases to existing suite
 * Updating setup or teardown logic
 * Modifying existing assertions
 
-### Inline Copilot for test patterns
+### Inline Suggestions for test patterns
 
 * Once pattern established, Copilot suggests similar tests
 * Arrange-Act-Assert structure repeats naturally
 * Assertion variations follow first example
 
-### Example: Inline Copilot for Repetitive Tests
+### Example: Inline Suggestions for Repetitive Tests
 
 ```typescript
 // Write first test manually to establish pattern:
@@ -504,7 +504,7 @@ The test clarifies what "valid" means. Implementation approach will become clear
 
 ### Challenge 2: "Test Setup Is Complex"
 
-**Solution:** Use Insert Mode to create test helpers.
+**Solution:** Use the /new command to create test helpers.
 
 ```text
 Prompt: Create src/test/helpers/authHelpers.ts with:
@@ -519,29 +519,23 @@ Complex setup once, reuse everywhere. Tests become simpler.
 
 ### Challenge 3: "Tests Take Too Long to Write"
 
-**Solution:** Use AI modes to accelerate test creation.
+**Solution:** Use AI tools to accelerate test creation.
 
-* **Insert Mode** for test scaffolding (2-3 min per test)
-* **Inline Copilot** for repetitive assertions (pattern-based)
+* **/new command** for test scaffolding
+* **Inline Suggestions** for repetitive assertions (pattern-based)
 * **Test templates** for common scenarios
-
-Time comparison (individual results vary):
-
-* Manual test writing: 5-10 min per test
-* With Insert Mode: 2-3 min per test (review generated code)
-* With Inline Copilot: 3-5 min per test (pattern-based suggestions)
 
 AI-assisted test writing often enables more tests with better coverage.
 
-> **IMPORTANT**: Test-first workflow with AI modes can help maintain quality while keeping development efficient. The upfront investment in tests pays off in reduced debugging time.
+> **IMPORTANT**: Test-first workflow with AI tools can help maintain quality while keeping development efficient. The upfront investment in tests pays off in reduced debugging time.
 
 ---
 
-## Exercise 6.1: Implement Password Validation (20-25 min)
+## Exercise 6.1: Implement Password Validation
 
 ### Exercise Overview
 
-Apply test-first workflow to implement password strength validation using Edit and Inline modes.
+Apply test-first workflow to implement password strength validation using Inline Chat and Inline Suggestions.
 
 **Scenario:** Your application needs password validation before user registration. Requirements include minimum length, character diversity, and common password blocking.
 
@@ -598,17 +592,17 @@ export function validateEmail(email: string): string[] {
 
 ### Your Tasks
 
-1. **Write tests first** (10-12 min)
+1. **Write tests first**
    * Create `src/validators/__tests__/password-validation.test.ts`
-   * Use Insert Mode to generate test file
+   * Use the /new command to generate test file
    * Test cases: weak password, strong password, common password, missing requirements
 
 2. **Run tests** (red phase) - Verify they fail
 
-3. **Implement validation** (8-10 min)
-   * Use Edit Mode to add `validatePassword` function
+3. **Implement validation**
+   * Use Inline Chat to add `validatePassword` function
    * Follow existing validator pattern
-   * Use Inline Copilot for regex patterns and checks
+   * Use Inline Suggestions for regex patterns and checks
 
 4. **Run tests** (green phase) - Verify they pass
 
@@ -619,21 +613,24 @@ export function validateEmail(email: string): string[] {
 ✅ Function follows existing validator pattern  
 ✅ Error messages specific and helpful  
 ✅ Common passwords blocked  
-✅ Used appropriate modes for each task
+✅ Used appropriate tools for each task
 
 ### Hints
 
-* Use Insert Mode prompt: "Create test file following validator.test.ts pattern"
+* Use /new command prompt: "Create test file following validator.test.ts pattern"
 * Common passwords list: `['password', '12345678', 'qwerty', 'admin', 'letmein']`
 * Regex for checks: `/[A-Z]/`, `/[a-z]/`, `/[0-9]/`, `/[^A-Za-z0-9]/`
 * Pattern from existing validators: return string array, specific messages
 
 ---
 
-**Previous:** [Choosing the Right Mode](./05-choosing-right-mode-decision-framework.md)  
+**Previous:** [Choosing the Right Tool](./05-choosing-right-mode-decision-framework.md)  
 **Next:** [Complete Implementation Example](./07-complete-implementation-example.md)  
-**Up:** [Chapter 8: Implementation Modes](./README.md)
+**Up:** [Chapter 8: Implementation Tools](./README.md)
 
 ---
 
-*This guide was created using GitHub Copilot and human expertise. Last updated: November 2025.*
+<!-- markdownlint-disable MD036 -->
+*🤖 Crafted with precision by ✨Copilot following brilliant human instruction,
+then carefully refined by our team of discerning human reviewers.*
+<!-- markdownlint-enable MD036 -->

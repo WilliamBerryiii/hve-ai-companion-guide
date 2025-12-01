@@ -1,50 +1,77 @@
 ---
-title: "Edit Mode: Controlled File Modification"
-description: Master Edit Mode for precise, reviewable code modifications with diff-based review and iterative refinement
+title: "Inline Chat and Edit Agent: Controlled Code Modification"
+description: Master Inline Chat and Edit Agent for precise, reviewable code modifications with diff-based review and iterative refinement
 author: HVE Core Team
-ms.date: 2025-11-26
+ms.date: 2025-11-29
 chapter: 8
 part: "II"
 keywords:
-  - edit-mode
+  - inline-chat
+  - edit-agent
   - file-modification
   - diff-review
   - code-changes
   - precision-editing
 ---
 
-## Edit Mode: Controlled File Modification
+## Inline Chat and Edit Agent: Controlled Code Modification
 
-Edit Mode transforms how you modify existing code. Instead of typing changes yourself, you describe what needs to change and review the proposed modifications before they're applied. This section teaches you to use Edit Mode for precise, reviewable code modifications that follow your implementation plans.
+VS Code Copilot provides two primary tools for modifying existing code: **Inline Chat** and the **Edit Agent**. Both transform how you modify existing code—instead of typing changes yourself, you describe what needs to change and review the proposed modifications before they're applied. This section teaches you to use these tools for precise, reviewable code modifications that follow your implementation plans.
 
-## What Edit Mode Actually Does
+## Two Tools for Controlled Modification
 
-Edit Mode is GitHub Copilot's **precision file modification tool**. It shows you exactly what will change before applying modifications. This transparency gives you control and confidence that changes match your intentions.
+VS Code Copilot provides two complementary approaches for modifying existing code:
 
-**Edit Mode characteristics:**
+### Inline Chat (Ctrl+I)
 
-* **File-targeted**: You specify which file to modify, keeping changes focused
+Inline Chat allows you to make targeted changes to selected code directly in the editor:
+
+1. Select the code you want to modify
+2. Press `Ctrl+I` (Windows/Linux) or `Cmd+I` (Mac)
+3. Describe the change you want
+4. Review the diff and accept or reject
+
+**Inline Chat characteristics:**
+
+* **File-targeted**: Changes focused on selected code or current file
 * **Context-aware**: Uses existing code patterns as templates for consistency
-* **Diff-based review**: Shows before/after for every change, no surprises
-* **Iterative refinement**: You can refine suggestions before accepting to get it right
-* **Undo-friendly**: Changes are easy to revert if results aren't right
+* **Diff-based review**: Shows before/after for every change
+* **Iterative refinement**: Refine suggestions before accepting
+* **Undo-friendly**: Changes are easy to revert
 
-**Typical Edit Mode session:**
+### Edit Agent
 
-1. Open file to modify (or specify path in prompt)
-2. Describe desired changes with context from plan
-3. Review proposed changes in diff view
-4. Accept, refine, or reject
-5. Verify change with tests
-6. Move to next step
+The Edit Agent in the Chat panel handles larger or multi-file modifications:
 
-This workflow ensures every change is intentional and verified. No accidental modifications slip through.
+1. Open Chat panel (`Ctrl+Alt+I`)
+2. Select **Edit** from the agent/mode dropdown
+3. Describe your changes with file context
+4. Review diffs for each affected file
 
-## Invoking Edit Mode
+**Edit Agent characteristics:**
 
-Three methods let you start Edit Mode. Choose based on your current workflow and the type of change you're making.
+* **Multi-file capable**: Can modify multiple files in a single operation
+* **Broad scope**: Handles refactoring across the codebase
+* **Coordinated changes**: Ensures consistency across related modifications
+* **Full context**: Sees the broader project structure
 
-### Method 1: Inline Edit Command (Recommended)
+> [!TIP]
+> Use Inline Chat (`Ctrl+I`) for quick, focused changes within a single location. Use Edit Agent for changes that span multiple functions or files.
+
+**When to use each:**
+
+| Scenario                        | Tool        | Why                     |
+|---------------------------------|-------------|-------------------------|
+| Modify single function          | Inline Chat | Focused, fast           |
+| Add validation to existing code | Inline Chat | Targeted change         |
+| Refactor across files           | Edit Agent  | Multi-file coordination |
+| Rename with all usages          | Edit Agent  | Broad scope needed      |
+| Quick fix in current file       | Inline Chat | Immediate, contextual   |
+| Large-scale pattern changes     | Edit Agent  | Consistency required    |
+
+## How to Invoke Inline Chat and Edit Agent
+
+### Method 1: Inline Chat (Recommended for Focused Changes)
 
 1. Open file in editor
 2. Select code section to modify (optional but helpful)
@@ -52,35 +79,35 @@ Three methods let you start Edit Mode. Choose based on your current workflow and
 4. Describe changes in prompt
 5. Review diff, accept or refine
 
-**When to use:** You're already viewing the file and know what needs changing. This is the fastest method for most modifications.
+**When to use:** You're already viewing the file and know what needs changing. This is the fastest method for most single-location modifications.
 
-### Method 2: Edit via Chat Sidebar
+### Method 2: Edit Agent via Chat Panel
 
 1. Open Copilot Chat sidebar (`Ctrl+Alt+I` or `Cmd+Alt+I`)
 2. Click the **agent picker dropdown** and select **Edit**
 3. Reference the file: `#file:src/auth/authRoutes.ts`
 4. Describe changes
-5. Review diff, accept or refine
+5. Review diffs for each affected file, accept or refine
 
-**When to use:** Working from an implementation plan when you haven't opened the target file yet. Good for batch modifications across multiple files.
+**When to use:** Working from an implementation plan when you haven't opened the target file yet, or when making coordinated changes across multiple files.
 
 ### Method 3: Context Menu
 
 1. Right-click in file
-2. Select "Copilot > Edit Selection" (or "Copilot > Edit File")
+2. Select "Copilot > Start Inline Chat" (or similar)
 3. Describe changes
 4. Review diff, accept or refine
 
-**When to use:** You prefer mouse-driven workflows or are discovering Edit Mode's capabilities.
+**When to use:** You prefer mouse-driven workflows or are discovering these capabilities.
 
 > [!TIP]
-> Selecting code before `Ctrl+I` focuses Edit Mode on that section, reducing unnecessary changes to other parts of the file.
+> Selecting code before `Ctrl+I` focuses Inline Chat on that section, reducing unnecessary changes to other parts of the file.
 
-## Writing Effective Edit Mode Prompts
+## Writing Effective Modification Prompts
 
 Prompt quality determines result quality. Strong prompts specify exactly what to change and how, leveraging implementation plan details for precision.
 
-**Prompt structure for Edit Mode:**
+**Prompt structure for precise modifications:**
 
 1. **What to modify**: Specific function, class, or section with line numbers if available
 2. **How to modify**: Clear instruction (add, update, refactor, remove)
@@ -89,7 +116,7 @@ Prompt quality determines result quality. Strong prompts specify exactly what to
 
 ### Example: Weak vs Strong Prompts
 
-**Weak Edit prompt:**
+**Weak prompt:**
 
 ```text
 Add 2FA verification
@@ -97,7 +124,7 @@ Add 2FA verification
 
 **Problems:** Where should it go? How should it work? What approach?
 
-**Strong Edit prompt:**
+**Strong prompt:**
 
 ```text
 In the login function (lines 78-95), add 2FA verification after password check:
@@ -122,7 +149,7 @@ Step 1.3: Add email validation to userValidator.ts
 - Verification: Test with valid/invalid email formats
 ```
 
-**Edit Mode Prompt:**
+**Inline Chat Prompt:**
 
 ```text
 After the username validation (line 25), add email validation:
@@ -158,7 +185,7 @@ Keep the existing validation chain pattern.
 
 The diff shows exactly what changes. Green lines are added. Existing code remains intact. Review confirms the change matches plan specifications.
 
-## Reviewing Edit Mode Changes
+## Reviewing Proposed Changes
 
 The diff view is your quality gate. Every change passes through review before affecting your code. Learn to review efficiently and catch issues early.
 
@@ -199,7 +226,7 @@ graph TD
 
 This decision tree guides your review. Most changes follow the happy path to acceptance. When issues appear, refinement is quick and targeted.
 
-## Refining Edit Mode Suggestions
+## Refining Suggestions
 
 Initial suggestions won't always be perfect. Refinement lets you correct course without starting over. Follow-up prompts adjust the proposal until it's right.
 
@@ -237,11 +264,11 @@ that you changed - revert that part.
 
 Refinement is iterative. Each prompt gets you closer to the desired result. Don't hesitate to refine multiple times until the change is correct.
 
-## Edit Mode Best Practices
+## Best Practices for Code Modification
 
 **DO:**
 
-* ✅ Open file before invoking Edit Mode (provides context)
+* ✅ Open file before invoking Inline Chat (provides context)
 * ✅ Select specific section for focused changes
 * ✅ Reference line numbers from implementation plan
 * ✅ Mention existing patterns to follow
@@ -252,21 +279,21 @@ Refinement is iterative. Each prompt gets you closer to the desired result. Don'
 
 * ❌ Accept changes blindly without reviewing diff
 * ❌ Make multiple unrelated changes in one prompt
-* ❌ Use Edit Mode for creating new files (use Insert Mode)
+* ❌ Use Inline Chat for creating entirely new files (use `/new` command or Agent mode)
 * ❌ Continue if changes seem off (refine or reject)
 * ❌ Skip testing after accepting changes
 
-These practices ensure Edit Mode enhances your workflow rather than introducing risks. The review step is never optional.
+These practices ensure these modification tools enhance your workflow rather than introducing risks. The review step is never optional.
 
-## Common Edit Mode Scenarios
+## Common Modification Scenarios
 
-These real-world scenarios show Edit Mode in action. Each demonstrates prompt structure and expected results.
+These real-world scenarios show Inline Chat and Edit Agent in action. Each demonstrates prompt structure and expected results.
 
 ### Scenario 1: Adding Function to Existing File
 
 **Plan Step:** Add generateQRCode function to authService.ts
 
-**Edit Prompt:**
+**Inline Chat Prompt:**
 
 ```text
 Add new function generateQRCode after generateSecret function (line 42):
@@ -286,7 +313,7 @@ Follow async/await pattern like other functions in this file.
 
 **Plan Step:** Update login function to check 2FA
 
-**Edit Prompt:**
+**Inline Chat Prompt:**
 
 ```text
 In the login function (lines 78-95), add 2FA check after password verification:
@@ -306,26 +333,26 @@ Keep all existing error handling and logging.
 
 **Plan Step:** Refactor error handling to use custom error classes
 
-**Edit Prompt:**
+**Edit Agent Prompt:**
 
 ```text
-Refactor all throw new Error() calls in this file to use custom error classes:
+Refactor all throw new Error() calls in #file:src/auth/ to use custom error classes:
 
 - Authentication failures → throw new AuthenticationError(message)
 - Validation failures → throw new ValidationError(message)  
 - Not found errors → throw new NotFoundError(message)
 
 Keep all error messages exactly the same.
-Import error classes from 'src/errors' (add import at top).
+Import error classes from 'src/errors' (add import at top of each file).
 ```
 
-**Result:** All error instantiations updated. Import statement added. Messages unchanged. Type safety improved.
+**Result:** All error instantiations updated across multiple files. Import statements added. Messages unchanged. Type safety improved.
 
 ### Scenario 4: Removing Deprecated Code
 
 **Plan Step:** Remove old authentication method
 
-**Edit Prompt:**
+**Inline Chat Prompt:**
 
 ```text
 Remove the legacyLogin function (lines 105-130) and its route handler.
@@ -339,17 +366,15 @@ Keep all other authentication methods unchanged.
 
 **Result:** Legacy code cleanly removed. Unused imports eliminated. Modern authentication methods untouched.
 
-These scenarios demonstrate Edit Mode's versatility. From additions to deletions, from small tweaks to significant refactoring, Edit Mode handles it all with reviewable precision.
+These scenarios demonstrate the versatility of Copilot's modification tools. From additions to deletions, from small tweaks to significant refactoring, Inline Chat and Edit Agent handle it all with reviewable precision.
 
 > [!IMPORTANT]
-> Always test after accepting Edit Mode changes. Even perfect-looking diffs can have subtle integration issues. Testing catches them immediately.
+> Always test after accepting changes. Even perfect-looking diffs can have subtle integration issues. Testing catches them immediately.
 
 ---
 
 **Previous:** [Section 1: Introduction - From Plan to Code](./01-introduction-plan-to-code.md)  
-**Next:** [Section 3: Insert Mode - Creating New Files and Scaffolding](./03-insert-mode-new-files-scaffolding.md)
-
-<!-- markdownlint-disable MD036 -->
+**Next:** [Section 3: File Generation with /new Command and Agent Mode](./03-file-generation-new-command.md)
 *🤖 Crafted with precision by ✨Copilot following brilliant human instruction,
 then carefully refined by our team of discerning human reviewers.*
 <!-- markdownlint-enable MD036 -->

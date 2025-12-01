@@ -1,15 +1,16 @@
 ---
 title: "Introduction: From Plan to Code"
-description: Understand the transition from implementation plans to working code using three AI-assisted implementation modes
+description: Understand the transition from implementation plans to working code using VS Code Copilot's implementation tools
 author: HVE Core Team
-ms.date: 2025-11-26
+ms.date: 2025-11-29
 chapter: 8
 part: "II"
 keywords:
-  - implementation-modes
-  - edit-mode
-  - insert-mode
-  - inline-copilot
+  - implementation-tools
+  - inline-chat
+  - edit-agent
+  - new-command
+  - inline-suggestions
   - code-generation
 ---
 
@@ -40,21 +41,23 @@ Step 3: Add validation logic
 
 You wrote this code yourself. **This chapter teaches you to delegate implementation to AI** while maintaining control and quality. The difference is profound: you become the architect and reviewer rather than the typist.
 
-## Three Implementation Modes
+## Implementation Tools in VS Code Copilot
 
-GitHub Copilot in VS Code and JetBrains IDEs provides three modes for code generation, each optimized for different tasks. Understanding when to use each mode can significantly improve your efficiency and code quality.
+GitHub Copilot provides several tools for code generation, each optimized for different tasks. Understanding when to use each tool helps you choose the right approach for each task.
 
-| Mode               | Best For                 | Control Level           | Review Style         |
-|--------------------|--------------------------|-------------------------|----------------------|
-| **Edit Mode**      | Modifying existing files | High (explicit changes) | Before-after diff    |
-| **Insert Mode**    | Creating new files       | Medium (template-based) | Full file review     |
-| **Inline Copilot** | Line-level suggestions   | Low (autocomplete-like) | Accept/reject inline |
+| Tool                       | Best For                 | Control Level           | Review Style         |
+|----------------------------|--------------------------|-------------------------|----------------------|
+| **Inline Chat** (`Ctrl+I`) | Modifying existing code  | High (explicit changes) | Before-after diff    |
+| **Edit Agent**             | Multi-file modifications | High (scoped changes)   | Diff review per file |
+| **`/new` Command**         | Creating single files    | Medium (template-based) | Full file review     |
+| **Agent Mode**             | Multi-file generation    | Medium (task-scoped)    | Review all files     |
+| **Inline Suggestions**     | Line-level completions   | Low (autocomplete-like) | Accept/reject inline |
 
 ### Example: Implementing "Add 2FA Setup Endpoint"
 
-Let's see how the same task looks across all three modes. This example uses a real implementation from Chapter 7's planning exercise.
+Let's see how the same task looks across different tools. This example uses a real implementation from Chapter 7's planning exercise.
 
-**Using Edit Mode:**
+**Using Inline Chat (Ctrl+I):**
 
 ```text
 Prompt: "Add POST /api/auth/2fa/setup endpoint to src/auth/authRoutes.ts
@@ -65,12 +68,12 @@ Result: Copilot shows exact changes to authRoutes.ts with before/after diff
 You review, approve or refine, changes applied
 ```
 
-Edit Mode can accelerate well-defined tasks compared to manual coding, as you guide changes rather than type them. Results vary based on task complexity and your familiarity with the codebase.
+Inline Chat can accelerate well-defined tasks compared to manual coding, as you guide changes rather than type them. Results vary based on task complexity and your familiarity with the codebase.
 
-**Using Insert Mode:**
+**Using /new Command:**
 
 ```text
-Prompt: "Create new file src/services/twoFactorService.ts with functions:
+Prompt: "/new Create src/services/twoFactorService.ts with functions:
 - generateSecret(): returns speakeasy secret
 - generateQRCode(secret): returns data URL
 - verifyToken(secret, token): validates TOTP
@@ -81,7 +84,7 @@ Result: Copilot generates complete new file
 You review entire file, approve or refine, file created
 ```
 
-**Using Inline Copilot:**
+**Using Inline Suggestions:**
 
 ```typescript
 You type: "const secret = speakeasy."
@@ -89,51 +92,52 @@ Copilot suggests: "generateSecret({ length: 32, name: 'AppName' })"
 You press Tab to accept, continue typing
 ```
 
-Each mode serves a distinct purpose. Edit Mode gives you surgical precision. Insert Mode scaffolds entire structures. Inline Copilot accelerates the typing you'd do anyway.
+Each tool serves a distinct purpose. Inline Chat (`Ctrl+I`) and Edit Agent give you surgical precision for modifications. The `/new` command and Agent mode scaffold entire structures. Inline Suggestions accelerate the typing you'd do anyway.
 
-## Why Multiple Modes Matter
+## Why Multiple Tools Matter
 
-Each mode optimizes for different tradeoffs. Choosing the right mode for each task makes the difference between smooth workflow and constant friction.
+Each tool optimizes for different tradeoffs. Choosing the right tool for each task makes the difference between smooth workflow and constant friction.
 
-**Edit Mode strengths:**
+**Inline Chat and Edit Agent strengths:**
 
 * ✅ Precise control over changes
 * ✅ Clear before/after diff for review
 * ✅ Existing code context guides suggestions
 * ✅ Easy to verify against plan specifications
 
-**Edit Mode limitations:**
+**Inline Chat and Edit Agent limitations:**
 
 * ⚠️ Requires file already exists
 * ⚠️ Slower for creating new structures
 * ⚠️ More overhead for simple completions
 
-**Insert Mode strengths:**
+**File generation (/new and Agent mode) strengths:**
 
-* ✅ Fast scaffolding of new files
-* ✅ Template-based generation
+* ✅ Fast scaffolding of new files with `/new` command
+* ✅ Agent mode can create multiple related files
+* ✅ Template-based generation follows project conventions
 * ✅ Good for standard patterns
 
-**Insert Mode limitations:**
+**File generation limitations:**
 
-* ⚠️ Less precise than Edit Mode
+* ⚠️ Less precise than targeted edits
 * ⚠️ Requires more review (whole file)
-* ⚠️ May miss project conventions
+* ⚠️ May miss project conventions without context
 
-**Inline Copilot strengths:**
+**Inline Suggestions strengths:**
 
 * ✅ Fastest for simple completions
 * ✅ Seamless workflow integration
 * ✅ Minimal cognitive overhead
 
-**Inline Copilot limitations:**
+**Inline Suggestions limitations:**
 
 * ⚠️ Limited context awareness
 * ⚠️ Line-by-line focus (no structural changes)
 * ⚠️ Easy to accept without reviewing
 
 > [!TIP]
-> Start with Edit Mode for important changes. You can always switch to Inline Copilot for the routine parts once the structure is correct.
+> Start with Inline Chat for important changes. You can always switch to Inline Suggestions for the routine parts once the structure is correct.
 
 ## Implementation Strategy: Test-First Workflow
 
@@ -186,10 +190,10 @@ describe('POST /api/auth/2fa/setup', () => {
 
 **Run Test:** ❌ Fails (endpoint doesn't exist yet)
 
-**Implement using Edit Mode:**
+**Implement using Inline Chat:**
 
 ```text
-Prompt to Edit Mode: "Add POST /api/auth/2fa/setup endpoint to 
+Prompt to Inline Chat: "Add POST /api/auth/2fa/setup endpoint to 
 src/auth/authRoutes.ts. Generate secret using speakeasy, create QR code,
 store secret in user.twoFactorSecret, return { qrCode, secret }."
 ```
@@ -204,19 +208,19 @@ This cycle ensures every implementation step is verified. No guessing whether it
 
 By the end of this chapter, you'll master:
 
-1. **Edit Mode**: Precise modifications to existing files with diff review
-2. **Insert Mode**: Creating new files with template-based generation
-3. **Inline Copilot**: Accelerating line-level coding with suggestions
+1. **Inline Chat and Edit Agent**: Precise modifications to existing files with diff review
+2. **File Generation**: Creating new files with `/new` command and Agent mode
+3. **Inline Suggestions**: Accelerating line-level coding with completions
 4. **Test-First Workflow**: Writing tests before implementation
-5. **Mode Selection**: Choosing the optimal mode for each task
+5. **Tool Selection**: Choosing the optimal tool for each task
 6. **Verification Strategy**: Confirming each step meets plan criteria
 
-Each section builds your implementation toolkit. Section 2 starts with Edit Mode, the most controlled and reviewable approach. From there you'll expand to Insert Mode and Inline Copilot, then learn when to use each mode effectively.
+Each section builds your implementation toolkit. Section 2 starts with Inline Chat, the most controlled and reviewable approach. From there you'll expand to file generation and Inline Suggestions, then learn when to use each tool effectively.
 
 ---
 
 **Previous:** [README](./README.md)  
-**Next:** [Section 2: Edit Mode - Controlled File Modification](./02-edit-mode-controlled-modification.md)
+**Next:** [Section 2: Inline Chat and Edit Agent - Controlled Code Modification](./02-edit-mode-controlled-modification.md)
 
 <!-- markdownlint-disable MD036 -->
 *🤖 Crafted with precision by ✨Copilot following brilliant human instruction,
